@@ -1,68 +1,225 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.home-grid-container {
+  display: grid;
+  grid-template-areas:
+    "homeMain homeMain"
+    "divider divider"
+    "homeAsideInfo homeMainInfo"
+    "location location"
+    "pricing pricing";
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 0.8fr auto auto auto;
+  height: fit-content;
+  background-color: rgb(239, 239, 239);
+}
+header {
+  background-color: #4c65af;
+  height: 60px;
+  text-align: center;
+  width: calc(100% - 10px);
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.homeMain {
+  grid-area: homeMain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+  background-color: rgb(150, 173, 255);
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.divider {
+  grid-area: divider;
+  background: repeating-linear-gradient(
+    20deg,
+    #cfd7ff,
+    #cfd7ff 8px,
+    #4c65af 8px,
+    #4c65af 16px
+  );
+  height: 30px;
+  width: 100%;
+}
+.homeAsideInfo {
+  grid-area: homeAsideInfo;
+  background-color: white;
+  width: calc(100% - 20px);
+  padding: 10px;
+  height: auto;
+  opacity: 0;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  left: -200%;
+  z-index: 4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.homeMainInfo {
+  grid-area: homeMainInfo;
+  padding: 10px;
+  height: auto;
+  font-family: "Antic", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  position: relative;
+  background-color: rgb(239, 239, 239);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.homeMainInfo h1 {
+  font-size: 3rem;
+  color: rgb(48, 48, 48);
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+.homeMainInfo p {
+  font-size: 1.5rem;
+  color: rgb(48, 48, 48);
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+.homeMainInfo a{
+  font-size: 1.5rem;
+  color: #4c65af;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  top: 20px;
+  text-decoration: none;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+.homeMainInfo a:hover{
+  text-decoration: underline;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.homeMainInfo hr:nth-of-type(1),
+.homeMainInfo hr:nth-of-type(3) {
+  width: 80%;
+  border: none;
+  border-top: 8px dotted #4c65af;
+  position: relative;
+  z-index: 2;
+  margin: 60px 0;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+.homeMainInfo hr:nth-of-type(2) {
+  height: 6px;
+  width: 20%;
+  border: none;
+  background-color: #4c65af;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.location {
+  grid-area: location;
+  height: fit-content;
+  min-height: 350px;
+  position: relative;
+  padding: 25px;
+}
+.location .img {
+  background-image: url("https://media.istockphoto.com/id/535340111/photo/raleigh-pinned-on-a-map-of-usa.jpg?s=612x612&w=0&k=20&c=o_QzgT84WEIZus2REHgbUCjqidpKt0qlJ3Zy7HGtLis=");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  filter: brightness(60%);
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.location h1 {
+  font-size: 3rem;
+  color: rgb(240, 240, 240);
+  position: relative;
+  z-index: 2;
+  font-family: "Antic", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.location .text {
+  font-size: 1.5rem;
+  color: rgb(240, 240, 240);
+  position: relative;
+  z-index: 2;
+  font-family: "Antic", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.time {
+  font-family: "Antic", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  z-index: 2;
+  font-size: 1.4rem;
+  font-weight: bolder;
+  margin: 0;
+}
+.pricing {
+  grid-area: pricing;
+  width: calc(100% - 20px);
+  height: 500px;
+  background-color: rgb(150, 173, 255);
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+}
+footer {
+  background-color: #3a44d3;
+  padding: 10px;
+  height: 60px;
+  width: calc(100% - 20px);
+  text-align: center;
+  color: #7e87ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Antic", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+footer a {
+  text-decoration: none;
+  cursor: pointer;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .home-grid-container {
+    grid-template-areas:
+      "homeMain"
+      "divider"
+      "homeAsideInfo"
+      "homeMainInfo"
+      "location"
+      "pricing";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto auto auto auto;
   }
 }

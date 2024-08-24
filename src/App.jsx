@@ -1,35 +1,87 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useRef, useState } from "react";
+import "./App.css";
+
+// Pages
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/PricingPage";
+import ContactPage from "./pages/ContactPage";
+import PricingPage from "./pages/PricingPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentPage, setCurrentPage] = useState("Home");
+  const textAniActive = useRef(false);
+  const homeAsideInfoAniActive = useRef(false);
+  const cardsAniActive = useRef(false);
+  const asideStyleInfo = useRef(["-200%", "0"]);
+  const cardStyleInfo = useRef(["20%", "0"]);
+
+  // Find the current Page
+  const renderCurrentPage = () => {
+    switch (currentPage) {
+      case "Home":
+        return (
+          <HomePage
+            textAniActive={textAniActive}
+            homeAsideInfoAniActive={homeAsideInfoAniActive}
+            cardsAniActive={cardsAniActive}
+            setCurrentPage={setCurrentPage}
+            asideStyleInfo={asideStyleInfo}
+            cardStyleInfo={cardStyleInfo}
+          />
+        );
+      case "About":
+        return <AboutPage />;
+      case "Pricing":
+        return <PricingPage />;
+      case "Contact":
+        return <ContactPage />;
+      default:
+        return <HomePage />;
+    }
+  };
+
+  // Go back to the home page and reload the page
+  function goHome() {
+    setCurrentPage("Home");
+    window.location.reload();
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <header>
+        <button className="logo" onClick={goHome}>
+          <img src="/favicon.png" alt="Logo" />
+          <h1>| Leffler WebDev</h1>
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <nav>
+          <a className="navLink" onClick={() => setCurrentPage("Home")}>
+            Home
+          </a>
+          <a className="navLink" onClick={() => setCurrentPage("About")}>
+            About
+          </a>
+          <a className="navLink" onClick={() => setCurrentPage("Pricing")}>
+            Pricing
+          </a>
+          <a className="navLink" onClick={() => setCurrentPage("Contact")}>
+            Contact
+          </a>
+          <div className="phoneNumber">
+            <i className="fa-solid fa-phone"></i>
+            <a href="tel:+12528763653">
+              <p>(252)-876-3653</p>
+            </a>
+          </div>
+        </nav>
+      </header>
+      {renderCurrentPage()}
+      <footer>
+        <h2>Leffler WebDev &copy; 2024</h2>
+        <a onClick={() => setCurrentPage("Contact")}>Contact Us</a>
+      </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
