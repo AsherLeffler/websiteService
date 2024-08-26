@@ -4,9 +4,8 @@ import "./App.css";
 // Pages
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import ServicesPage from "./pages/PricingPage";
-import ContactPage from "./pages/ContactPage";
 import PricingPage from "./pages/PricingPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -14,7 +13,8 @@ function App() {
   const homeAsideInfoAniActive = useRef(false);
   const cardsAniActive = useRef(false);
   const asideStyleInfo = useRef(["-200%", "0"]);
-  const cardStyleInfo = useRef(["20%", "0"]);
+  const cardStyleInfo = useRef(["25%", "0"]);
+  const aboutPartStyleInfo = useRef(["25%", "0"]);
 
   // Find the current Page
   const renderCurrentPage = () => {
@@ -31,7 +31,12 @@ function App() {
           />
         );
       case "About":
-        return <AboutPage />;
+        return (
+          <AboutPage
+            aboutPartStyleInfo={aboutPartStyleInfo}
+            setCurrentPage={setCurrentPage}
+          />
+        );
       case "Pricing":
         return <PricingPage />;
       case "Contact":
@@ -45,6 +50,23 @@ function App() {
   function goHome() {
     setCurrentPage("Home");
     window.location.reload();
+    window.scrollTo(0, 0);
+  }
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [currentPage]);
+
+  // Set the current page
+  function setPage(page) {
+    if (currentPage === page) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    } else{
+      setCurrentPage(page);
+    }
   }
 
   return (
@@ -55,16 +77,36 @@ function App() {
           <h1>| Leffler WebDev</h1>
         </button>
         <nav>
-          <a className="navLink" onClick={() => setCurrentPage("Home")}>
+          <a
+            className={`navLink ${
+              currentPage === "Home" ? "pageUnderline" : ""
+            }`}
+            onClick={() => setPage("Home")}
+          >
             Home
           </a>
-          <a className="navLink" onClick={() => setCurrentPage("About")}>
+          <a
+            className={`navLink ${
+              currentPage === "About" ? "pageUnderline" : ""
+            }`}
+            onClick={() => setPage("About")}
+          >
             About
           </a>
-          <a className="navLink" onClick={() => setCurrentPage("Pricing")}>
+          <a
+            className={`navLink ${
+              currentPage === "Pricing" ? "pageUnderline" : ""
+            }`}
+            onClick={() => setPage("Pricing")}
+          >
             Pricing
           </a>
-          <a className="navLink" onClick={() => setCurrentPage("Contact")}>
+          <a
+            className={`navLink ${
+              currentPage === "Contact" ? "pageUnderline" : ""
+            }`}
+            onClick={() => setPage("Contact")}
+          >
             Contact
           </a>
           <div className="phoneNumber">

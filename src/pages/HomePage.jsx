@@ -9,6 +9,8 @@ const HomePage = ({
 }) => {
   // When the page loads, animate the text
   useEffect(() => {
+    window.scrollTo(0, 0);
+    
     if (!textAniActive.current) {
       const h1Element = document.querySelector("#mainTextCont h1");
       const pElement = document.querySelector("#mainTextCont p");
@@ -33,26 +35,18 @@ const HomePage = ({
     // When scrolling, animate the aside info
     const asideInfo = document.querySelector(".homeAsideInfo");
     const cards = document.querySelectorAll(".card");
-    if (
-      window.scrollY > asideInfo?.offsetTop - asideInfo?.offsetTop / 2 &&
-      !homeAsideInfoAniActive.current
-    ) {
+    if (window.scrollY > 156 && !homeAsideInfoAniActive.current) {
       asideInfo.style.animation = "widthExpand 1.2s ease-out forwards";
       asideStyleInfo.current = ["0", "1"];
       homeAsideInfoAniActive.current = true;
     }
     // When scrolling, animate the cards
-    console.log(cards[0]?.offsetTop);
-    console.log(window.scrollY);
-    if (
-      window.scrollY > cards[0]?.offsetTop * 0.8 &&
-      !cardsAniActive.current
-    ) {
+    if (window.scrollY > 1110 && !cardsAniActive.current) {
       cards.forEach((card, index) => {
         card.style.animation = `cardSlideIn 1.2s ease-out ${
           index / 2
         }s forwards`;
-        cardStyleInfo.current = ["0", "1"];
+        cardStyleInfo.current = ["5%", "1"];
       });
       cardsAniActive.current = true;
     }
@@ -108,7 +102,6 @@ const HomePage = ({
       <main className="homeMainInfo">
         <hr />
         <h1>A Little About Us</h1>
-        <hr />
         <p>
           We want to make the best website for your needs. We are prepared to do
           what is necessary to make you love your new website. With friendly
@@ -132,14 +125,39 @@ const HomePage = ({
         <div className="img"></div>
       </div>
       <div className="pricing">
+        <h1 id="faqTitle">FAQs</h1>
         <div className="card">
-          <div className="bar"></div>
+          <div className="bar">
+            <hr />
+          </div>
+          <h1 className="faqHeader">Why Do I Need a Website?</h1>
+          <p>
+            Having a website to represent you or your business can help direct
+            people to see what you do. Not only that but it also makes you fully
+            accessible to the <u>world.</u>
+          </p>
         </div>
         <div className="card">
-          <div className="bar"></div>
+          <div className="bar">
+            <hr />
+          </div>
+          <h1 className="faqHeader">How Long Will It Take?</h1>
+          <p>
+            The time it will take heavily depends on the website you're looking
+            for. A typical website will take around <u>2-4 weeks</u> to be fully
+            completed and optimized.
+          </p>
         </div>
         <div className="card">
-          <div className="bar"></div>
+          <div className="bar">
+            <hr />
+          </div>
+          <h1 className="faqHeader">How Much Will It Cost?</h1>
+          <p>
+            The cost of the website also heavily revolves around the result you
+            want. Including creation, optimization, and hosting, the average
+            website will cost around <u>$229.99.</u>
+          </p>
         </div>
       </div>
     </div>
