@@ -121,7 +121,7 @@ const HomePage = ({
           matter where you are. We are committed to assisting you to the best of
           our ability, wherever you may be located.
         </p>
-        <p className="time">Our Time: {time}</p>
+        <p className="time">Our Time: <time>{time}</time></p>
         <div className="img"></div>
       </div>
       <div className="pricing">

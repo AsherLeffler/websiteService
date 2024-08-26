@@ -4,7 +4,7 @@ import "./App.css";
 // Pages
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import PricingPage from "./pages/PricingPage";
+import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 
 function App() {
@@ -15,6 +15,9 @@ function App() {
   const asideStyleInfo = useRef(["-200%", "0"]);
   const cardStyleInfo = useRef(["25%", "0"]);
   const aboutPartStyleInfo = useRef(["25%", "0"]);
+
+  // Set the service you want to learn more about
+  const [learning, setLearning] = useState("default");
 
   // Find the current Page
   const renderCurrentPage = () => {
@@ -37,8 +40,8 @@ function App() {
             setCurrentPage={setCurrentPage}
           />
         );
-      case "Pricing":
-        return <PricingPage />;
+      case "Services":
+        return <ServicesPage learning={learning} setLearning={setLearning} />;
       case "Contact":
         return <ContactPage />;
       default:
@@ -59,12 +62,19 @@ function App() {
 
   // Set the current page
   function setPage(page) {
-    if (currentPage === page) {
+    if (page === "Services") {
+      setCurrentPage(page);
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
-    } else{
+      setLearning("default");
+    } else if (currentPage === page) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } else {
       setCurrentPage(page);
     }
   }
@@ -97,9 +107,9 @@ function App() {
             className={`navLink ${
               currentPage === "Pricing" ? "pageUnderline" : ""
             }`}
-            onClick={() => setPage("Pricing")}
+            onClick={() => setPage("Services")}
           >
-            Pricing
+            Services
           </a>
           <a
             className={`navLink ${
