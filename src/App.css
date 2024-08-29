@@ -310,6 +310,10 @@ nav .navLink:hover {
   align-items: center;
   flex-direction: column;
   position: relative;
+  background-image: url("./assets/mesh-gradient.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .reviewPage a {
   font-size: 1.4rem;
