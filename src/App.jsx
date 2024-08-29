@@ -15,6 +15,7 @@ function App() {
   const asideStyleInfo = useRef(["-200%", "0"]);
   const cardStyleInfo = useRef(["25%", "0"]);
   const aboutPartStyleInfo = useRef(["25%", "0"]);
+  const titleStyling = useRef([]);
 
   // Set the service you want to learn more about
   const [learning, setLearning] = useState("default");
@@ -31,6 +32,7 @@ function App() {
             setCurrentPage={setCurrentPage}
             asideStyleInfo={asideStyleInfo}
             cardStyleInfo={cardStyleInfo}
+            titleStyling={titleStyling}
           />
         );
       case "About":

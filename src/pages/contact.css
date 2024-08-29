@@ -1,0 +1,121 @@
+.contact-grid-container {
+  display: grid;
+  grid-template-areas: "contactMain";
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  min-height: 100vh;
+  height: fit-content;
+}
+.contactMain {
+  grid-area: contactMain;
+  padding: 40px 15px;
+  background-image: url("../assets/mesh-gradient.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+.contactMain form * {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgb(48, 48, 48);
+}
+.contactMain form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border: 4px solid gold;
+  width: 70%;
+  height: 90vh;
+  padding: 20px;
+  padding-top: 40px;
+  border-radius: 40px;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.contactMain form h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+.contactMain form label {
+  font-size: 1.4rem;
+}
+.contactMain form input {
+  border: 2px solid goldenrod;
+  border-radius: 12px;
+  width: calc(60% - 5px);
+  height: 35px;
+  font-size: 1.15rem;
+  padding: 5px;
+}
+.contactMain form select {
+  width: 60%;
+  min-width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  border: 2px solid goldenrod;
+  text-align: center;
+}
+.contactMain form select option {
+  padding: 10px;
+}
+.contactMain form input[type="checkbox"] {
+  width: 24px;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 2px solid goldenrod;
+  position: relative;
+}
+.contactMain form input[type="checkbox"]::before {
+  content: "SEO:";
+  display: block;
+  left: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+.contactMain form textarea {
+  resize: none;
+  border: 2px solid goldenrod;
+  border-radius: 6px;
+  width: 60%;
+  height: 80px;
+  padding: 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.contactMain form button {
+  padding: 12px 100px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  color: goldenrod;
+  border: 2px solid goldenrod;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contactMain form button:hover {
+  border: 2px solid goldenrod;
+  color: white;
+  background-color: goldenrod;
+}
+.contactMain form button:active {
+  transform: scale(0.95);
+}
+.contactMain form .selectCont{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 60%;
+}
+.contactMain form .error{
+  color: red;
+  font-size: 1rem;
+  margin: 0;
+  position: relative;
+  bottom: 10px;
+}

@@ -8,24 +8,84 @@ const HomePage = ({
   asideStyleInfo,
   cardStyleInfo,
   cardsAniActive,
+  titleStyling,
 }) => {
   // When the page loads, animate the text
   useEffect(() => {
     window.scrollTo(0, 0);
 
     if (!textAniActive.current) {
-      const h1Element = document.querySelector("#mainTextCont h1");
+      anime
+        .timeline({ loop: false })
+        .add({
+          targets: ".ml3 .line",
+          opacity: [0.5, 1],
+          scaleX: [0, 1],
+          easing: "easeInOutExpo",
+          duration: 700,
+        })
+        .add({
+          targets: ".ml3 .line",
+          duration: 600,
+          easing: "easeOutExpo",
+          translateY: (_, i) => -0.625 + 0.625 * 2 * i + "em",
+        })
+        .add({
+          targets: ".ml3 .ampersand",
+          opacity: [0, 1],
+          scaleY: [0.5, 1],
+          easing: "easeOutExpo",
+          duration: 600,
+          offset: "-=600",
+        })
+        .add({
+          targets: ".ml3 .letters-left",
+          opacity: [0, 1],
+          translateX: ["0.5em", 0],
+          easing: "easeOutExpo",
+          duration: 600,
+          offset: "-=300",
+        })
+        .add({
+          targets: ".ml3 .letters-right",
+          opacity: [0, 1],
+          translateX: ["-0.5em", 0],
+          easing: "easeOutExpo",
+          duration: 600,
+          offset: "-=600",
+        });
       const pElement = document.querySelector("#mainTextCont p");
-      h1Element.classList.add("animate__animated", "animate__fadeInLeft");
-      h1Element.style.animationDelay = "0.4s";
-      h1Element.style.animationDuration = "1.2s";
-      pElement.classList.add("animate__animated", "animate__fadeIn");
-      pElement.style.animationDelay = "3.2s";
-      pElement.style.animationDuration = "1.2s";
+      pElement.style.animation = "fadeIn 1.2s ease-out forwards";
+      pElement.style.animationDelay = "1.3s";
+      setTimeout(() => {
+        const lines = document.querySelectorAll(".ml3 .line");
+        titleStyling.current = [
+          1,
+          "-0.625em",
+          "0.625em",
+          0,
+        ];
+      }, 2000);
       textAniActive.current = true;
     }
 
     // Add previous styles to animated elements
+    if (titleStyling.current.length !== 0) {
+      const ml3 = document.querySelectorAll(".ml3 .line");
+      const ampersand = document.querySelector(".ml3 .ampersand");
+      const lettersLeft = document.querySelector(".ml3 .letters-left");
+      const lettersRight = document.querySelector(".ml3 .letters-right");
+      ml3.forEach((line, i) => {
+        line.style.opacity = titleStyling.current[0];
+        line.style.transform = `scaleX(${titleStyling.current[0]}) translateY(${titleStyling.current[i + 1]})`;
+      });
+      ampersand.style.opacity = titleStyling.current[0];
+      ampersand.style.transform = `scaleY(${titleStyling.current[0]})`;
+      lettersLeft.style.opacity = titleStyling.current[0];
+      lettersLeft.style.transform = `translateX(${titleStyling.current[3]})`;
+      lettersRight.style.opacity = titleStyling.current[0];
+      lettersRight.style.transform = `translateX(${titleStyling.current[3]})`;
+    }
     const asideInfo = document.querySelector(".homeAsideInfo");
     const cards = document.querySelectorAll(".card");
     asideInfo.style.left = asideStyleInfo.current[0];
@@ -75,40 +135,22 @@ const HomePage = ({
     <div className="home-grid-container">
       <main className="homeMain">
         <div id="mainTextCont">
-          <h1 className="bounce1">
-            <b>
-              <span>D</span>
-              <span>e</span>
-              <span>v</span>
-              <span>e</span>
-              <span>l</span>
-              <span>o</span>
-              <span>p</span>
-              <span>i</span>
-              <span>n</span>
-              <span>g</span>
-            <span>&nbsp;</span>
-            <span style={{fontWeight: "normal"}}>a</span>
-            <span style={{fontWeight: "normal"}}>n</span>
-            <span style={{fontWeight: "normal"}}>d</span>
-            <span>&nbsp;</span>
-              <span>d</span>
-              <span>e</span>
-              <span>s</span>
-              <span>i</span>
-              <span>g</span>
-              <span>n</span>
-              <span>i</span>
-              <span>n</span>
-              <span>g</span>
-            </b>{" "}
+          <h1 className="ml3">
+            <span className="text-wrapper">
+              <span className="line line1"></span>
+              <b>
+                <span className="letters letters-left">Developing</span>
+              </b>{" "}
+              <span className="letters ampersand">&amp;</span>{" "}
+              <b>
+                <span className="letters letters-right">Designing</span>
+              </b>
+              <span className="line line2"></span>
+            </span>
           </h1>
           <p>
             Websites <u>For You</u>
           </p>
-        </div>
-        <div id="mainImgCont">
-          <img src="/src/assets/designing.png" alt="Image of Computer" />
         </div>
       </main>
       <div className="divider"></div>

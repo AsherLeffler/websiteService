@@ -46,12 +46,11 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
         })
         .add({
           targets: ".ml2 .letter1",
-          scale: [2.5, 1],
           opacity: [0, 1],
           translateZ: 0,
           easing: "easeOutExpo",
-          duration: 950,
-          delay: (_, i) => 10 * i,
+          duration: 1400,
+          delay: (_, i) => 0 * i,
         })
         .add({
           targets: ".learnMoreCont .ul",
@@ -251,7 +250,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 <h1>Custom Service</h1>
                 <p>
                   Any combination of the services we offer. Whatever services
-                  you need, we can do it specified just for you.
+                  you need, we can do it special just for you.
                 </p>
                 <button onClick={() => setLearning("custom")}>
                   Learn More
