@@ -137,7 +137,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
               </p>
             </article>
             <div className="section">
-              <h1 id="partsHeader">Call Today!</h1>
+              <h1 id="partsHeader">Text or Call Today!</h1>
               <p>
                 or fill out our{" "}
                 <a className="a" onClick={() => setCurrentPage("Contact")}>

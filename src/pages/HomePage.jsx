@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import "animate.css";
+
 const HomePage = ({
   textAniActive,
   homeAsideInfoAniActive,
@@ -10,12 +12,16 @@ const HomePage = ({
   // When the page loads, animate the text
   useEffect(() => {
     window.scrollTo(0, 0);
-    
+
     if (!textAniActive.current) {
       const h1Element = document.querySelector("#mainTextCont h1");
       const pElement = document.querySelector("#mainTextCont p");
-      h1Element.style.animation = "slideInLeft 2s ease-out forwards";
-      pElement.style.animation = "slideInRight 2s ease-out forwards";
+      h1Element.classList.add("animate__animated", "animate__fadeInLeft");
+      h1Element.style.animationDelay = "0.4s";
+      h1Element.style.animationDuration = "1.2s";
+      pElement.classList.add("animate__animated", "animate__fadeIn");
+      pElement.style.animationDelay = "3.2s";
+      pElement.style.animationDuration = "1.2s";
       textAniActive.current = true;
     }
 
@@ -69,8 +75,33 @@ const HomePage = ({
     <div className="home-grid-container">
       <main className="homeMain">
         <div id="mainTextCont">
-          <h1>
-            <b>Developing</b> and <b>Designing</b>
+          <h1 className="bounce1">
+            <b>
+              <span>D</span>
+              <span>e</span>
+              <span>v</span>
+              <span>e</span>
+              <span>l</span>
+              <span>o</span>
+              <span>p</span>
+              <span>i</span>
+              <span>n</span>
+              <span>g</span>
+            <span>&nbsp;</span>
+            <span style={{fontWeight: "normal"}}>a</span>
+            <span style={{fontWeight: "normal"}}>n</span>
+            <span style={{fontWeight: "normal"}}>d</span>
+            <span>&nbsp;</span>
+              <span>d</span>
+              <span>e</span>
+              <span>s</span>
+              <span>i</span>
+              <span>g</span>
+              <span>n</span>
+              <span>i</span>
+              <span>n</span>
+              <span>g</span>
+            </b>{" "}
           </h1>
           <p>
             Websites <u>For You</u>
@@ -121,7 +152,9 @@ const HomePage = ({
           matter where you are. We are committed to assisting you to the best of
           our ability, wherever you may be located.
         </p>
-        <p className="time">Our Time: <time>{time}</time></p>
+        <p className="time">
+          Our Time: <time>{time}</time>
+        </p>
         <div className="img"></div>
       </div>
       <div className="pricing">

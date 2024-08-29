@@ -41,7 +41,13 @@ function App() {
           />
         );
       case "Services":
-        return <ServicesPage learning={learning} setLearning={setLearning} />;
+        return (
+          <ServicesPage
+            learning={learning}
+            setLearning={setLearning}
+            setCurrentPage={setCurrentPage}
+          />
+        );
       case "Contact":
         return <ContactPage />;
       default:
@@ -105,7 +111,7 @@ function App() {
           </a>
           <a
             className={`navLink ${
-              currentPage === "Pricing" ? "pageUnderline" : ""
+              currentPage === "Services" ? "pageUnderline" : ""
             }`}
             onClick={() => setPage("Services")}
           >

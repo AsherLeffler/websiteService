@@ -15,7 +15,13 @@ body {
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 0.8fr auto auto auto;
   height: fit-content;
-  background-color: rgb(239, 239, 239);
+  background: repeating-linear-gradient(
+    180deg,
+    #eaeeff,
+    #eaeeff 8px,
+    #c1d1ff 8px,
+    #c1d1ff 16px
+  );
 }
 .about-grid-container {
   display: grid;
@@ -69,7 +75,10 @@ header {
 }
 .homeAsideInfo {
   grid-area: homeAsideInfo;
-  background-color: white;
+  --s: 60px; /* control the size */
+  background: linear-gradient(135deg, #0000 18.75%, #ffffff 0 31.25%, #0000 0),
+    repeating-linear-gradient(45deg, #ffffff -6.25% 6.25%, hsl(240, 100%, 99%) 0 18.75%);
+  background-size: var(--s) var(--s);
   width: calc(100% - 20px);
   padding: 10px;
   height: auto;
@@ -88,10 +97,57 @@ header {
   grid-area: homeMainInfo;
   padding: 10px;
   height: auto;
-  font-family:  "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   position: relative;
-  background: radial-gradient(circle, rgb(255, 255, 255), rgb(233, 237, 255));
+
+  --u: 10px;
+  --c1: #f2eaff;
+  --c2: #f6f5ff;
+  --c3: #e5e1ff;
+  --gp: 50% / calc(var(--u) * 16.9) calc(var(--u) * 12.8);
+  background: conic-gradient(
+        from 122deg at 50% 85.15%,
+        var(--c2) 0 58deg,
+        var(--c3) 0 116deg,
+        #fff0 0 100%
+      )
+      var(--gp),
+    conic-gradient(from 122deg at 50% 72.5%, var(--c1) 0 116deg, #fff0 0 100%)
+      var(--gp),
+    conic-gradient(from 58deg at 82.85% 50%, var(--c3) 0 64deg, #fff0 0 100%)
+      var(--gp),
+    conic-gradient(
+        from 58deg at 66.87% 50%,
+        var(--c1) 0 64deg,
+        var(--c2) 0 130deg,
+        #fff0 0 100%
+      )
+      var(--gp),
+    conic-gradient(from 238deg at 17.15% 50%, var(--c2) 0 64deg, #fff0 0 100%)
+      var(--gp),
+    conic-gradient(
+        from 172deg at 33.13% 50%,
+        var(--c3) 0 66deg,
+        var(--c1) 0 130deg,
+        #fff0 0 100%
+      )
+      var(--gp),
+    linear-gradient(98deg, var(--c3) 0 15%, #fff0 calc(15% + 1px) 100%)
+      var(--gp),
+    linear-gradient(-98deg, var(--c2) 0 15%, #fff0 calc(15% + 1px) 100%)
+      var(--gp),
+    conic-gradient(
+        from -58deg at 50.25% 14.85%,
+        var(--c3) 0 58deg,
+        var(--c2) 0 116deg,
+        #fff0 0 100%
+      )
+      var(--gp),
+    conic-gradient(from -58deg at 50% 28.125%, var(--c1) 0 116deg, #fff0 0 100%)
+      var(--gp),
+    linear-gradient(90deg, var(--c2) 0 50%, var(--c3) 0 100%) var(--gp);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,7 +217,7 @@ header {
   color: rgb(240, 240, 240);
   position: relative;
   z-index: 2;
-  font-family:  "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 .location .text {
@@ -169,11 +225,11 @@ header {
   color: rgb(240, 240, 240);
   position: relative;
   z-index: 2;
-  font-family:  "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 .time {
-  font-family:  "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   color: rgb(255, 255, 255);
   position: absolute;
@@ -202,7 +258,7 @@ header {
 .pricing #faqTitle {
   font-size: 3rem;
   color: white;
-  font-family:  "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   position: absolute;
   top: 10px;
@@ -243,7 +299,7 @@ header {
 }
 footer {
   background-color: #3a44d3;
-  padding:  20px;
+  padding: 20px;
   height: 60px;
   width: calc(100% - 40px);
   text-align: center;
@@ -257,14 +313,14 @@ footer h2 {
   font-size: 1.9rem;
   font-weight: 400;
   font-style: normal;
-  font-family: "Bona Nova SC",  "Oswald", "Trebuchet MS",
-    "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-family: "Bona Nova SC", "Oswald", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 footer a {
   text-decoration: none;
   font-weight: bolder;
   cursor: pointer;
-  font-family:  "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 footer a:hover {
