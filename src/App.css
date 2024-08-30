@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
 
 .logo {
-  height: 95%;
+  height: 85%;
   width: fit-content;
   background: transparent;
   border: none;
@@ -35,10 +35,10 @@ nav .navLink {
   font-size: 1.28rem;
   font-family:  "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  color: white;
+  transition: 0.2s;
 }
 nav .navLink:hover {
-  text-decoration: underline;
+  color: rgb(102, 191, 255);
 }
 .phoneNumber {
   display: flex;

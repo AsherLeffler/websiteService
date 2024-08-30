@@ -7,12 +7,11 @@ body {
 .home-grid-container {
   display: grid;
   grid-template-areas:
-    "homeMain homeMain"
-    "divider divider"
-    "homeAsideInfo homeMainInfo"
-    "location location"
-    "pricing pricing";
-  grid-template-columns: 1fr 5fr;
+    "homeMain"
+    "divider"
+    "homeAboutMain"
+    "pricing";
+  grid-template-columns: 1fr;
   grid-template-rows: 0.8fr auto auto auto;
   height: fit-content;
   background: repeating-linear-gradient(
@@ -34,7 +33,7 @@ body {
 }
 header {
   background-color: #4c65af;
-  height: 60px;
+  height: 80px;
   text-align: center;
   width: calc(100% - 10px);
   display: flex;
@@ -46,8 +45,11 @@ header {
   z-index: 100;
   overflow: hidden;
 }
-.pageUnderline {
-  text-decoration: underline;
+.activeLink {
+  color: rgb(102, 191, 255);
+}
+.inactiveLink {
+  color: white;
 }
 .homeMain {
   grid-area: homeMain;
@@ -63,182 +65,44 @@ header {
 }
 .divider {
   grid-area: divider;
-  background: repeating-linear-gradient(
-    20deg,
-    #cfd7ff,
-    #cfd7ff 8px,
-    #4c65af 8px,
-    #4c65af 16px
-  );
-  height: 30px;
+  background: #000066;
+  height: 40px;
   width: 100%;
 }
-.homeAsideInfo {
-  grid-area: homeAsideInfo;
-  --s: 60px; /* control the size */
-  background: linear-gradient(135deg, #0000 18.75%, #ffffff 0 31.25%, #0000 0),
-    repeating-linear-gradient(45deg, #ffffff -6.25% 6.25%, hsl(240, 100%, 99%) 0 18.75%);
-  background-size: var(--s) var(--s);
+.homeAboutMain{
+  grid-area: homeAboutMain;
+  height: 600px;
   width: calc(100% - 20px);
-  padding: 10px;
-  height: auto;
-  opacity: 0;
-  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
   position: relative;
-  left: -200%;
-  z-index: 4;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.homeMainInfo {
-  grid-area: homeMainInfo;
+  background-color: #000066;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: white;
   padding: 10px;
-  height: auto;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  position: relative;
-
-  --u: 10px;
-  --c1: #f2eaff;
-  --c2: #f6f5ff;
-  --c3: #e5e1ff;
-  --gp: 50% / calc(var(--u) * 16.9) calc(var(--u) * 12.8);
-  background: conic-gradient(
-        from 122deg at 50% 85.15%,
-        var(--c2) 0 58deg,
-        var(--c3) 0 116deg,
-        #fff0 0 100%
-      )
-      var(--gp),
-    conic-gradient(from 122deg at 50% 72.5%, var(--c1) 0 116deg, #fff0 0 100%)
-      var(--gp),
-    conic-gradient(from 58deg at 82.85% 50%, var(--c3) 0 64deg, #fff0 0 100%)
-      var(--gp),
-    conic-gradient(
-        from 58deg at 66.87% 50%,
-        var(--c1) 0 64deg,
-        var(--c2) 0 130deg,
-        #fff0 0 100%
-      )
-      var(--gp),
-    conic-gradient(from 238deg at 17.15% 50%, var(--c2) 0 64deg, #fff0 0 100%)
-      var(--gp),
-    conic-gradient(
-        from 172deg at 33.13% 50%,
-        var(--c3) 0 66deg,
-        var(--c1) 0 130deg,
-        #fff0 0 100%
-      )
-      var(--gp),
-    linear-gradient(98deg, var(--c3) 0 15%, #fff0 calc(15% + 1px) 100%)
-      var(--gp),
-    linear-gradient(-98deg, var(--c2) 0 15%, #fff0 calc(15% + 1px) 100%)
-      var(--gp),
-    conic-gradient(
-        from -58deg at 50.25% 14.85%,
-        var(--c3) 0 58deg,
-        var(--c2) 0 116deg,
-        #fff0 0 100%
-      )
-      var(--gp),
-    conic-gradient(from -58deg at 50% 28.125%, var(--c1) 0 116deg, #fff0 0 100%)
-      var(--gp),
-    linear-gradient(90deg, var(--c2) 0 50%, var(--c3) 0 100%) var(--gp);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
 }
-.homeMainInfo h1 {
+.homeAboutMain .mainAbout h1{
   font-size: 3rem;
-  color: rgb(48, 48, 48);
-  position: relative;
-  z-index: 2;
   margin: 0;
-  margin-bottom: 30px;
+  padding: 0;
 }
-.homeMainInfo p {
-  font-size: 1.5rem;
-  color: rgb(48, 48, 48);
-  position: relative;
-  z-index: 2;
+.homeAboutMain .mainAbout p{
+  font-size: 1.25rem;
   margin: 0;
+  padding: 0;
 }
-.homeMainInfo a {
-  font-size: 1.5rem;
-  color: #4c65af;
-  position: relative;
-  z-index: 2;
-  margin: 0;
-  top: 20px;
-  text-decoration: none;
+.aboutLearnBtn{
+  background-color: #3a44d3;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.25rem;
+  border: 2px solid #3a44d3;
   cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
+  padding: 6px 30px;
 }
-.homeMainInfo a:hover {
-  text-decoration: underline;
-}
-.homeMainInfo hr:nth-of-type(1),
-.homeMainInfo hr:nth-of-type(2) {
-  width: 80%;
-  border: none;
-  border-top: 8px dotted #4c65af;
-  position: relative;
-  z-index: 2;
-  margin: 60px 0;
-}
-.location {
-  grid-area: location;
-  height: fit-content;
-  min-height: 350px;
-  position: relative;
-  padding: 25px;
-}
-.location .img {
-  background-image: url("https://media.istockphoto.com/id/535340111/photo/raleigh-pinned-on-a-map-of-usa.jpg?s=612x612&w=0&k=20&c=o_QzgT84WEIZus2REHgbUCjqidpKt0qlJ3Zy7HGtLis=");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  filter: brightness(60%);
-  width: 100%;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.location h1 {
-  font-size: 3rem;
-  color: rgb(240, 240, 240);
-  position: relative;
-  z-index: 2;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
-.location .text {
-  font-size: 1.5rem;
-  color: rgb(240, 240, 240);
-  position: relative;
-  z-index: 2;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
-.time {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: rgb(255, 255, 255);
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  z-index: 2;
-  font-size: 1.4rem;
-  font-weight: bolder;
-  margin: 0;
+.aboutLearnBtn:hover{
+  background-color: white;
+  color: #3a44d3;
 }
 .pricing {
   grid-area: pricing;
