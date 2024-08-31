@@ -169,92 +169,70 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
           <main className="servicesMain">
             <h1 className="h1">What We Can do For You</h1>
             <div className="cardCont">
-              <div className="serviceCard">
+              <div className="serviceCard" onClick={() => setLearning("desDev")}>
                 <h1>Web Design + Development</h1>
                 <p>
                   We create the entire website based on your end goal. We make
                   the design and develop the website entirely.
                 </p>
-                <button onClick={() => setLearning("desDev")}>
-                  Learn More
-                </button>
               </div>
-              <div className="serviceCard">
+              <div className="serviceCard" onClick={() => setLearning("redesign")}>
                 <h1>Web Redesign</h1>
                 <p>
                   We take a website you currently have, and we redesign it to
                   your needs. New fresh design, same website.
                 </p>
-                <button onClick={() => setLearning("redesign")}>
-                  Learn More
-                </button>
               </div>
-              <div className="serviceCard">
+              <div className="serviceCard" onClick={() => setLearning("devDes")}>
                 <h1>Web Development From Design</h1>
                 <p>
                   We develop your website based on the design of your choice. We
                   make it just how you invisioned it.
                 </p>
-                <button onClick={() => setLearning("devDes")}>
-                  Learn More
-                </button>
               </div>
             </div>
             <div className="cardCont">
-              <div className="serviceCard">
+              <div className="serviceCard" onClick={() => setLearning("SEO")}>
                 <h1>SEO Optimzization</h1>
                 <p>
                   We optimize your website so it can more easily be found by
                   search engines. This leads to more exposure to the world.
                 </p>
-                <button onClick={() => setLearning("SEO")}>Learn More</button>
               </div>
-              <div className="serviceCard">
+              <div className="serviceCard" onClick={() => setLearning("hosting")}>
                 <h1>Web Hosting</h1>
                 <p>
                   We host your website for you. Any website of your choice,
                   hosted by us so you don't have to.
                 </p>
-                <button onClick={() => setLearning("hosting")}>
-                  Learn More
-                </button>
               </div>
-              <div className="serviceCard">
+              <div className="serviceCard" onClick={() => setLearning("maintenance")}>
                 <h1>Web Maintenance</h1>
                 <p>
                   We maintain your current website to make sure it is up to date
                   for the world to see.
                 </p>
-                <button onClick={() => setLearning("maintenance")}>
-                  Learn More
-                </button>
               </div>
             </div>
             <div className="cardCont" id="else">
               <h1 className="h1" style={{ textShadow: "0 0 12px white" }}>
                 ✨Recommended✨
               </h1>
-              <div className="customCard">
+              <div className="customCard" onClick={() => setLearning("package")}>
                 <h1>The Website Package</h1>
                 <p>
                   A package deal for all of the services you will need for a
                   successful website. The key essentials your brand new website.
                 </p>
-                <button onClick={() => setLearning("package")}>
-                  Learn More
-                </button>
               </div>
             </div>
             <div className="cardCont">
-              <div className="customCard">
+              <div className="customCard" onClick={() => setLearning("custom")}>
                 <h1>Custom Service</h1>
                 <p>
                   Any combination of the services we offer. Whatever services
                   you need, we can do it special just for you.
                 </p>
-                <button onClick={() => setLearning("custom")}>
-                  Learn More
-                </button>
               </div>
             </div>
           </main>

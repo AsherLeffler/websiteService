@@ -129,7 +129,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
             <article className="article1" style={{ marginBottom: "80px" }}>
               <h1>Our Story</h1>
               <p>
-                Looking for experience in frontEnd development, Leffler WebDev
+                Looking for experience in front-end development, Leffler WebDev
                 was created to put our limits to the test. Creating quality
                 websites for people was our founding idea. We wanted to make a
                 difference with the websites we create and are excited to see

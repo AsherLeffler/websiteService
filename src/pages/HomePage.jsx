@@ -162,38 +162,46 @@ const HomePage = ({
             className="aboutLearnBtn"
             onClick={() => setCurrentPage("About")}
           >
-            Learn More
+            <p id="text">Learn More</p>
           </button>
         </article>
-        <article>
-          <h1>What we Offer You</h1>
-          <ul>
-            <li>Website Development</li>
-            <li>Website Design</li>
-            <li>Website Hosting</li>
-            <li>Website SEO</li>
-            <li>Website Maintenance</li>
-            <li>And more...</li>
-          </ul>
-        </article>
-        <article>
+        <article className="homeBase">
           <h1>Home Base</h1>
-          <p>
+          <p className="p">
             Located in Raleigh, North Carolina, we proudly extend our services
             beyond state lines, reaching clients across the entire United
             States. Our team operates on Eastern Time (EST) and is available
             throughout the business week, ensuring we're here to support your
             needs no matter where you're located.
           </p>
-          <p>Our Time: {time}</p>
+          <h3 className="time">Our Time: <p className="timeNum">{time}</p></h3>
+        </article>
+        <article className="offerings">
+          <div className="left">
+          </div>
+          <div className="right">
+            <ul>
+            <h1>What We Offer You</h1>
+              <li>Website Development</li>
+              <li>Website Design</li>
+              <li>Website Hosting</li>
+              <li>Website SEO</li>
+              <li>Website Maintenance</li>
+              <li>And more...</li>
+            </ul>
+          </div>
+        </article>
+        <article className="callNow">
+          <h1>Call or Text Now!</h1>
+          <h1 id="phone">
+            <a href="tel:+12528763653">(252)-876-3653</a>
+          </h1>
+          <p>For more information about your website</p>
         </article>
       </main>
       <div className="pricing">
         <h1 id="faqTitle">FAQs</h1>
         <div className="card">
-          <div className="bar">
-            <hr />
-          </div>
           <h1 className="faqHeader">Why Do I Need a Website?</h1>
           <p>
             Having a website to represent you or your business can help direct
@@ -202,25 +210,18 @@ const HomePage = ({
           </p>
         </div>
         <div className="card">
-          <div className="bar">
-            <hr />
-          </div>
+          <h1 className="faqHeader">How Much Will It Cost?</h1>
+          <p>
+            The cost of the website is also very dependent on the result you
+            want. A base website will usually cost <u>$229.99.</u>
+          </p>
+        </div>
+        <div className="card">
           <h1 className="faqHeader">How Long Will It Take?</h1>
           <p>
             The time it will take heavily depends on the website you're looking
             for. A typical website will take around <u>2-4 weeks</u> to be fully
             completed and optimized.
-          </p>
-        </div>
-        <div className="card">
-          <div className="bar">
-            <hr />
-          </div>
-          <h1 className="faqHeader">How Much Will It Cost?</h1>
-          <p>
-            The cost of the website also heavily revolves around the result you
-            want. Including creation, optimization, and hosting, the average
-            website will cost around <u>$229.99.</u>
           </p>
         </div>
       </div>
