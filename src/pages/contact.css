@@ -34,7 +34,7 @@
   padding-top: 40px;
   border-radius: 40px;
   background: transparent;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.35);
 }
 .contactMain form h1 {
   font-size: 2.5rem;
@@ -257,6 +257,10 @@
   border: 2px solid goldenrod;
   cursor: pointer;
   transition: 0.3s;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
 .contactMain form button:hover {
   border: 2px solid goldenrod;
