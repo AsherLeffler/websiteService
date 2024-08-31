@@ -41,25 +41,17 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
           opacity: [0, 1],
           translateZ: 0,
           easing: "easeOutExpo",
-          duration: 950,
-          delay: (_, i) => 30 * i,
+          duration: 900,
+          offset: 0,
+          delay: (_, i) => 20 * i,
         })
         .add({
-          targets: ".ml2 .letter1",
+          targets: [".ml2 .letter1", ".learnMoreCont .ul"],
           opacity: [0, 1],
           translateZ: 0,
           easing: "easeOutExpo",
-          duration: 1400,
-          delay: (_, i) => 0 * i,
-        })
-        .add({
-          targets: ".learnMoreCont .ul",
-          opacity: [0, 1],
           duration: 1200,
-          easing: "easeOutExpo",
-          delay: 100,
-        });
-
+        })
       // Service Options Text Animation
       if (learning === "maintenance" || learning === "hosting") {
         setCanFlip(false);
@@ -79,13 +71,21 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
           anime
             .timeline({ loop: false })
             .add({
+              targets: ".optionsCont .option",
+              opacity: [0, 1],
+              easing: "easeOutExpo",
+              duration: 1200,
+              delay: (_, i) => 100 * i,
+            })
+            .add({
               targets: ".ml1 .letter",
               scale: [0.3, 1],
               opacity: [0, 1],
               translateZ: 0,
               easing: "easeOutExpo",
               duration: 600,
-              delay: (_, i) => 80 * (i + 1),
+              delay: (_, i) => 40 * (i + 1),
+              offset: 0,
             })
             .add({
               targets: ".ml1 .line",
@@ -104,8 +104,8 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
             });
           setTimeout(() => {
             setCanFlip(true);
-          }, 2200);
-        }, 5000);
+          }, 2500);
+        }, 3000);
       } else if (learning === "custom") {
         setTimeout(() => {
           anime
@@ -114,7 +114,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
               targets: ".listTitle",
               opacity: [0, 1],
               easing: "easeOutExpo",
-              duration: 1100,
+              duration: 800,
             })
             .add({
               targets: ".list",
@@ -122,8 +122,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
               easing: "easeOutExpo",
               duration: 1100,
               delay: (_, i) => 110 * i,
+              offset: 0
             });
-        }, 5000);
+        }, 3000);
       }
       const content = document.querySelectorAll(".ml2 .word");
       if (content[42]) {
@@ -169,92 +170,91 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
           <main className="servicesMain">
             <h1 className="h1">What We Can do For You</h1>
             <div className="cardCont">
-              <div className="serviceCard">
+              <div
+                className="serviceCard"
+                onClick={() => setLearning("desDev")}
+              >
                 <h1>Web Design + Development</h1>
                 <p>
                   We create the entire website based on your end goal. We make
                   the design and develop the website entirely.
                 </p>
-                <button onClick={() => setLearning("desDev")}>
-                  Learn More
-                </button>
               </div>
-              <div className="serviceCard">
+              <div
+                className="serviceCard"
+                onClick={() => setLearning("redesign")}
+              >
                 <h1>Web Redesign</h1>
                 <p>
                   We take a website you currently have, and we redesign it to
                   your needs. New fresh design, same website.
                 </p>
-                <button onClick={() => setLearning("redesign")}>
-                  Learn More
-                </button>
               </div>
-              <div className="serviceCard">
+              <div
+                className="serviceCard"
+                onClick={() => setLearning("devDes")}
+              >
                 <h1>Web Development From Design</h1>
                 <p>
                   We develop your website based on the design of your choice. We
                   make it just how you invisioned it.
                 </p>
-                <button onClick={() => setLearning("devDes")}>
-                  Learn More
-                </button>
               </div>
             </div>
             <div className="cardCont">
-              <div className="serviceCard">
+              <div className="serviceCard" onClick={() => setLearning("SEO")}>
                 <h1>SEO Optimzization</h1>
                 <p>
                   We optimize your website so it can more easily be found by
                   search engines. This leads to more exposure to the world.
                 </p>
-                <button onClick={() => setLearning("SEO")}>Learn More</button>
               </div>
-              <div className="serviceCard">
+              <div
+                className="serviceCard"
+                onClick={() => setLearning("hosting")}
+              >
                 <h1>Web Hosting</h1>
                 <p>
                   We host your website for you. Any website of your choice,
                   hosted by us so you don't have to.
                 </p>
-                <button onClick={() => setLearning("hosting")}>
-                  Learn More
-                </button>
               </div>
-              <div className="serviceCard">
+              <div
+                className="serviceCard"
+                onClick={() => setLearning("maintenance")}
+              >
                 <h1>Web Maintenance</h1>
                 <p>
                   We maintain your current website to make sure it is up to date
                   for the world to see.
                 </p>
-                <button onClick={() => setLearning("maintenance")}>
-                  Learn More
-                </button>
               </div>
             </div>
             <div className="cardCont" id="else">
-              <h1 className="h1" style={{ textShadow: "0 0 12px white" }}>
+              <h1
+                className="h1"
+                style={{ textShadow: "0 0 12px rgba(255, 255, 255, 0.4)" }}
+              >
                 ✨Recommended✨
               </h1>
-              <div className="customCard">
+              <div
+                className="customCard"
+                onClick={() => setLearning("package")}
+              >
                 <h1>The Website Package</h1>
                 <p>
                   A package deal for all of the services you will need for a
                   successful website. The key essentials your brand new website.
                 </p>
-                <button onClick={() => setLearning("package")}>
-                  Learn More
-                </button>
               </div>
             </div>
             <div className="cardCont">
-              <div className="customCard">
+              <div className="customCard" onClick={() => setLearning("custom")}>
                 <h1>Custom Service</h1>
                 <p>
                   Any combination of the services we offer. Whatever services
                   you need, we can do it special just for you.
                 </p>
-                <button onClick={() => setLearning("custom")}>
-                  Learn More
-                </button>
               </div>
             </div>
           </main>
@@ -303,32 +303,26 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
             <h1 className="listTitle">All of Our Services:</h1>
             <div className="list">
               <h1>Web Design + Development</h1>
-              <hr />
               <a onClick={() => setLearning("desDev")}>More Information</a>
             </div>
             <div className="list">
               <h1>Web Redesign</h1>
-              <hr />
               <a onClick={() => setLearning("redesign")}>More Information</a>
             </div>
             <div className="list">
               <h1>Web Development From Design</h1>
-              <hr />
               <a onClick={() => setLearning("devDes")}>More Information</a>
             </div>
             <div className="list">
               <h1>SEO Optimization</h1>
-              <hr />
               <a onClick={() => setLearning("SEO")}>More Information</a>
             </div>
             <div className="list">
               <h1>Web Hosting</h1>
-              <hr />
               <a onClick={() => setLearning("hosting")}>More Information</a>
             </div>
             <div className="list">
               <h1>Web Maintenance</h1>
-              <hr />
               <a onClick={() => setLearning("maintenance")}>More Information</a>
             </div>
           </div>

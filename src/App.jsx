@@ -97,7 +97,7 @@ function App() {
         <nav>
           <a
             className={`navLink ${
-              currentPage === "Home" ? "pageUnderline" : ""
+              currentPage === "Home" ? "activeLink" : "inactiveLink"
             }`}
             onClick={() => setPage("Home")}
           >
@@ -105,7 +105,7 @@ function App() {
           </a>
           <a
             className={`navLink ${
-              currentPage === "About" ? "pageUnderline" : ""
+              currentPage === "About" ? "activeLink" : "inactiveLink"
             }`}
             onClick={() => setPage("About")}
           >
@@ -113,7 +113,7 @@ function App() {
           </a>
           <a
             className={`navLink ${
-              currentPage === "Services" ? "pageUnderline" : ""
+              currentPage === "Services" ? "activeLink" : "inactiveLink"
             }`}
             onClick={() => setPage("Services")}
           >
@@ -121,7 +121,7 @@ function App() {
           </a>
           <a
             className={`navLink ${
-              currentPage === "Contact" ? "pageUnderline" : ""
+              currentPage === "Contact" ? "activeLink" : "inactiveLink"
             }`}
             onClick={() => setPage("Contact")}
           >

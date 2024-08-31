@@ -31,6 +31,15 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
   };
 
   // Review data
+
+    /* Template
+        {
+          name: "Name",
+          rating: #,
+          review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          }
+    */
+   
   const reviews = useRef([]);
 
   // About page state
@@ -62,6 +71,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
   // Form submission
   const [remainAnonymous, setRemainAnonymous] = useState(false);
   const acceptedEmails = [];
+
   function formSubmit(event) {
     if (reviewRating === null) {
       event.preventDefault();
@@ -129,43 +139,28 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
             <article className="article1" style={{ marginBottom: "80px" }}>
               <h1>Our Story</h1>
               <p>
-                Looking for experience in frontEnd development, Leffler WebDev
+                Looking for experience in front-end development, Leffler WebDev
                 was created to put our limits to the test. Creating quality
                 websites for people was our founding idea. We wanted to make a
                 difference with the websites we create and are excited to see
                 what the future holds for us.
               </p>
             </article>
-            <div className="section">
-              <h1 id="partsHeader">Text or Call Today!</h1>
-              <p>
-                or fill out our{" "}
-                <a className="a" onClick={() => setCurrentPage("Contact")}>
-                  contact form
-                </a>
-              </p>
-              <div className="aboutNumber">
-                <i className="fa-solid fa-phone"></i>
-                <a href="tel:+12528763653">(252)-876-3653</a>
-              </div>
-
-              <div className="part"></div>
-              <div className="part"></div>
-            </div>
-          </main>
-          <div className="reviews">
             {reviews.current.length > 0 && (
               <>
-                <h1 className="title">Our Reviews</h1>
+                <h1 className="title">What Our Customers Have To Say</h1>
                 {reviews.current.map((review, index) => (
                   <RevComponent key={index} review={review} />
                 ))}
               </>
             )}
-            <button onClick={() => setAboutPage("writeReview")}>
-              Write a Review
-            </button>
-          </div>
+            <div
+              className="reviews"
+              onClick={() => setAboutPage("writeReview")}
+            >
+              <h1 className="h1">Write A Review Today!</h1>
+            </div>
+          </main>
         </div>
       )}
       {aboutPage === "writeReview" && (
@@ -212,18 +207,14 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
             {!remainAnonymous && (
               <>
                 <label htmlFor="name">Full Name *</label>
-                <input
-                  type="text"
-                  name="fullName"
-                  id="fullName"
-                  placeholder="Name"
-                  required
-                />
+                <input type="text" name="fullName" id="fullName" required />
               </>
             )}
             {remainAnonymous && (
               <>
-                <label htmlFor="name">Full Name</label>
+                <label htmlFor="name" id="nameNotRequiredLabel">
+                  Full Name
+                </label>
                 <input
                   type="text"
                   name="fullName"
@@ -240,17 +231,11 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
                 onClick={() => setRemainAnonymous((prev) => !prev)}
               />
               <label htmlFor="anonymous" id="label">
-                I prefer to remain anonymous
+                <i className="fa-solid fa-check"></i>
               </label>
             </div>
             <label htmlFor="email">Email *</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="example123@gmail.com"
-              required
-            />
+            <input type="email" name="email" id="email" required />
             <p className="willNotShared">(This will not be shared)</p>
             <label htmlFor="review">Review *</label>
             <textarea

@@ -4,14 +4,14 @@ import "./contact.css";
 const ContactPage = () => {
   const [choseCustom, setChoseCustom] = useState(false);
   const [triggerEffect, setTriggerEffect] = useState(false);
-  
-    useEffect(() => {
-      const form = document.getElementById("contactForm");
-      if (form) {
-        form.reset();
-      }
-      setTriggerEffect(false);
-    }, [triggerEffect]);
+
+  useEffect(() => {
+    const form = document.getElementById("contactForm");
+    if (form) {
+      form.reset();
+    }
+    setTriggerEffect(false);
+  }, [triggerEffect]);
 
   const handleServiceSelect = () => {
     const serviceSelect = document.getElementById("serviceSelect");
@@ -42,6 +42,9 @@ const ContactPage = () => {
   };
 
   function formSubmit(event) {
+    const selectValue = document.getElementById("serviceSelect").value;
+    event.preventDefault();
+    if (selectValue !== "select") {
       event.preventDefault();
       const form = document.getElementById("contactForm");
       const formData = new FormData(form);
@@ -65,6 +68,10 @@ const ContactPage = () => {
         });
       setAboutPage("default");
       setTriggerEffect(true);
+      setChoseCustom(false);
+    } else {
+      alert("Please select a service");
+    }
   }
 
   return (
@@ -88,20 +95,32 @@ const ContactPage = () => {
               <option value="hosting">Hosting</option>
               <option value="custom">Custom service</option>
             </select>
+            {choseCustom && (
+              <div className="customCheck">
+                <h3>Choose Services</h3>
+                <input type="checkbox" name="Design and Develop" id="custom1" />
+                <label htmlFor="custom1" className="label1">
+                  <i className="fa-solid fa-check"></i>
+                </label>
+                <input type="checkbox" name="Redesign Website" id="custom2" />
+                <label htmlFor="custom2" className="label2">
+                  <i className="fa-solid fa-check"></i>
+                </label>
+                <input type="checkbox" name="Develop From Design" id="custom3" />
+                <label htmlFor="custom3" className="label3">
+                  <i className="fa-solid fa-check"></i>
+                </label>
+                <input type="checkbox" name="Hosting" id="custom4" />
+                <label htmlFor="custom4" className="label4">
+                  <i className="fa-solid fa-check"></i>
+                </label>
+              </div>
+            )}
             <input type="checkbox" name="seoCheck" id="seoCheck" />
+            <label htmlFor="seoCheck" className="seoCheckLabel">
+              <i className="fa-solid fa-check"></i>
+            </label>
           </div>
-          {choseCustom && (
-            <div>
-              <label htmlFor="custom1">Design and develop</label>
-              <input type="checkbox" name="custom1" id="custom1" />
-              <label htmlFor="custom2">Redesign website</label>
-              <input type="checkbox" name="custom2" id="custom2" />
-              <label htmlFor="custom3">Develop from design</label>
-              <input type="checkbox" name="custom3" id="custom3" />
-              <label htmlFor="custom4">Hosting</label>
-              <input type="checkbox" name="custom4" id="custom4" />
-            </div>
-          )}
           <label htmlFor="email">Email</label>
           <input type="email" name="email" id="email" required />
           <label htmlFor="phone">Phone Number</label>
@@ -116,9 +135,9 @@ const ContactPage = () => {
             <p className="error">Please enter a valid phone number</p>
           )}
           <label htmlFor="otherInfo">Other Information</label>
-          <textarea name="otherInfo" id="otherInfo" required />
+          <textarea name="otherInfo" id="otherInfo" />
           <button type="submit">Send</button>
-        </form>      
+        </form>
       </main>
     </div>
   );

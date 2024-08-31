@@ -7,10 +7,9 @@
 }
 .servicesMain {
   grid-area: servicesMain;
-  background-image: url("../assets/serviceBack.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(155deg, #191971, #5d00ff, #904bff);
+  background-size: 200% 200%;
+  animation: gradientAnimation 8s ease infinite;
   width: calc(100% - 40px);
   padding: 20px;
   position: relative;
@@ -22,7 +21,7 @@
   overflow: hidden;
 }
 .h1 {
-  color: white;
+  color: rgb(224, 224, 224);
   font-size: 2.5rem;
   text-align: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -47,200 +46,57 @@
 #else .h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  color: rgb(48, 48, 48);
+  color: rgb(224, 224, 224);
   font-size: 2.5rem;
 }
 .serviceCard {
-  width: calc(30% - 20px);
+  width: calc(30% - 40px);
   aspect-ratio: 1;
   min-height: fit-content;
   display: flex;
   flex-direction: column;
-  align-items: center;
   position: relative;
   gap: 8px;
   border-radius: 8px;
-
-  --sz: 5px; /*** size ***/
-  --b1: hsla(215, 100%, 95%, 0.8);
-  --b2: hsla(215, 100%, 92%, 0.8);
-  --b3: hsla(215, 100%, 89%, 0.8);
-  --b4: hsla(215, 100%, 86%, 0.8);
-  --c1: hsla(215, 100%, 78%, 0.4);
-  --ts: 50% / calc(var(--sz) * 17.5) calc(var(--sz) * 29.5);
-  background:
-  /* black shadows */ radial-gradient(
-        circle at 50% 50%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 0% 0%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 0% 100%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 100% 0%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 100% 100%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    /* border bottom */
-      conic-gradient(
-        from 90deg at 97.5% 67%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 90deg at 97.5% 67%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    conic-gradient(
-        from 182.5deg at 2.5% 67%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 182.5deg at 2.5% 67%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /* border top */
-      conic-gradient(
-        from 270deg at 2.5% 33%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 270deg at 2.5% 33%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    conic-gradient(
-        from 2.5deg at 97.5% 33%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 2.5deg at 97.5% 33%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /* bottom */
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    conic-gradient(from 120deg at 50% 83%, var(--c1) 0 120deg, #fff0 0 100%)
-      var(--ts),
-    /* top */
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    conic-gradient(from -60deg at 50% 17%, var(--c1) 0 120deg, #fff0 0 100%)
-      var(--ts),
-    /* central gradient */
-      conic-gradient(
-        from 0deg at 50% 50%,
-        #fff0 0 2deg,
-        var(--b2) 2.5deg 57.5deg,
-        #fff0 58deg 62.5deg,
-        var(--b1) 63deg 117.5deg,
-        #fff0 118deg 122.5deg,
-        var(--b3) 123deg 177.5deg,
-        #fff0 178deg 182deg,
-        var(--b2) 182.5deg 237.5deg,
-        #fff0 0 242.5deg,
-        var(--b1) 243deg 297.5deg,
-        #fff0 298deg 302.5deg,
-        var(--b3) 303deg 357.5deg,
-        #fff0 358deg 360deg
-      )
-      var(--ts),
-    /* bg */ var(--c1);
-  padding: 10px;
+  padding: 20px;
+  background: linear-gradient(135deg, #7752ff, #577eff);
+  cursor: pointer;
+  transition: 0.4s ease;
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+}
+.serviceCard:hover, .customCard:hover{
+  transform: scale(1.02);
+  box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.4);
+}
+.serviceCard::after, .customCard::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 3px;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #a0b6ff, #c7b8ff);
+  border-radius: 8px;
 }
 .serviceCard h1,
 .customCard h1 {
   font-size: 1.8rem;
-  text-align: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   margin: 0;
-  color: rgb(48, 48, 48);
+  color: rgb(238, 238, 238);
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
 .serviceCard p,
 .customCard p {
   font-size: 1.2rem;
-  text-align: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   margin: 0;
-  color: rgb(48, 48, 48);
+  color: rgb(223, 223, 223);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  line-height: 1.8rem;
 }
 .serviceCard button,
 .customCard button {
@@ -272,177 +128,17 @@
   position: relative;
   gap: 8px;
   padding: 10px;
-
-  --sz: 5px; /*** size ***/
-  --b1: hsla(215, 100%, 95%, 0.8);
-  --b2: hsla(215, 100%, 92%, 0.8);
-  --b3: hsla(215, 100%, 89%, 0.8);
-  --b4: hsla(215, 100%, 86%, 0.8);
-  --c1: hsla(215, 100%, 78%, 0.4);
-  --ts: 50% / calc(var(--sz) * 17.5) calc(var(--sz) * 29.5);
-  background:
-  /* black shadows */ radial-gradient(
-        circle at 50% 50%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 0% 0%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 0% 100%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 100% 0%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 100% 100%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    /* border bottom */
-      conic-gradient(
-        from 90deg at 97.5% 67%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 90deg at 97.5% 67%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    conic-gradient(
-        from 182.5deg at 2.5% 67%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 182.5deg at 2.5% 67%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /* border top */
-      conic-gradient(
-        from 270deg at 2.5% 33%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 270deg at 2.5% 33%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    conic-gradient(
-        from 2.5deg at 97.5% 33%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 2.5deg at 97.5% 33%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /* bottom */
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    conic-gradient(from 120deg at 50% 83%, var(--c1) 0 120deg, #fff0 0 100%)
-      var(--ts),
-    /* top */
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    conic-gradient(from -60deg at 50% 17%, var(--c1) 0 120deg, #fff0 0 100%)
-      var(--ts),
-    /* central gradient */
-      conic-gradient(
-        from 0deg at 50% 50%,
-        #fff0 0 2deg,
-        var(--b2) 2.5deg 57.5deg,
-        #fff0 58deg 62.5deg,
-        var(--b1) 63deg 117.5deg,
-        #fff0 118deg 122.5deg,
-        var(--b3) 123deg 177.5deg,
-        #fff0 178deg 182deg,
-        var(--b2) 182.5deg 237.5deg,
-        #fff0 0 242.5deg,
-        var(--b1) 243deg 297.5deg,
-        #fff0 298deg 302.5deg,
-        var(--b3) 303deg 357.5deg,
-        #fff0 358deg 360deg
-      )
-      var(--ts),
-    /* bg */ var(--c1);
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #7752ff, #577eff);
+  cursor: pointer;
+  transition: 0.4s ease;
+  border-radius: 8px;
 }
 .learnMoreCont {
   display: flex;
   flex-direction: column;
   position: relative;
-  background-image: url("../assets/serviceBack.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(155deg, #22229a, #4116db, #5c56ff);
   width: calc(100% - 100px);
   height: 100vh;
   min-height: fit-content;
@@ -452,7 +148,7 @@
   font-size: 1.4rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  color: rgb(48, 48, 48);
+  color: white;
   text-decoration: none;
   cursor: pointer;
   position: absolute;
@@ -461,10 +157,10 @@
   transition: 0.2s;
 }
 .learnMoreCont .back:hover {
-  color: rgb(81, 81, 81);
+  color: rgb(200, 200, 200);
 }
 .learnMoreCont .moreH1 {
-  color: rgb(48, 48, 48);
+  color: rgb(222, 222, 222);
   font-size: 2.5rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -472,19 +168,22 @@
   margin-top: 120px;
   width: 100%;
   margin-bottom: 15px;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
 .learnMoreCont p {
-  color: rgb(48, 48, 48);
+  color: rgb(234, 234, 234);
   font-size: 1.5rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   margin: 0;
   width: 60%;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 }
 .ml2 a {
-  color: #4c65af;
+  color: #64a7ff;
   text-decoration: none;
   cursor: pointer;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 .ml2 a:hover {
   text-decoration: underline;
@@ -493,14 +192,14 @@
   opacity: 0;
 }
 .learnMoreCont .ul h1 {
-  color: rgb(48, 48, 48);
+  color: rgb(222, 222, 222);
   font-size: 1.8rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   margin: 0;
 }
 .learnMoreCont .ul li {
-  color: rgb(48, 48, 48);
+  color: rgb(190, 190, 190);
   font-size: 1.2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -529,175 +228,14 @@
   right: 5%;
   top: 210px;
   padding: 10px 0;
-
-  --sz: 5px; /*** size ***/
-  --b1: hsla(215, 100%, 95%, 0.8);
-  --b2: hsla(215, 100%, 92%, 0.8);
-  --b3: hsla(215, 100%, 89%, 0.8);
-  --b4: hsla(215, 100%, 86%, 0.8);
-  --c1: hsla(215, 100%, 78%, 0.4);
-  --ts: 50% / calc(var(--sz) * 17.5) calc(var(--sz) * 29.5);
-  background:
-    /* black shadows */ radial-gradient(
-        circle at 50% 50%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 0% 0%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 0% 100%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 100% 0%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 100% 100%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    /* border bottom */
-      conic-gradient(
-        from 90deg at 97.5% 67%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 90deg at 97.5% 67%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    conic-gradient(
-        from 182.5deg at 2.5% 67%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 182.5deg at 2.5% 67%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /* border top */
-      conic-gradient(
-        from 270deg at 2.5% 33%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 270deg at 2.5% 33%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    conic-gradient(
-        from 2.5deg at 97.5% 33%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 2.5deg at 97.5% 33%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /* bottom */
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    conic-gradient(from 120deg at 50% 83%, var(--c1) 0 120deg, #fff0 0 100%)
-      var(--ts),
-    /* top */
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    conic-gradient(from -60deg at 50% 17%, var(--c1) 0 120deg, #fff0 0 100%)
-      var(--ts),
-    /* central gradient */
-      conic-gradient(
-        from 0deg at 50% 50%,
-        #fff0 0 2deg,
-        var(--b2) 2.5deg 57.5deg,
-        #fff0 58deg 62.5deg,
-        var(--b1) 63deg 117.5deg,
-        #fff0 118deg 122.5deg,
-        var(--b3) 123deg 177.5deg,
-        #fff0 178deg 182deg,
-        var(--b2) 182.5deg 237.5deg,
-        #fff0 0 242.5deg,
-        var(--b1) 243deg 297.5deg,
-        #fff0 298deg 302.5deg,
-        var(--b3) 303deg 357.5deg,
-        #fff0 358deg 360deg
-      )
-      var(--ts),
-    /* bg */ var(--c1);
+  background: linear-gradient(135deg, #7752ff, #577eff);
 }
 .managementCard h1 {
   font-size: 1.8rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   margin: 0;
-  color: rgb(48, 48, 48);
+  color: rgb(222, 222, 222);
 }
 .managementCard h3 {
   font-size: 1.6rem;
@@ -745,7 +283,7 @@
     "Lucida Sans", Arial, sans-serif;
   margin: 0;
   opacity: 0;
-  color: white;
+  color: rgb(255, 255, 255);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   width: 100%;
 }
@@ -778,6 +316,7 @@
   justify-content: center;
   align-items: center;
   perspective: 1000px;
+  opacity: 0;
 }
 .managementCard .option * {
   backface-visibility: hidden;
@@ -834,7 +373,7 @@
   font-size: 2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  color: rgb(48, 48, 48);
+  color: rgb(222, 222, 222);
   margin: 0;
   margin-left: 50px;
   position: absolute;
@@ -853,175 +392,19 @@
   gap: 5px;
   position: relative;
   opacity: 0;
-  box-shadow: inset 0 0 20px 10px rgba(255, 255, 255, 1);
-
-  --sz: 3px; /*** size ***/
-  --b1: hsla(215, 100%, 95%, 0.8);
-  --b2: hsla(215, 100%, 92%, 0.8);
-  --b3: hsla(215, 100%, 89%, 0.8);
-  --b4: hsla(215, 100%, 86%, 0.8);
-  --c1: hsla(215, 100%, 78%, 0.4);
-  --ts: 50% / calc(var(--sz) * 17.5) calc(var(--sz) * 29.5);
-  background: 
-    /* black shadows */ radial-gradient(
-        circle at 50% 50%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 0% 0%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 0% 100%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 100% 0%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    radial-gradient(
-        circle at 100% 100%,
-        var(--b4) calc(var(--sz) * 1),
-        #fff0 calc(var(--sz) * 8)
-      )
-      var(--ts),
-    /* border bottom */
-      conic-gradient(
-        from 90deg at 97.5% 67%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 90deg at 97.5% 67%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    conic-gradient(
-        from 182.5deg at 2.5% 67%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 182.5deg at 2.5% 67%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /* border top */
-      conic-gradient(
-        from 270deg at 2.5% 33%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 270deg at 2.5% 33%,
-        var(--c1) 0 87.5deg,
-        #fff0 88deg 100%
-      )
-      var(--ts),
-    conic-gradient(
-        from 2.5deg at 97.5% 33%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 2.5deg at 97.5% 33%,
-        #fff0 0 0deg,
-        var(--c1) 0.5deg 90deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /* bottom */
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from 116.5deg at 50% 85.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    conic-gradient(from 120deg at 50% 83%, var(--c1) 0 120deg, #fff0 0 100%)
-      var(--ts),
-    /* top */
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    /*repeated*/
-      conic-gradient(
-        from -63.5deg at 50% 14.5%,
-        var(--b1) 0 127deg,
-        #fff0 0 100%
-      )
-      var(--ts),
-    conic-gradient(from -60deg at 50% 17%, var(--c1) 0 120deg, #fff0 0 100%)
-      var(--ts),
-    /* central gradient */
-      conic-gradient(
-        from 0deg at 50% 50%,
-        #fff0 0 2deg,
-        var(--b2) 2.5deg 57.5deg,
-        #fff0 58deg 62.5deg,
-        var(--b1) 63deg 117.5deg,
-        #fff0 118deg 122.5deg,
-        var(--b3) 123deg 177.5deg,
-        #fff0 178deg 182deg,
-        var(--b2) 182.5deg 237.5deg,
-        #fff0 0 242.5deg,
-        var(--b1) 243deg 297.5deg,
-        #fff0 298deg 302.5deg,
-        var(--b3) 303deg 357.5deg,
-        #fff0 358deg 360deg
-      )
-      var(--ts),
-    /* bg */ var(--c1);
+  box-shadow: inset 0 0 10px 4px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #7752ff, #577eff);
 }
-.serviceCardList .list hr {
-  margin: 0 auto;
-  width: 50%;
-  border-radius: 2px;
-  border: 2.5px solid rgba(48, 48, 48, 0.8);
+.serviceCardList .list::after{
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 3px;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #a0b6ff, #c7b8ff);
+  border-radius: 8px;
 }
 .serviceCardList .list h1 {
   font-size: 1.6rem;
@@ -1029,13 +412,13 @@
     "Lucida Sans", Arial, sans-serif;
   margin: 0;
   text-align: center;
-  color: rgb(48, 48, 48);
+  color: rgb(222, 222, 222);
 }
 .serviceCardList .list a {
   font-size: 1.2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  color: #4c65af;
+  color: #96b0ff;
   text-decoration: none;
   cursor: pointer;
   position: absolute;
@@ -1056,5 +439,19 @@
   100% {
     opacity: 1;
     top: 0;
+  }
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 20%;
+  }
+  25% {
+    background-position: 40% 60%;
+  }
+  50% {
+    background-position: 60% 100%;
+  }
+  100% {
+    background-position: 0% 20%;
   }
 }

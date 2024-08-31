@@ -58,13 +58,7 @@ const HomePage = ({
       pElement.style.animation = "fadeIn 1.2s ease-out forwards";
       pElement.style.animationDelay = "1.3s";
       setTimeout(() => {
-        const lines = document.querySelectorAll(".ml3 .line");
-        titleStyling.current = [
-          1,
-          "-0.625em",
-          "0.625em",
-          0,
-        ];
+        titleStyling.current = [1, "-0.625em", "0.625em", 0];
       }, 2000);
       textAniActive.current = true;
     }
@@ -75,9 +69,12 @@ const HomePage = ({
       const ampersand = document.querySelector(".ml3 .ampersand");
       const lettersLeft = document.querySelector(".ml3 .letters-left");
       const lettersRight = document.querySelector(".ml3 .letters-right");
+      const forYou = document.querySelector("#mainTextCont p");
       ml3.forEach((line, i) => {
         line.style.opacity = titleStyling.current[0];
-        line.style.transform = `scaleX(${titleStyling.current[0]}) translateY(${titleStyling.current[i + 1]})`;
+        line.style.transform = `scaleX(${titleStyling.current[0]}) translateY(${
+          titleStyling.current[i + 1]
+        })`;
       });
       ampersand.style.opacity = titleStyling.current[0];
       ampersand.style.transform = `scaleY(${titleStyling.current[0]})`;
@@ -85,11 +82,9 @@ const HomePage = ({
       lettersLeft.style.transform = `translateX(${titleStyling.current[3]})`;
       lettersRight.style.opacity = titleStyling.current[0];
       lettersRight.style.transform = `translateX(${titleStyling.current[3]})`;
+      forYou.style.opacity = titleStyling.current[0];
     }
-    const asideInfo = document.querySelector(".homeAsideInfo");
     const cards = document.querySelectorAll(".card");
-    asideInfo.style.left = asideStyleInfo.current[0];
-    asideInfo.style.opacity = asideStyleInfo.current[1];
     cards.forEach((card) => {
       card.style.top = cardStyleInfo.current[0];
       card.style.opacity = cardStyleInfo.current[1];
@@ -99,12 +94,8 @@ const HomePage = ({
 
   window.onscroll = () => {
     // When scrolling, animate the aside info
-    const asideInfo = document.querySelector(".homeAsideInfo");
     const cards = document.querySelectorAll(".card");
     if (window.scrollY > 156 && !homeAsideInfoAniActive.current) {
-      asideInfo.style.animation = "widthExpand 1.2s ease-out forwards";
-      asideStyleInfo.current = ["0", "1"];
-      homeAsideInfoAniActive.current = true;
     }
     // When scrolling, animate the cards
     if (window.scrollY > 1110 && !cardsAniActive.current) {
@@ -154,57 +145,79 @@ const HomePage = ({
         </div>
       </main>
       <div className="divider"></div>
-      <aside className="homeAsideInfo">
-        <div id="offeringsList">
-          <h1>We Offer</h1>
-          <ul>
-            <li>Web Design</li>
-            <li>Web Development</li>
-            <li>SEO Optimization</li>
-            <li>Web Hosting</li>
-            <li>Web Maintenance</li>
-            <li>and more...</li>
-          </ul>
+      <main className="homeAboutMain">
+        <article className="servicesCampaign">
+          <div>
+            <img src="webIcon.svg" alt="Web Icon" />
+          </div>
+          <div>
+            <h1>Find Exactly What You Need Today</h1>
+            <p className="p">
+              With our expertise, we can get you the website that you need.
+              Check out all of the services we offer and learn more about us.
+            </p>
+            <button onClick={() => setCurrentPage("Services")}>
+              <p>Our Services</p>
+            </button>
+          </div>
+        </article>
+        <article className="mainAbout">
+          <h1>About Us</h1>
           <p>
-            Creating websites that make an impact are our specialty. We offer
-            everything that a website needs to be successful, all to make it
-            easy for you.
+            We are a national organization specializing in website design and
+            development, dedicated to delivering exceptional digital solutions.
+            With years of experience, we deeply understand the importance of a
+            successful online presence. Our team excels at crafting websites
+            that not only captivate and engage audiences but also drive
+            meaningful impact in today's digital landscape. We believe in
+            empowering our clients to make a difference, and we're here to
+            ensure your website becomes a powerful tool for your success.
           </p>
-        </div>
-      </aside>
-      <main className="homeMainInfo">
-        <hr />
-        <h1>A Little About Us</h1>
-        <p>
-          We want to make the best website for your needs. We are prepared to do
-          what is necessary to make you love your new website. With friendly
-          support and communication, we are ready to hear you out to understand
-          what you need. With quick and efficient work, we will make sure you
-          get what you want, when you want it.
-        </p>
-        <a onClick={() => setCurrentPage("About")}>Learn More</a>
-        <hr />
+          <button
+            className="aboutLearnBtn"
+            onClick={() => setCurrentPage("About")}
+          >
+            <p id="text">Learn More</p>
+          </button>
+        </article>
+        <article className="homeBase">
+          <h1>Home Base</h1>
+          <p className="p">
+            Located in Raleigh, North Carolina, we proudly extend our services
+            beyond state lines, reaching clients across the entire United
+            States. Our team operates on Eastern Time (EST) and is available
+            throughout the business week, ensuring we're here to support your
+            needs no matter where you're located.
+          </p>
+          <h3 className="time">
+            Our Time: <p className="timeNum">{time}</p>
+          </h3>
+        </article>
+        <article className="offerings">
+          <div className="left"></div>
+          <div className="right">
+            <ul>
+              <h1>What We Offer You</h1>
+              <li>Website Development</li>
+              <li>Website Design</li>
+              <li>Website Hosting</li>
+              <li>Website SEO</li>
+              <li>Website Maintenance</li>
+              <li>And more...</li>
+            </ul>
+          </div>
+        </article>
+        <article className="callNow">
+          <h1>Call or Text Now!</h1>
+          <h1 id="phone">
+            <a href="tel:+12528763653">(252)-876-3653</a>
+          </h1>
+          <p>For more information about your website</p>
+        </article>
       </main>
-      <div className="location">
-        <h1>Home Base</h1>
-        <p className="text">
-          Currently based in Raleigh, North Carolina, we proudly serve clients
-          across the entire United States. Operating in the Eastern Time Zone
-          (EST), our team is dedicated to providing exceptional support no
-          matter where you are. We are committed to assisting you to the best of
-          our ability, wherever you may be located.
-        </p>
-        <p className="time">
-          Our Time: <time>{time}</time>
-        </p>
-        <div className="img"></div>
-      </div>
       <div className="pricing">
         <h1 id="faqTitle">FAQs</h1>
         <div className="card">
-          <div className="bar">
-            <hr />
-          </div>
           <h1 className="faqHeader">Why Do I Need a Website?</h1>
           <p>
             Having a website to represent you or your business can help direct
@@ -213,25 +226,18 @@ const HomePage = ({
           </p>
         </div>
         <div className="card">
-          <div className="bar">
-            <hr />
-          </div>
+          <h1 className="faqHeader">How Much Will It Cost?</h1>
+          <p>
+            The cost of the website is also very dependent on the result you
+            want. A base website will usually cost <u>$229.99.</u>
+          </p>
+        </div>
+        <div className="card">
           <h1 className="faqHeader">How Long Will It Take?</h1>
           <p>
             The time it will take heavily depends on the website you're looking
             for. A typical website will take around <u>2-4 weeks</u> to be fully
             completed and optimized.
-          </p>
-        </div>
-        <div className="card">
-          <div className="bar">
-            <hr />
-          </div>
-          <h1 className="faqHeader">How Much Will It Cost?</h1>
-          <p>
-            The cost of the website also heavily revolves around the result you
-            want. Including creation, optimization, and hosting, the average
-            website will cost around <u>$229.99.</u>
           </p>
         </div>
       </div>
