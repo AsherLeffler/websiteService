@@ -19,7 +19,7 @@ const RevComponent = ({ review }) => {
     setStarsDisplay(findStars());
   }, []);
   return (
-    <div>
+    <div className="div">
       <h1>
         {review.name} {starsDisplay}
       </h1>

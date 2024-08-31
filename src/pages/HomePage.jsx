@@ -146,6 +146,21 @@ const HomePage = ({
       </main>
       <div className="divider"></div>
       <main className="homeAboutMain">
+        <article className="servicesCampaign">
+          <div>
+            <img src="webIcon.svg" alt="Web Icon" />
+          </div>
+          <div>
+            <h1>Find Exactly What You Need Today</h1>
+            <p className="p">
+              With our expertise, we can get you the website that you need.
+              Check out all of the services we offer and learn more about us.
+            </p>
+            <button onClick={() => setCurrentPage("Services")}>
+              <p>Our Services</p>
+            </button>
+          </div>
+        </article>
         <article className="mainAbout">
           <h1>About Us</h1>
           <p>
@@ -174,14 +189,15 @@ const HomePage = ({
             throughout the business week, ensuring we're here to support your
             needs no matter where you're located.
           </p>
-          <h3 className="time">Our Time: <p className="timeNum">{time}</p></h3>
+          <h3 className="time">
+            Our Time: <p className="timeNum">{time}</p>
+          </h3>
         </article>
         <article className="offerings">
-          <div className="left">
-          </div>
+          <div className="left"></div>
           <div className="right">
             <ul>
-            <h1>What We Offer You</h1>
+              <h1>What We Offer You</h1>
               <li>Website Development</li>
               <li>Website Design</li>
               <li>Website Hosting</li>
