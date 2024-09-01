@@ -301,29 +301,23 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
           </p>
           <div className="serviceCardList">
             <h1 className="listTitle">All of Our Services:</h1>
-            <div className="list">
+            <div className="list" onClick={() => setLearning("desDev")}>
               <h1>Web Design + Development</h1>
-              <a onClick={() => setLearning("desDev")}>More Information</a>
             </div>
-            <div className="list">
+            <div className="list" onClick={() => setLearning("redesign")}>
               <h1>Web Redesign</h1>
-              <a onClick={() => setLearning("redesign")}>More Information</a>
             </div>
-            <div className="list">
+            <div className="list" onClick={() => setLearning("devDes")}>
               <h1>Web Development From Design</h1>
-              <a onClick={() => setLearning("devDes")}>More Information</a>
             </div>
-            <div className="list">
+            <div className="list" onClick={() => setLearning("SEO")}>
               <h1>SEO Optimization</h1>
-              <a onClick={() => setLearning("SEO")}>More Information</a>
             </div>
-            <div className="list">
+            <div className="list" onClick={() => setLearning("hosting")}>
               <h1>Web Hosting</h1>
-              <a onClick={() => setLearning("hosting")}>More Information</a>
             </div>
-            <div className="list">
+            <div className="list" onClick={() => setLearning("maintenance")}>
               <h1>Web Maintenance</h1>
-              <a onClick={() => setLearning("maintenance")}>More Information</a>
             </div>
           </div>
         </main>

@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "animate.css";
 
-const HomePage = ({
-  textAniActive,
-  homeAsideInfoAniActive,
-  setCurrentPage,
-  asideStyleInfo,
-  cardStyleInfo,
-  cardsAniActive,
-  titleStyling,
-}) => {
+const HomePage = ({ info }) => {
   // When the page loads, animate the text
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    if (!textAniActive.current) {
+    if (!info[0].current) {
       anime
         .timeline({ loop: false })
         .add({
@@ -58,54 +50,68 @@ const HomePage = ({
       pElement.style.animation = "fadeIn 1.2s ease-out forwards";
       pElement.style.animationDelay = "1.3s";
       setTimeout(() => {
-        titleStyling.current = [1, "-0.625em", "0.625em", 0];
+        info[6].current = [1, "-0.625em", "0.625em", 0];
       }, 2000);
-      textAniActive.current = true;
+      info[0].current = true;
     }
 
     // Add previous styles to animated elements
-    if (titleStyling.current.length !== 0) {
+    if (info[6].current.length !== 0) {
       const ml3 = document.querySelectorAll(".ml3 .line");
       const ampersand = document.querySelector(".ml3 .ampersand");
       const lettersLeft = document.querySelector(".ml3 .letters-left");
       const lettersRight = document.querySelector(".ml3 .letters-right");
       const forYou = document.querySelector("#mainTextCont p");
       ml3.forEach((line, i) => {
-        line.style.opacity = titleStyling.current[0];
-        line.style.transform = `scaleX(${titleStyling.current[0]}) translateY(${
-          titleStyling.current[i + 1]
+        line.style.opacity = info[6].current[0];
+        line.style.transform = `scaleX(${info[6].current[0]}) translateY(${
+          info[6].current[i + 1]
         })`;
       });
-      ampersand.style.opacity = titleStyling.current[0];
-      ampersand.style.transform = `scaleY(${titleStyling.current[0]})`;
-      lettersLeft.style.opacity = titleStyling.current[0];
-      lettersLeft.style.transform = `translateX(${titleStyling.current[3]})`;
-      lettersRight.style.opacity = titleStyling.current[0];
-      lettersRight.style.transform = `translateX(${titleStyling.current[3]})`;
-      forYou.style.opacity = titleStyling.current[0];
+      ampersand.style.opacity = info[6].current[0];
+      ampersand.style.transform = `scaleY(${info[6].current[0]})`;
+      lettersLeft.style.opacity = info[6].current[0];
+      lettersLeft.style.transform = `translateX(${info[6].current[3]})`;
+      lettersRight.style.opacity = info[6].current[0];
+      lettersRight.style.transform = `translateX(${info[6].current[3]})`;
+      forYou.style.opacity = info[6].current[0];
     }
+    const offeringsList = document.querySelectorAll(".offerings ul li");
+    offeringsList.forEach((li) => {
+      li.style.opacity = info[8].current;
+    });
     const cards = document.querySelectorAll(".card");
     cards.forEach((card) => {
-      card.style.top = cardStyleInfo.current[0];
-      card.style.opacity = cardStyleInfo.current[1];
+      card.style.top = info[5].current[0];
+      card.style.opacity = info[5].current[1];
     });
     return;
   }, []);
 
   window.onscroll = () => {
-    // When scrolling, animate the aside info
+    console.log(window.scrollY);
     const cards = document.querySelectorAll(".card");
-    if (window.scrollY > 156 && !homeAsideInfoAniActive.current) {
+
+    if (window.scrollY > 1365 && !info[7].current) {
+      anime({
+        targets: ".offerings ul li",
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 800,
+        delay: (_, i) => 80 * i,
+      });
+      info[7].current = true;
+      info[8].current = 1;
     }
     // When scrolling, animate the cards
-    if (window.scrollY > 1110 && !cardsAniActive.current) {
+    if (window.scrollY > 1965 && !info[2].current) {
       cards.forEach((card, index) => {
         card.style.animation = `cardSlideIn 1.2s ease-out ${
           index / 2
         }s forwards`;
-        cardStyleInfo.current = ["5%", "1"];
+        info[5].current = ["5%", "1"];
       });
-      cardsAniActive.current = true;
+      info[2].current = true;
     }
   };
 
@@ -190,7 +196,7 @@ const HomePage = ({
             needs no matter where you're located.
           </p>
           <h3 className="time">
-            Our Time: <p className="timeNum">{time}</p>
+            Our Time: <time className="timeNum">{time}</time>
           </h3>
         </article>
         <article className="offerings">

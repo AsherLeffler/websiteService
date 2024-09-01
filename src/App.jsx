@@ -16,6 +16,8 @@ function App() {
   const cardStyleInfo = useRef(["25%", "0"]);
   const aboutPartStyleInfo = useRef(["25%", "0"]);
   const titleStyling = useRef([]);
+  const offeringsAniActive = useRef(false);
+  const offeringsStyleInfo = useRef(0);
 
   // Set the service you want to learn more about
   const [learning, setLearning] = useState("default");
@@ -26,13 +28,17 @@ function App() {
       case "Home":
         return (
           <HomePage
-            textAniActive={textAniActive}
-            homeAsideInfoAniActive={homeAsideInfoAniActive}
-            cardsAniActive={cardsAniActive}
-            setCurrentPage={setCurrentPage}
-            asideStyleInfo={asideStyleInfo}
-            cardStyleInfo={cardStyleInfo}
-            titleStyling={titleStyling}
+            info={[
+              textAniActive,
+              homeAsideInfoAniActive,
+              cardsAniActive,
+              setCurrentPage,
+              asideStyleInfo,
+              cardStyleInfo,
+              titleStyling,
+              offeringsAniActive,
+              offeringsStyleInfo,
+            ]}
           />
         );
       case "About":

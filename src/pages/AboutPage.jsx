@@ -81,7 +81,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
       !acceptedEmails.includes(document.getElementById("email").value)
     ) {
       event.preventDefault();
-      alert("You cannot write a review.");
+      alert("You need to have purchased a service before writing a review.");
       return;
     } else {
       event.preventDefault();

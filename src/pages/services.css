@@ -7,8 +7,10 @@
 }
 .servicesMain {
   grid-area: servicesMain;
-  background: linear-gradient(155deg, #191971, #5d00ff, #904bff);
-  background-size: 200% 200%;
+  background-image: url("mesh-gradientAbout.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   animation: gradientAnimation 8s ease infinite;
   width: calc(100% - 40px);
   padding: 20px;
@@ -59,16 +61,21 @@
   gap: 8px;
   border-radius: 8px;
   padding: 20px;
-  background: linear-gradient(135deg, #7752ff, #577eff);
   cursor: pointer;
+  background-image: url("mesh-card.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   transition: 0.4s ease;
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
 }
-.serviceCard:hover, .customCard:hover{
+.serviceCard:hover,
+.customCard:hover {
   transform: scale(1.02);
   box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.4);
 }
-.serviceCard::after, .customCard::after {
+.serviceCard::after,
+.customCard::after {
   content: "";
   position: absolute;
   width: 80%;
@@ -98,26 +105,6 @@
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   line-height: 1.8rem;
 }
-.serviceCard button,
-.customCard button {
-  font-size: 1.2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 2px solid rgb(0, 157, 255);
-  background-color: rgb(0, 157, 255);
-  color: white;
-  cursor: pointer;
-  transition: 0.15s;
-  position: absolute;
-  bottom: 35px;
-}
-.serviceCard button:hover,
-.customCard button:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: rgb(0, 157, 255);
-}
 .customCard {
   width: calc(90% + 50px);
   height: 180px;
@@ -129,7 +116,10 @@
   gap: 8px;
   padding: 10px;
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
-  background: linear-gradient(135deg, #7752ff, #577eff);
+  background-image: url("darkenedFAQImg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   cursor: pointer;
   transition: 0.4s ease;
   border-radius: 8px;
@@ -138,7 +128,10 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  background: linear-gradient(155deg, #22229a, #4116db, #5c56ff);
+  background-image: url("mesh-gradientAbout.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   width: calc(100% - 100px);
   height: 100vh;
   min-height: fit-content;
@@ -228,7 +221,10 @@
   right: 5%;
   top: 210px;
   padding: 10px 0;
-  background: linear-gradient(135deg, #7752ff, #577eff);
+  background-image: url("mesh-card.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .managementCard h1 {
   font-size: 1.8rem;
@@ -347,15 +343,15 @@
   transform: rotateY(180deg);
 }
 .managementCard .option:nth-of-type(2) {
-  background-color: rgba(255, 166, 0, 0.8);
+  background-color: rgba(255, 166, 0, 0.6);
   border: 4px solid rgba(255, 166, 0, 1);
 }
 .managementCard .option:nth-of-type(3) {
-  background-color: rgba(82, 255, 55, 0.8);
+  background-color: rgba(82, 255, 55, 0.6);
   border: 4px solid rgba(82, 255, 55, 1);
 }
 .managementCard .option:nth-of-type(4) {
-  background-color: rgba(49, 183, 255, 0.8);
+  background-color: rgba(49, 183, 255, 0.6);
   border: 4px solid rgba(49, 183, 255, 1);
 }
 .serviceCardList {
@@ -393,9 +389,18 @@
   position: relative;
   opacity: 0;
   box-shadow: inset 0 0 10px 4px rgba(255, 255, 255, 0.2);
-  background: linear-gradient(135deg, #7752ff, #577eff);
+  background-image: url("mesh-card.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
-.serviceCardList .list::after{
+.serviceCardList .list:hover {
+  box-shadow: inset 0 0 10px 4px rgba(255, 255, 255, 0.4);
+  scale: 1.03;
+}
+.serviceCardList .list::after {
   content: "";
   position: absolute;
   width: 80%;
@@ -414,20 +419,6 @@
   text-align: center;
   color: rgb(222, 222, 222);
 }
-.serviceCardList .list a {
-  font-size: 1.2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: #96b0ff;
-  text-decoration: none;
-  cursor: pointer;
-  position: absolute;
-  bottom: 10px;
-  font-weight: bolder;
-}
-.serviceCardList .list a:hover {
-  text-decoration: underline;
-}
 @keyframes cardsRise {
   0% {
     opacity: 0;
@@ -443,15 +434,15 @@
 }
 @keyframes gradientAnimation {
   0% {
-    background-position: 0% 20%;
+    background-position: 0% 50%;
   }
   25% {
     background-position: 40% 60%;
   }
   50% {
-    background-position: 60% 100%;
+    background-position: 60% 40%;
   }
   100% {
-    background-position: 0% 20%;
+    background-position: 0% 50%;
   }
 }

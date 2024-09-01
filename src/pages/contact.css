@@ -34,7 +34,7 @@
   padding-top: 40px;
   border-radius: 40px;
   background: transparent;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .contactMain form h1 {
   font-size: 2.5rem;
@@ -50,14 +50,14 @@
   height: 35px;
   font-size: 1.15rem;
   padding: 5px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
 }
 .contactMain form select {
   width: 60%;
   min-width: fit-content;
   padding: 10px;
   border-radius: 5px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   cursor: pointer;
   border: 2px solid goldenrod;
   text-align: center;
@@ -171,7 +171,7 @@
 .label2,
 .label3,
 .label4 {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   transition: 0.1s;
 }
 #custom1:checked + .label1 {
@@ -241,7 +241,7 @@
 .contactMain form textarea {
   resize: none;
   border: 2px solid goldenrod;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   width: 60%;
   height: 80px;
@@ -252,7 +252,7 @@
 .contactMain form button {
   padding: 12px 100px;
   border-radius: 6px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   color: goldenrod;
   border: 2px solid goldenrod;
   cursor: pointer;
