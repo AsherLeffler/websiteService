@@ -48,7 +48,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
         .add({
           targets: [".ml2 .letter1", ".learnMoreCont .ul"],
           opacity: [0, 1],
-          translateZ: 0,
+          translateY: [20, 0],
           easing: "easeOutExpo",
           duration: 1200,
         })
@@ -105,7 +105,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
           setTimeout(() => {
             setCanFlip(true);
           }, 2500);
-        }, 3000);
+        }, 2000);
       } else if (learning === "custom") {
         setTimeout(() => {
           anime
@@ -275,6 +275,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
           </p>
           <ul className="ul">
             <h1>What you get:</h1>
+            <li>Three page website</li>
             <li>A unique website design</li>
             <li>A fully functional and responsive site</li>
             <li>Showcase your chosen content</li>

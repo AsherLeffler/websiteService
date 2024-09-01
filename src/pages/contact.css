@@ -35,6 +35,7 @@
   border-radius: 40px;
   background: transparent;
   background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
 }
 .contactMain form h1 {
   font-size: 2.5rem;
@@ -78,10 +79,11 @@
   width: 20px;
   height: 20px;
   border: 2px solid goldenrod;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   cursor: pointer;
   transition: 0.1s;
-  left: 80px;
+  left: 48px;
 }
 .seoCheckLabel i {
   display: none;
@@ -96,6 +98,16 @@
   right: 28px;
   top: 50%;
   transform: translateY(-50%);
+  font-size: 1.15rem;
+  cursor: default;
+}
+.seoCheckLabel::after{
+  content: "$39.99";
+  position: absolute;
+  top: 50%;
+  left: 28px;
+  transform: translateY(-50%);
+  width: max-content;
   font-size: 1.15rem;
   cursor: default;
 }

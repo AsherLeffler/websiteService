@@ -89,29 +89,29 @@ const HomePage = ({ info }) => {
   }, []);
 
   window.onscroll = () => {
-    console.log(window.scrollY);
     const cards = document.querySelectorAll(".card");
-
-    if (window.scrollY > 1365 && !info[7].current) {
-      anime({
-        targets: ".offerings ul li",
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 800,
-        delay: (_, i) => 80 * i,
-      });
-      info[7].current = true;
-      info[8].current = 1;
-    }
-    // When scrolling, animate the cards
-    if (window.scrollY > 1965 && !info[2].current) {
-      cards.forEach((card, index) => {
-        card.style.animation = `cardSlideIn 1.2s ease-out ${
-          index / 2
-        }s forwards`;
-        info[5].current = ["5%", "1"];
-      });
-      info[2].current = true;
+    if (cards) {
+      if (window.scrollY > 1365 && !info[7].current) {
+        anime({
+          targets: ".offerings ul li",
+          opacity: [0, 1],
+          translateY: [20, 0],
+          duration: 800,
+          delay: (_, i) => 80 * i,
+        });
+        info[7].current = true;
+        info[8].current = 1;
+      }
+      // When scrolling, animate the cards
+      if (window.scrollY > 1965 && !info[2].current) {
+        cards.forEach((card, index) => {
+          card.style.animation = `cardSlideIn 1.2s ease-out ${
+            index / 2
+          }s forwards`;
+          info[5].current = ["5%", "1"];
+        });
+        info[2].current = true;
+      }
     }
   };
 
@@ -150,7 +150,6 @@ const HomePage = ({ info }) => {
           </p>
         </div>
       </main>
-      <div className="divider"></div>
       <main className="homeAboutMain">
         <article className="servicesCampaign">
           <div>
@@ -160,7 +159,8 @@ const HomePage = ({ info }) => {
             <h1>Find Exactly What You Need Today</h1>
             <p className="p">
               With our expertise, we can get you the website that you need.
-              Check out all of the services we offer and learn more about us.
+              Utilize our services so you can reach your full potential. <br />
+              Check out everything we offer and learn more about us.
             </p>
             <button onClick={() => setCurrentPage("Services")}>
               <p>Our Services</p>
@@ -189,11 +189,13 @@ const HomePage = ({ info }) => {
         <article className="homeBase">
           <h1>Home Base</h1>
           <p className="p">
-            Located in Raleigh, North Carolina, we proudly extend our services
-            beyond state lines, reaching clients across the entire United
-            States. Our team operates on Eastern Time (EST) and is available
-            throughout the business week, ensuring we're here to support your
-            needs no matter where you're located.
+            Located in Raleigh, North Carolina, we proudly extend our
+            exceptional services across the entire United States. No matter
+            where you are, our expertise is just a call or click away. Operating
+            on Eastern Time (EST), our team is available throughout the business
+            week, ready to partner with you and deliver top-notch services that
+            exceed expectations. Your success is our priority, and we're always
+            here to assist, regardless of your location or time zone.
           </p>
           <h3 className="time">
             Our Time: <time className="timeNum">{time}</time>

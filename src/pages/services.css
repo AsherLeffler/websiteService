@@ -116,9 +116,9 @@
   gap: 8px;
   padding: 10px;
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
-  background-image: url("darkenedFAQImg.png");
+  background-image: url("mesh-card.png");
   background-size: cover;
-  background-position: center;
+  background-position: 100% 80%;
   background-repeat: no-repeat;
   cursor: pointer;
   transition: 0.4s ease;

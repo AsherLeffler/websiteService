@@ -17,29 +17,27 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
 
   // When scrolling past parts, animate them
   window.onscroll = () => {
-    const aboutNumber = document.querySelector(".aboutNumber");
-    if (window.scrollY > 860 && !aboutNumber.style.animation) {
-      aboutNumber.style.animation = "fadeIn 1.2s ease-out forwards";
-    }
     const otherTexts = document.querySelectorAll(".article1");
-    if (window.scrollY > 257 && !otherTexts[0].style.animation) {
-      otherTexts[0].style.animation = "rise3 1.4s ease-out forwards";
-    }
-    if (window.scrollY > 480 && !otherTexts[1].style.animation) {
-      otherTexts[1].style.animation = "rise3 1.4s ease-out forwards";
+    if (otherTexts.length !== 0) {
+      if (window.scrollY > 257 && !otherTexts[0].style.animation) {
+        otherTexts[0].style.animation = "rise3 1.4s ease-out forwards";
+      }
+      if (window.scrollY > 480 && !otherTexts[1].style.animation) {
+        otherTexts[1].style.animation = "rise3 1.4s ease-out forwards";
+      }
     }
   };
 
   // Review data
 
-    /* Template
+  /* Template
         {
           name: "Name",
           rating: #,
           review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           }
     */
-   
+
   const reviews = useRef([]);
 
   // About page state

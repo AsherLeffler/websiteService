@@ -10,6 +10,14 @@ const ContactPage = () => {
     if (form) {
       form.reset();
     }
+    anime({
+      targets: "#contactForm",
+      opacity: [0, 1],
+      easing: "easeOutExpo",
+      duration: 3200,
+      delay: 100,
+    });
+    
     setTriggerEffect(false);
   }, [triggerEffect]);
 
@@ -106,7 +114,11 @@ const ContactPage = () => {
                 <label htmlFor="custom2" className="label2">
                   <i className="fa-solid fa-check"></i>
                 </label>
-                <input type="checkbox" name="Develop From Design" id="custom3" />
+                <input
+                  type="checkbox"
+                  name="Develop From Design"
+                  id="custom3"
+                />
                 <label htmlFor="custom3" className="label3">
                   <i className="fa-solid fa-check"></i>
                 </label>

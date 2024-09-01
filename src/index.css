@@ -14,11 +14,6 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 0.8fr auto auto auto;
   height: fit-content;
-  background-image: url("./assets/9019786.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 .about-grid-container {
   display: grid;
@@ -61,21 +56,24 @@ header {
   align-items: center;
   position: relative;
   padding: 10px;
+  background-image: url("./assets/9019786.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgb(109, 112, 255);
 }
-.divider {
-  grid-area: divider;
-  height: 40px;
+.servicesCampaign {
   width: 100%;
-}
-.servicesCampaign{
-  width: 90%;
   height: fit-content;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: stretch;
+  gap: 20px;
   margin: 0 auto 80px auto;
 }
-.servicesCampaign div:nth-of-type(1){
+.servicesCampaign div:nth-of-type(1) {
   width: 25%;
   aspect-ratio: 1;
   display: flex;
@@ -89,12 +87,12 @@ header {
   background-position: center;
   background-repeat: no-repeat;
 }
-.servicesCampaign img{
+.servicesCampaign img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-.servicesCampaign div:nth-of-type(2){
+.servicesCampaign div:nth-of-type(2) {
   width: calc(65% - 40px);
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -105,47 +103,61 @@ header {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   position: relative;
-  gap: 20px;
 }
-.servicesCampaign div:nth-of-type(2) h1{
+.servicesCampaign div:nth-of-type(2) h1 {
   font-size: 2.6rem;
   margin: 0;
   padding: 0;
+  margin-bottom: 20px;
+  position: relative;
 }
-.servicesCampaign div:nth-of-type(2) .p{
+.servicesCampaign div:nth-of-type(2) h1::after{
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 4px;
+  width: 40%;
+  height: 2px;
+  background-color: white;
+}
+.servicesCampaign div:nth-of-type(2) .p {
   font-size: 1.25rem;
   margin: 0;
+  margin-left: 20px;
   padding: 0;
-  line-height: 2rem;
+  line-height: 2.1rem;
   width: 80%;
 }
-.servicesCampaign button{
+.servicesCampaign button {
   font-size: 1.25rem;
   background-color: transparent;
   color: white;
   border: 3px solid white;
   border-radius: 4px;
-  flex-grow: 1;
+  height: 60px;
+  width: 95%;
   padding: 3px 30px;
   transition: 0.2s;
-  position: relative;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   cursor: pointer;
   font-weight: bolder;
   text-shadow: 0 0 12px rgba(0, 0, 0, 1);
 }
-.servicesCampaign button:hover{
-  background-color: white;
-  color: rgb(48, 48, 48);
+.servicesCampaign button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
-.servicesCampaign button p{
+.servicesCampaign button p {
   position: relative;
   z-index: 2;
   margin: 0;
   font-size: 1.25rem;
   line-height: 2rem;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 .homeAboutMain {
   grid-area: homeAboutMain;
@@ -157,7 +169,12 @@ header {
     "Lucida Sans", Arial, sans-serif;
   color: white;
   display: flex;
+  padding-top: 120px;
   flex-direction: column;
+  background-image: url("./assets/main-back.png");
+  background-size: cover;
+  background-position: 50% 200%;
+  background-repeat: no-repeat;
 }
 .homeAboutMain .mainAbout h1,
 .homeBase h1 {
@@ -176,7 +193,6 @@ header {
   margin-left: 40px;
   line-height: 2rem;
   color: rgb(234, 234, 234);
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
 .homeAboutMain .mainAbout {
   height: fit-content;
@@ -328,13 +344,23 @@ header {
   height: 250px;
   margin-top: 180px;
 }
+.homeBase::before{
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 40px;
+  width: 80%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
 .homeBase .p {
   margin-top: 10px;
 }
 .time {
   position: absolute;
+  width: fit-content;
   left: 40px;
-  bottom: 5px;
+  bottom: -40px;
   margin: 0;
   display: flex;
   gap: 6px;
@@ -343,21 +369,20 @@ header {
 }
 .time time {
   margin: 0;
-  font-family: monospace, 'Courier New', Courier;
+  font-family: monospace, "Courier New", Courier;
   font-weight: bold;
   position: relative;
 }
-.time time::before{
+.time time::before {
   content: " ";
   position: absolute;
   bottom: -5px;
-  left: -90px;
-  width: 220%;
+  width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9));
+  background-color: rgba(255, 255, 255, 0.4);
   animation: shift 1.2s ease-in-out infinite;
   border-radius: 20px;
-  transition: 1.2sS;
+  transition: 1s;
 }
 .pricing {
   grid-area: pricing;
@@ -369,6 +394,11 @@ header {
   align-items: center;
   overflow: hidden;
   position: relative;
+  background-image: url("./assets/9019786.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .pricing #faqTitle {
   font-size: 3rem;
@@ -428,7 +458,7 @@ footer a:hover {
   0% {
     background: rgba(255, 255, 255, 0.6);
   }
-  50%{
+  50% {
     background: rgba(255, 255, 255, 0.2);
   }
   100% {
