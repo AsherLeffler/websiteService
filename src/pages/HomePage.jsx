@@ -91,7 +91,7 @@ const HomePage = ({ info }) => {
   window.onscroll = () => {
     const cards = document.querySelectorAll(".card");
     if (cards) {
-      if (window.scrollY > 1365 && !info[7].current) {
+      if (window.scrollY > 1715 && !info[7].current) {
         anime({
           targets: ".offerings ul li",
           opacity: [0, 1],
@@ -131,6 +131,10 @@ const HomePage = ({ info }) => {
   return (
     <div className="home-grid-container">
       <main className="homeMain">
+        <div className="div"></div>
+        <article className="article">
+          <h1>Leffler WebDev</h1>
+        </article>
         <div id="mainTextCont">
           <h1 className="ml3">
             <span className="text-wrapper">
