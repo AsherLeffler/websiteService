@@ -69,7 +69,7 @@ nav .navLink:hover {
   width: fit-content;
 }
 #offeringsList * {
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(48, 48, 48);
   margin: 0;
 }
@@ -123,7 +123,7 @@ font-family: var(--font);
   text-align: left;
   margin: 0;
   position: relative;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(217, 217, 217);
 }
 .faqHeader::before {
@@ -139,7 +139,7 @@ font-family: var(--font);
   font-size: 1.2rem;
   text-align: left;
   margin: 0;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(190, 190, 190);
   position: relative;
   top: 15px;
@@ -197,7 +197,7 @@ font-family: var(--font);
   font-size: 2.4rem;
   text-align: center;
   margin: 40px 0;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(222, 222, 222);
 }
 .aboutMain .div {
@@ -212,7 +212,7 @@ font-family: var(--font);
 }
 .aboutMain .div h1 {
   font-size: 1.6rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(222, 222, 222);
 }
 .aboutMain .div h1::before {
@@ -227,7 +227,7 @@ font-family: var(--font);
 }
 .aboutMain .div p {
   font-size: 1.2rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(210, 210, 210);
   width: 80%;
   line-height: 2.1rem;
@@ -249,7 +249,7 @@ font-family: var(--font);
   padding: 5px 15px;
   border: 2px solid #4c65af;
   margin-bottom: 20px;
-font-family: var(--font);
+  font-family: var(--font);
   color: white;
   background-color: #4c65af;
   border-radius: 8px;
@@ -301,7 +301,7 @@ font-family: var(--font);
 .anonymous #label::after {
   content: "I prefer to remain anonymous";
   font-size: 1.2rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(238, 238, 238);
   margin: 0;
   position: absolute;
@@ -339,7 +339,7 @@ font-family: var(--font);
 }
 .reviewPage a {
   font-size: 1.4rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(238, 238, 238);
   text-decoration: none;
   cursor: pointer;
@@ -361,17 +361,17 @@ font-family: var(--font);
 }
 .reviewPage form h1 {
   font-size: 2.4rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(222, 222, 222);
   margin: 0;
 }
 .reviewPage form label {
   font-size: 1.4rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(238, 238, 238);
 }
 .reviewPage form textarea {
-font-family: var(--font);
+  font-family: var(--font);
   font-size: 1.2rem;
   width: 80%;
   height: 200px;
@@ -389,7 +389,7 @@ font-family: var(--font);
   border: 2px solid goldenrod;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
-font-family: var(--font);
+  font-family: var(--font);
   font-size: 1.2rem;
   color: rgb(238, 238, 238);
 }
@@ -400,7 +400,7 @@ font-family: var(--font);
   margin-bottom: 60px;
   margin-top: 8px;
   border: 2px solid goldenrod;
-font-family: var(--font);
+  font-family: var(--font);
   color: white;
   background-color: goldenrod;
   border-radius: 8px;
@@ -418,25 +418,25 @@ font-family: var(--font);
 }
 .willNotShared {
   font-size: 0.9rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(193, 193, 193);
   margin: 0;
 }
 .aboutMain .article h1 {
   font-size: 3rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: white;
   margin: 0;
   width: fit-content;
 }
 .aboutMain .article p {
   font-size: 1.6rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(205, 205, 205);
   margin: 0;
   width: 60%;
   text-align: center;
-  line-height: 2.2rem;
+  line-height: 2.3rem;
 }
 .aboutMain .article {
   display: flex;
@@ -453,19 +453,19 @@ font-family: var(--font);
 }
 .aboutMain .article1 h1 {
   font-size: 3rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: white;
   margin: 0;
   width: fit-content;
 }
 .aboutMain .article1 p {
   font-size: 1.6rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(205, 205, 205);
   margin: 0;
   width: 70%;
   text-align: center;
-  line-height: 2.2rem;
+  line-height: 2.3rem;
 }
 .aboutMain .article1 {
   display: flex;
@@ -489,7 +489,7 @@ font-family: var(--font);
 }
 #partsHeader {
   font-size: 2.4rem;
-font-family: var(--font);
+  font-family: var(--font);
   color: rgb(48, 48, 48);
   margin: 0;
   position: absolute;

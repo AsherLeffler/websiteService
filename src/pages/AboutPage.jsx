@@ -19,11 +19,14 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
   window.onscroll = () => {
     const otherTexts = document.querySelectorAll(".article1");
     if (otherTexts.length !== 0) {
-      if (window.scrollY > 257 && !otherTexts[0].style.animation) {
+      if (window.scrollY > 260 && !otherTexts[0].style.animation) {
         otherTexts[0].style.animation = "rise3 1.4s ease-out forwards";
       }
       if (window.scrollY > 480 && !otherTexts[1].style.animation) {
         otherTexts[1].style.animation = "rise3 1.4s ease-out forwards";
+      }
+      if (window.scrollY > 700 && !otherTexts[2].style.animation) {
+        otherTexts[2].style.animation = "rise3 1.4s ease-out forwards";
       }
     }
   };
@@ -134,7 +137,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
               </p>
             </article>
             <hr className="hr" />
-            <article className="article1" style={{ marginBottom: "80px" }}>
+            <article className="article1">
               <h1>Our Story</h1>
               <p>
                 Looking for experience in front-end development, Leffler WebDev
@@ -142,6 +145,20 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
                 websites for people was our founding idea. We wanted to make a
                 difference with the websites we create and are excited to see
                 what the future holds for us.
+              </p>
+            </article>
+            <hr className="hr" />
+            <article className="article1" style={{ marginBottom: "80px" }}>
+              <h1>Home Base</h1>
+              <p>
+                Located in Raleigh, North Carolina, we proudly extend our
+                exceptional services across the entire United States. No matter
+                where you are, our expertise is just a call or click away.
+                Operating on Eastern Time (EST), our team is available
+                throughout the business week, ready to partner with you and
+                deliver top-notch services that exceed expectations. Your
+                success is our priority, and we're always here to assist,
+                regardless of your location or time zone.
               </p>
             </article>
             {reviews.current.length > 0 && (

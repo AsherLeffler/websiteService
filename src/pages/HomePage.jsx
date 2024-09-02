@@ -48,19 +48,6 @@ const HomePage = ({ info }) => {
     }
   };
 
-  // Get the current time in EST
-  const [time, setTime] = useState("");
-  setInterval(() => {
-    const now = new Date();
-    const estTime = new Date(
-      now.toLocaleString("en-US", { timeZone: "America/New_York" })
-    );
-    let hours = String(estTime.getHours()).padStart(2, "0");
-    hours = hours % 12 || 12;
-    const minutes = String(estTime.getMinutes()).padStart(2, "0");
-    setTime(`${hours}:${minutes} ${estTime.getHours() >= 12 ? "PM" : "AM"}`);
-  }, 1000);
-
   function formSubmit(event) {
     event.preventDefault();
     const form = document.getElementById("askAbout");
@@ -100,6 +87,115 @@ const HomePage = ({ info }) => {
     }
   };
 
+  let slideIntervalID = null;
+  let slideIndex = 2;
+  useEffect(() => {
+    if (!slideIntervalID) {
+      const slides = document.querySelectorAll(".description");
+      slides[slideIndex - 1].style.display = "flex";
+      anime({
+        targets: slides[slideIndex - 1],
+        opacity: [0, 1],
+        translateX: [80, 0],
+        duration: 1000,
+        easing: "easeInOutQuad",
+      });
+      slideIntervalID = setInterval(() => {
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "flex";
+        anime({
+          targets: slides[slideIndex - 1],
+          opacity: [0, 1],
+          translateX: [80, 0],
+          duration: 1000,
+          easing: "easeInOutQuad",
+        });
+      }, 15000);
+    }
+  }, []);
+
+  const moveSlideLeft = () => {
+    clearInterval(slideIntervalID);
+    slideIntervalID = null;
+    const slides = document.querySelectorAll(".description");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex--;
+    if (slideIndex < 1) {
+      slideIndex = slides.length;
+    }
+    slides[slideIndex - 1].style.display = "flex";
+    anime({
+      targets: slides[slideIndex - 1],
+      opacity: [0, 1],
+      translateX: [-80, 0],
+      duration: 1000,
+      easing: "easeInOutQuad",
+    });
+    slideIntervalID = setInterval(() => {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "flex";
+      anime({
+        targets: slides[slideIndex - 1],
+        opacity: [0, 1],
+        translateX: [80, 0],
+        duration: 1000,
+        easing: "easeInOutQuad",
+      });
+    }, 15000);
+  };
+
+  const moveSlideRight = () => {
+    clearInterval(slideIntervalID);
+    slideIntervalID = null;
+    const slides = document.querySelectorAll(".description");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+    slides[slideIndex - 1].style.display = "flex";
+    anime({
+      targets: slides[slideIndex - 1],
+      opacity: [0, 1],
+      translateX: [80, 0],
+      duration: 1000,
+      easing: "easeInOutQuad",
+    });
+    slideIntervalID = setInterval(() => {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "flex";
+      anime({
+        targets: slides[slideIndex - 1],
+        opacity: [0, 1],
+        translateX: [80, 0],
+        duration: 1000,
+        easing: "easeInOutQuad",
+      });
+    }, 15000);
+  };
+
   return (
     <div className="home-grid-container">
       <main className="homeAboutMain">
@@ -129,7 +225,7 @@ const HomePage = ({ info }) => {
           </div>
           <div className="main-card">
             <form method="POST" onSubmit={formSubmit} id="askAbout">
-              <h1>Ask About Your Website Today</h1>
+              <h1>Ask Us About Your Website Today</h1>
               <input
                 type="text"
                 placeholder="Full Name*"
@@ -173,20 +269,101 @@ const HomePage = ({ info }) => {
             </button>
           </div>
         </article>
-        <article className="homeBase">
-          <h1>Home Base</h1>
-          <p className="p">
-            Located in Raleigh, North Carolina, we proudly extend our
-            exceptional services across the entire United States. No matter
-            where you are, our expertise is just a call or click away. Operating
-            on Eastern Time (EST), our team is available throughout the business
-            week, ready to partner with you and deliver top-notch services that
-            exceed expectations. Your success is our priority, and we're always
-            here to assist, regardless of your location or time zone.
-          </p>
-          <h3 className="time">
-            Our Time: <time className="timeNum">{time}</time>
-          </h3>
+        <article className="what-we-do">
+          <h1 className="whatH1">What We Do</h1>
+          <div className="whatCont">
+            <div className="arrow1" onClick={moveSlideLeft}>
+              ←
+            </div>
+            <div className="arrow2" onClick={moveSlideRight}>
+              →
+            </div>
+            <div className="description">
+              <article className="text">
+                <h1>Responsiveness</h1>
+                <p>
+                  With any website, responsiveness is a very important factor.
+                  Having a responsive page means your page adapts to any device
+                  while still looking exceptional. We create websites that can
+                  be altered to fit any screen size. This ensures that your
+                  website looks great on any device. Without responsiveness,
+                  your website will be hard to navigate and will not look as
+                  good as it could. Not only does this hurt your website
+                  experience, but it also causes your website to fall down the
+                  page rankings. This is why making sure your website is
+                  responsive is so crucial for it's and yours success.
+                </p>
+              </article>
+              <div className="images">
+                <img
+                  src="/src/assets/descImgs/phone-tablet.png"
+                  alt="Image of website on multiple devices"
+                  className="image1"
+                />
+                <img
+                  src="/src/assets/descImgs/phone-tablet.png"
+                  alt="Image of website on multiple devices that is semi-transparent"
+                  className="image2"
+                />
+              </div>
+            </div>
+            <div className="description">
+              <article className="text">
+                <h1>Development</h1>
+                <p>
+                  Every website on the internet has information stored behind it
+                  that makes it show up on your screen. With our websites, we
+                  specially develop that information and make sure it is
+                  optimized for the best performance. This is important because
+                  if your website is not optimized, it will not show up on
+                  search engines. This means that your website will not be seen
+                  by anyone. We create the best possible site for you and your
+                  customers so that everyone can have a good experience.
+                </p>
+              </article>
+              <div className="images">
+              <img
+                  src="/src/assets/descImgs/html.png"
+                  alt="Image of HTML code"
+                  className="image1"
+                />
+                <img
+                  src="/src/assets/descImgs/html.png"
+                  alt="Image of HTML code that is semi-transparent"
+                  className="image2"
+                />
+              </div>
+            </div>
+            <div className="description">
+              <article className="text">
+                <h1>Design</h1>
+                <p>
+                  Every business has a different target market. Whether it be
+                  younger people or older people, women or men, we create the
+                  best design for your customers so that you can best connect
+                  with the people that visit your website. We make sure that
+                  your website is appealing to the eye while still having
+                  functionality. We create all of our websites with a unique
+                  design that looks stunning and professional. If your website
+                  doesn't look as good as it can be, your users won't want to
+                  stay on your site. We make sure that your website is the best
+                  it can be so that you can have the best experience possible.
+                </p>
+              </article>
+              <div className="images">
+                <img
+                  src="/src/assets/descImgs/web-template.png"
+                  alt="Image of website design template"
+                  className="image1"
+                />
+                <img
+                  src="/src/assets/descImgs/web-template.png"
+                  alt="Image of website design template that is semi-transparent"
+                  className="image2"
+                />
+              </div>
+            </div>
+          </div>
         </article>
         <article className="offerings">
           <div className="left"></div>

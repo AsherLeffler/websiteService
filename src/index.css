@@ -152,7 +152,7 @@ header {
   border-radius: 4px;
   width: calc(100% - 20px);
   color: rgb(255, 255, 255);
-  border: 1.5px solid rgb(210, 210, 210);
+  border: 1.5px solid rgba(210, 210, 210, 0.5);
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
 }
@@ -167,7 +167,7 @@ header {
   width: calc(100% - 20px);
   height: 75px;
   color: rgb(255, 255, 255);
-  border: 1.5px solid rgb(210, 210, 210);
+  border: 1.5px solid rgba(210, 210, 210, 0.5);
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
 }
@@ -187,6 +187,7 @@ header {
   cursor: pointer;
   transition: 0.2s;
   padding: 10px;
+  margin-top: 5px;
   width: 100%;
   height: fit-content;
   background-color: rgba(255, 255, 255, 0.3);
@@ -390,6 +391,93 @@ header {
   width: 100%;
   z-index: 1;
 }
+.what-we-do{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.what-we-do .whatH1{
+  margin: 0;
+  font-family: var(--font);
+  font-size: 2.6rem;
+}
+.what-we-do .whatCont{
+  width: 100%;
+  height: fit-content;
+  margin: auto;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.what-we-do .description{
+  display: none;
+  opacity: 0;
+  transform: translateX(80px);
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.what-we-do .text{
+  flex: 1;
+  padding: 20px 80px;
+}
+.what-we-do .description h1{
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+  position: relative;
+}
+.what-we-do .description p{
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: rgb(200, 200, 200);
+  line-height: 2.2rem;
+}
+.what-we-do .images{
+  flex: 1;
+  position: relative;
+  aspect-ratio: 1;
+}
+.what-we-do .image1, .what-we-do .image2{
+  width: 80%;
+  height: 80%;
+  object-fit:contain;
+  position: absolute;
+  box-sizing: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.what-we-do .image1{
+  z-index: 2;
+  left: 55%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+}
+.what-we-do .image2{
+  left: 45%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0.5;
+}
+.what-we-do .arrow1, .what-we-do .arrow2{
+  font-size: 2.6rem;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0 5px;
+  margin: 0;
+}
+.what-we-do .arrow1{
+  bottom: -60px;
+  left: 0;
+}
+.what-we-do .arrow2{
+  bottom: -60px;
+  right: 0;
+}
 .offerings ul {
   width: 80%;
   height: 90%;
@@ -489,52 +577,6 @@ header {
 .callNow a:hover {
   text-decoration: underline;
 }
-.homeBase {
-  position: relative;
-  width: 80%;
-  height: 250px;
-  margin-top: 180px;
-}
-.homeBase::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  left: 40px;
-  width: 80%;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.4);
-}
-.homeBase .p {
-  margin-top: 10px;
-}
-.time {
-  position: absolute;
-  width: fit-content;
-  left: 40px;
-  bottom: -40px;
-  margin: 0;
-  display: flex;
-  gap: 6px;
-  font-size: 1.2rem;
-  font-weight: normal;
-}
-.time time {
-  margin: 0;
-  font-family: monospace, "Courier New", Courier;
-  font-weight: bold;
-  position: relative;
-}
-.time time::before {
-  content: " ";
-  position: absolute;
-  bottom: -5px;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.4);
-  animation: shift 1.2s ease-in-out infinite;
-  border-radius: 20px;
-  transition: 1s;
-}
 .pricing {
   grid-area: pricing;
   width: calc(100% - 20px);
@@ -602,17 +644,6 @@ footer a {
 }
 footer a:hover {
   text-decoration: underline;
-}
-@keyframes shift {
-  0% {
-    background: rgba(255, 255, 255, 0.6);
-  }
-  50% {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  100% {
-    background: rgba(255, 255, 255, 0.6);
-  }
 }
 @media (max-width: 768px) {
   .home-grid-container {
