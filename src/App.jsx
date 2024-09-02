@@ -133,12 +133,10 @@ function App() {
           >
             Contact
           </a>
-          <div className="phoneNumber">
+          <button className="phoneNumber" href="tel:+12528763653">
             <i className="fa-solid fa-phone"></i>
-            <a href="tel:+12528763653">
-              <p>(252)-876-3653</p>
-            </a>
-          </div>
+            <p>(252)-876-3653</p>
+          </button>
         </nav>
       </header>
       {renderCurrentPage()}

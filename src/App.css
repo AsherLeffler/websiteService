@@ -32,7 +32,7 @@ nav {
 }
 nav .navLink {
   cursor: pointer;
-  font-size: 1.28rem;
+  font-size: 1.2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   transition: 0.2s;
@@ -48,101 +48,27 @@ nav .navLink:hover {
   font-size: 1.28rem;
   margin-left: 30px;
   margin-right: 10px;
+  width: max-content;
+  height: max-content;
+  padding: 15px 25px;
+  background-color: rgba(102, 191, 255, 0.4);
+  transition: 0.2s;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+.phoneNumber:hover{
+  background-color: rgba(102, 191, 255, 0.3);
 }
 .phoneNumber i {
   color: rgb(102, 191, 255);
 }
-.phoneNumber a {
+.phoneNumber p {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   color: rgb(255, 255, 255);
   margin: 0;
   width: fit-content;
-  text-decoration: none;
-  transition: 0.15s;
-}
-.phoneNumber a:hover {
-  text-decoration: underline;
-}
-#mainTextCont {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: white;
-  text-align: center;
-  cursor: default;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: max-content;
-  min-height: fit-content;
-  z-index: 3;
-}
-#mainTextCont h1,
-#mainTextCont p {
-  margin: 0;
-  font-weight: normal;
-}
-#mainTextCont .ml3 .word,
-#mainTextCont .ml3 .letters {
-  display: inline-block;
-  line-height: 1em;
-  opacity: 0;
-}
-#mainTextCont .ml3 .text-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-top: 0.1em;
-  padding-right: 0.05em;
-  padding-bottom: 0.15em;
-  line-height: 1em;
-}
-#mainTextCont .ml3 .line {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  height: 4px;
-  width: 100%;
-  background-color: #ffffff;
-}
-#mainTextCont .ml3 .ampersand {
-  font-family: Baskerville, serif;
-  font-style: italic;
-  font-weight: 400;
-  width: 1em;
-  margin-right: -0.1em;
-  margin-left: -0.1em;
-}
-#mainTextCont h1 {
-  font-size: 4rem;
-  position: relative;
-  z-index: 3;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 1);
-}
-#mainTextCont p {
-  font-size: 3rem;
-  position: relative;
-  z-index: 3;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 1);
-  opacity: 0;
-}
-#mainImgCont {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-#mainImgCont img {
-  width: 60%;
-  min-width: 520px;
-  z-index: 1;
 }
 #offeringsList * {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -581,36 +507,6 @@ nav .navLink:hover {
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 2px;
   margin: 60px auto;
-}
-.aboutNumber {
-  display: grid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  opacity: 0;
-  position: absolute;
-  top: calc(65% + 10px);
-  transform: translateY(-50%);
-  font-size: 2.4rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  z-index: 3;
-}
-.aboutNumber i {
-  color: #4c65af;
-}
-.aboutNumber a {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: #4c65af;
-  margin: 0;
-  width: fit-content;
-  text-decoration: none;
-  transition: 0.15s;
-}
-.aboutNumber a:hover {
-  text-decoration: underline;
 }
 #partsHeader {
   font-size: 2.4rem;

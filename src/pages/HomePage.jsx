@@ -6,76 +6,7 @@ const HomePage = ({ info }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    if (!info[0].current) {
-      anime
-        .timeline({ loop: false })
-        .add({
-          targets: ".ml3 .line",
-          opacity: [0.5, 1],
-          scaleX: [0, 1],
-          easing: "easeInOutExpo",
-          duration: 700,
-        })
-        .add({
-          targets: ".ml3 .line",
-          duration: 600,
-          easing: "easeOutExpo",
-          translateY: (_, i) => -0.625 + 0.625 * 2 * i + "em",
-        })
-        .add({
-          targets: ".ml3 .ampersand",
-          opacity: [0, 1],
-          scaleY: [0.5, 1],
-          easing: "easeOutExpo",
-          duration: 600,
-          offset: "-=600",
-        })
-        .add({
-          targets: ".ml3 .letters-left",
-          opacity: [0, 1],
-          translateX: ["0.5em", 0],
-          easing: "easeOutExpo",
-          duration: 600,
-          offset: "-=300",
-        })
-        .add({
-          targets: ".ml3 .letters-right",
-          opacity: [0, 1],
-          translateX: ["-0.5em", 0],
-          easing: "easeOutExpo",
-          duration: 600,
-          offset: "-=600",
-        });
-      const pElement = document.querySelector("#mainTextCont p");
-      pElement.style.animation = "fadeIn 1.2s ease-out forwards";
-      pElement.style.animationDelay = "1.3s";
-      setTimeout(() => {
-        info[6].current = [1, "-0.625em", "0.625em", 0];
-      }, 2000);
-      info[0].current = true;
-    }
-
     // Add previous styles to animated elements
-    if (info[6].current.length !== 0) {
-      const ml3 = document.querySelectorAll(".ml3 .line");
-      const ampersand = document.querySelector(".ml3 .ampersand");
-      const lettersLeft = document.querySelector(".ml3 .letters-left");
-      const lettersRight = document.querySelector(".ml3 .letters-right");
-      const forYou = document.querySelector("#mainTextCont p");
-      ml3.forEach((line, i) => {
-        line.style.opacity = info[6].current[0];
-        line.style.transform = `scaleX(${info[6].current[0]}) translateY(${
-          info[6].current[i + 1]
-        })`;
-      });
-      ampersand.style.opacity = info[6].current[0];
-      ampersand.style.transform = `scaleY(${info[6].current[0]})`;
-      lettersLeft.style.opacity = info[6].current[0];
-      lettersLeft.style.transform = `translateX(${info[6].current[3]})`;
-      lettersRight.style.opacity = info[6].current[0];
-      lettersRight.style.transform = `translateX(${info[6].current[3]})`;
-      forYou.style.opacity = info[6].current[0];
-    }
     const offeringsList = document.querySelectorAll(".offerings ul li");
     offeringsList.forEach((li) => {
       li.style.opacity = info[8].current;
@@ -130,31 +61,10 @@ const HomePage = ({ info }) => {
 
   return (
     <div className="home-grid-container">
-      <main className="homeMain">
-        <div className="div"></div>
-        <article className="article">
+      <main className="homeAboutMain">
+        <article className="homeTitle">
           <h1>Leffler WebDev</h1>
         </article>
-        <div id="mainTextCont">
-          <h1 className="ml3">
-            <span className="text-wrapper">
-              <span className="line line1"></span>
-              <b>
-                <span className="letters letters-left">Developing</span>
-              </b>{" "}
-              <span className="letters ampersand">&amp;</span>{" "}
-              <b>
-                <span className="letters letters-right">Designing</span>
-              </b>
-              <span className="line line2"></span>
-            </span>
-          </h1>
-          <p>
-            Websites <u>For You</u>
-          </p>
-        </div>
-      </main>
-      <main className="homeAboutMain">
         <article className="servicesCampaign">
           <div>
             <img src="webIcon.svg" alt="Web Icon" />
