@@ -101,7 +101,7 @@
   font-size: 1.15rem;
   cursor: default;
 }
-.seoCheckLabel::after{
+.seoCheckLabel::after {
   content: "$39.99";
   position: absolute;
   top: 50%;
@@ -182,7 +182,8 @@
 .label1,
 .label2,
 .label3,
-.label4 {
+.label4,
+.label5 {
   background: rgba(255, 255, 255, 0.1);
   transition: 0.1s;
 }
@@ -198,6 +199,9 @@
 #custom4:checked + .label4 {
   background-color: goldenrod;
 }
+#custom5:checked + .label5 {
+  background-color: goldenrod;
+}
 #custom1:checked + .label1 i {
   display: inline-block;
 }
@@ -208,6 +212,9 @@
   display: block;
 }
 #custom4:checked + .label4 i {
+  display: block;
+}
+#custom5:checked + .label5 i {
   display: block;
 }
 .customCheck label:nth-of-type(1)::before {
@@ -242,6 +249,16 @@
 }
 .customCheck label:nth-of-type(4)::before {
   content: "Hosting:";
+  position: absolute;
+  width: max-content;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.15rem;
+  color: rgb(186, 186, 186);
+}
+.customCheck label:nth-of-type(5)::before {
+  content: "Maintenance:";
   position: absolute;
   width: max-content;
   right: 28px;

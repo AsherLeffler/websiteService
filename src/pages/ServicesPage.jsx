@@ -247,7 +247,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="customCard"
                 onClick={() => setLearning("package")}
               >
-                <div className="price"><p>$319.99</p></div>
+                <div className="price"><p>$311.99</p></div>
                 <h1>The Website Package</h1>
                 <p className="p">
                   A package deal for all of the services you will need for a
@@ -267,8 +267,8 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
               </div>
             </div>
             <div id="legend">
-              <p>* Is subject to change based on site</p>
-              <p>~ Depends on customer's choice</p>
+              <p>* Price is subject to change based on site</p>
+              <p>~ Price depends on customer's selection</p>
             </div>
           </main>
         </div>
