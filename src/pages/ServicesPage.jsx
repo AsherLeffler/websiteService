@@ -51,7 +51,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
           translateY: [20, 0],
           easing: "easeOutExpo",
           duration: 1200,
-        })
+        });
       // Service Options Text Animation
       if (learning === "maintenance" || learning === "hosting") {
         setCanFlip(false);
@@ -122,9 +122,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
               easing: "easeOutExpo",
               duration: 1100,
               delay: (_, i) => 110 * i,
-              offset: 0
+              offset: 0,
             });
-        }, 3000);
+        }, 2200);
       }
       const content = document.querySelectorAll(".ml2 .word");
       if (content[42]) {
@@ -174,8 +174,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("desDev")}
               >
+                <div className="price"><p>* $229.99</p></div>
                 <h1>Web Design + Development</h1>
-                <p>
+                <p className="p">
                   We create the entire website based on your end goal. We make
                   the design and develop the website entirely.
                 </p>
@@ -184,8 +185,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("redesign")}
               >
+                <div className="price"><p>* $169.99</p></div>
                 <h1>Web Redesign</h1>
-                <p>
+                <p className="p">
                   We take a website you currently have, and we redesign it to
                   your needs. New fresh design, same website.
                 </p>
@@ -194,8 +196,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("devDes")}
               >
+                <div className="price"><p>* $149.99</p></div>
                 <h1>Web Development From Design</h1>
-                <p>
+                <p className="p">
                   We develop your website based on the design of your choice. We
                   make it just how you invisioned it.
                 </p>
@@ -203,8 +206,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
             </div>
             <div className="cardCont">
               <div className="serviceCard" onClick={() => setLearning("SEO")}>
+                <div className="price"><p>$39.99</p></div>
                 <h1>SEO Optimzization</h1>
-                <p>
+                <p className="p">
                   We optimize your website so it can more easily be found by
                   search engines. This leads to more exposure to the world.
                 </p>
@@ -213,8 +217,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("hosting")}
               >
+                <div className="price"><p>~</p></div>
                 <h1>Web Hosting</h1>
-                <p>
+                <p className="p">
                   We host your website for you. Any website of your choice,
                   hosted by us so you don't have to.
                 </p>
@@ -223,8 +228,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("maintenance")}
               >
+                <div className="price"><p>~</p></div>
                 <h1>Web Maintenance</h1>
-                <p>
+                <p className="p">
                   We maintain your current website to make sure it is up to date
                   for the world to see.
                 </p>
@@ -241,21 +247,28 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="customCard"
                 onClick={() => setLearning("package")}
               >
+                <div className="price"><p>$319.99</p></div>
                 <h1>The Website Package</h1>
-                <p>
+                <p className="p">
                   A package deal for all of the services you will need for a
                   successful website. The key essentials your brand new website.
                 </p>
+                <h3 className="save20">Save 20%!</h3>
               </div>
             </div>
             <div className="cardCont">
               <div className="customCard" onClick={() => setLearning("custom")}>
+                <div className="price"><p>~</p></div>
                 <h1>Custom Service</h1>
-                <p>
+                <p className="p">
                   Any combination of the services we offer. Whatever services
                   you need, we can do it special just for you.
                 </p>
               </div>
+            </div>
+            <div id="legend">
+              <p>* Is subject to change based on site</p>
+              <p>~ Depends on customer's choice</p>
             </div>
           </main>
         </div>

@@ -22,6 +22,24 @@
   gap: 35px;
   overflow: hidden;
 }
+#legend {
+  background-color: #272f9d;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#legend p {
+  width: fit-content;
+  color: #969cde;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.2rem;
+}
 .h1 {
   color: rgb(224, 224, 224);
   font-size: 2.5rem;
@@ -69,6 +87,68 @@
   transition: 0.4s ease;
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
 }
+.price p {
+  margin: 0;
+}
+.serviceCard:nth-of-type(1) .price,
+.serviceCard:nth-of-type(2) .price,
+.serviceCard:nth-of-type(3) .price {
+  position: absolute;
+  width: 90px;
+  aspect-ratio: 1;
+  top: -22.5px;
+  right: -22.5px;
+  background: rgb(88, 121, 255);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  z-index: 4;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+  font-size: 1.4rem;
+  line-height: 0.8rem;
+  text-align: center;
+}
+.cardCont:nth-of-type(1) .serviceCard:nth-of-type(1) .price p,
+.cardCont:nth-of-type(1) .serviceCard:nth-of-type(2) .price p,
+.cardCont:nth-of-type(1) .serviceCard:nth-of-type(3) .price p {
+  position: relative;
+  top: 27px;
+}
+.cardCont:nth-of-type(2) .serviceCard:nth-of-type(1) .price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardCont:nth-of-type(2) .serviceCard:nth-of-type(2) .price,
+.cardCont:nth-of-type(2) .serviceCard:nth-of-type(3) .price {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.customCard .price {
+  position: absolute;
+  width: 90px;
+  aspect-ratio: 1;
+  top: -22.5px;
+  right: -22.5px;
+  background: rgb(88, 121, 255);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.cardCont:nth-of-type(4) .customCard .price {
+  font-size: 3rem;
+}
 .serviceCard:hover,
 .customCard:hover {
   transform: scale(1.02);
@@ -95,8 +175,12 @@
   color: rgb(238, 238, 238);
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
-.serviceCard p,
-.customCard p {
+.serviceCard h1,
+.serviceCard .p {
+  width: 90%;
+}
+.serviceCard .p,
+.customCard .p {
   font-size: 1.2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -123,6 +207,18 @@
   cursor: pointer;
   transition: 0.4s ease;
   border-radius: 8px;
+}
+.save20 {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgb(240, 251, 255);
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  font-size: 2rem;
+  font-weight: bolder;
 }
 .learnMoreCont {
   display: flex;
@@ -281,7 +377,7 @@
   opacity: 0;
   color: rgb(255, 255, 255);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  width: 100%;
+  width: 80%;
 }
 .managementCard .optionsCont {
   display: flex;
@@ -313,6 +409,35 @@
   align-items: center;
   perspective: 1000px;
   opacity: 0;
+}
+.managementCard .option::before {
+  position: absolute;
+  width: 60px;
+  aspect-ratio: 1;
+  right: -18px;
+  top: -10px;
+  border-radius: 50%;
+  z-index: 4;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.4rem;
+}
+.managementCard .option:nth-of-type(2)::before {
+  content: "$40";
+  background: rgb(183, 119, 0);
+}
+.managementCard .option:nth-of-type(3)::before {
+  content: "$60";
+  background: rgb(49, 154, 33);
+}
+.managementCard .option:nth-of-type(4)::before {
+  content: "$80";
+  background: rgb(55, 77, 164);
 }
 .managementCard .option * {
   backface-visibility: hidden;
@@ -364,6 +489,16 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
+}
+.serviceCardList::before {
+  content: "* See main page for pricing";
+  position: absolute;
+  bottom: -35px;
+  left: 0px;
+  color: rgb(138, 138, 138);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.2rem;
 }
 .serviceCardList .listTitle {
   font-size: 2rem;
