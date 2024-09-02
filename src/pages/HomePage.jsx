@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "animate.css";
 
 const HomePage = ({ info }) => {
+  const setCurrentPage = info[3];
+
   // When the page loads, animate the text
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -59,11 +61,101 @@ const HomePage = ({ info }) => {
     setTime(`${hours}:${minutes} ${estTime.getHours() >= 12 ? "PM" : "AM"}`);
   }, 1000);
 
+  function formSubmit(event) {
+    event.preventDefault();
+    const form = document.getElementById("askAbout");
+    const formData = new FormData(form);
+    fetch("https://formspree.io/f/mblrbjnp", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Thank you, we will respond shortly!");
+          form.reset();
+        } else {
+          alert("There was a problem with the form submission.");
+        }
+      })
+      .catch((error) => {
+        alert("There was a problem with the form submission.");
+      });
+  }
+
+  const handleTextChange = () => {
+    const phone = document.getElementById("phoneInput");
+    const phoneRegEx = /^\d{10}$/;
+    if (!phone.value.match(phoneRegEx)) {
+      phone.value = phone.value.replace(/[^0-9]/g, "");
+    } else if (phone.value.match(phoneRegEx)) {
+      phone.value = `(${phone.value.slice(0, 3)})-${phone.value.slice(
+        3,
+        6
+      )}-${phone.value.slice(6)}`;
+    } else if (phone.value === "") {
+      phone.value = phone.value.replace(/[^0-9]/g, "");
+    }
+  };
+
   return (
     <div className="home-grid-container">
       <main className="homeAboutMain">
         <article className="homeTitle">
-          <h1>Leffler WebDev</h1>
+          <div className="div">
+            <h1>Leffler WebDev</h1>
+            <p>Designing & Developing For You</p>
+          </div>
+          <div className="info">
+            <p>
+              We are a national organization specializing in website design and
+              development, dedicated to delivering exceptional digital
+              solutions. With years of experience, we deeply understand the
+              importance of a successful online presence. Our team excels at
+              crafting websites that not only captivate and engage audiences but
+              also drive meaningful impact in today's digital landscape. We
+              believe in empowering our clients to make a difference, and we're
+              here to ensure your website becomes a powerful tool for your
+              success.
+            </p>
+            <button
+              className="aboutLearnBtn"
+              onClick={() => setCurrentPage("About")}
+            >
+              <p id="text">Learn More</p>
+            </button>
+          </div>
+          <div className="main-card">
+            <form method="POST" onSubmit={formSubmit} id="askAbout">
+              <h1>Ask About Your Website Today</h1>
+              <input
+                type="text"
+                placeholder="Full Name*"
+                name="Full Name"
+                required
+              />
+              <input type="email" placeholder="Email*" name="Email" required />
+              <input
+                type="tel"
+                placeholder="Phone*"
+                name="Phone#"
+                onChange={handleTextChange}
+                id="phoneInput"
+                required
+              />
+              <textarea
+                name="Message"
+                id="message"
+                cols="30"
+                rows="10"
+                placeholder="Message*"
+                required
+              ></textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         </article>
         <article className="servicesCampaign">
           <div>
@@ -80,25 +172,6 @@ const HomePage = ({ info }) => {
               <p>Our Services</p>
             </button>
           </div>
-        </article>
-        <article className="mainAbout">
-          <h1>About Us</h1>
-          <p>
-            We are a national organization specializing in website design and
-            development, dedicated to delivering exceptional digital solutions.
-            With years of experience, we deeply understand the importance of a
-            successful online presence. Our team excels at crafting websites
-            that not only captivate and engage audiences but also drive
-            meaningful impact in today's digital landscape. We believe in
-            empowering our clients to make a difference, and we're here to
-            ensure your website becomes a powerful tool for your success.
-          </p>
-          <button
-            className="aboutLearnBtn"
-            onClick={() => setCurrentPage("About")}
-          >
-            <p id="text">Learn More</p>
-          </button>
         </article>
         <article className="homeBase">
           <h1>Home Base</h1>

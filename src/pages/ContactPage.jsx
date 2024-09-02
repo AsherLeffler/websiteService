@@ -127,7 +127,6 @@ const ContactPage = () => {
       const form = document.getElementById("contactForm");
       const formData = new FormData(form);
       formData.append("total", total);
-      setTriggerEffect(true);
       fetch("https://formspree.io/f/xrbzjrzp", {
         method: "POST",
         body: formData,

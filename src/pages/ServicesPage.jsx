@@ -174,7 +174,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("desDev")}
               >
-                <div className="price"><p>* $229.99</p></div>
+                <div className="price">
+                  <p>* $229.99</p>
+                </div>
                 <h1>Web Design + Development</h1>
                 <p className="p">
                   We create the entire website based on your end goal. We make
@@ -185,7 +187,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("redesign")}
               >
-                <div className="price"><p>* $169.99</p></div>
+                <div className="price">
+                  <p>* $169.99</p>
+                </div>
                 <h1>Web Redesign</h1>
                 <p className="p">
                   We take a website you currently have, and we redesign it to
@@ -196,7 +200,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("devDes")}
               >
-                <div className="price"><p>* $149.99</p></div>
+                <div className="price">
+                  <p>* $149.99</p>
+                </div>
                 <h1>Web Development From Design</h1>
                 <p className="p">
                   We develop your website based on the design of your choice. We
@@ -206,7 +212,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
             </div>
             <div className="cardCont">
               <div className="serviceCard" onClick={() => setLearning("SEO")}>
-                <div className="price"><p>$39.99</p></div>
+                <div className="price">
+                  <p>$39.99</p>
+                </div>
                 <h1>SEO Optimzization</h1>
                 <p className="p">
                   We optimize your website so it can more easily be found by
@@ -217,7 +225,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("hosting")}
               >
-                <div className="price"><p>~</p></div>
+                <div className="price">
+                  <p>~</p>
+                </div>
                 <h1>Web Hosting</h1>
                 <p className="p">
                   We host your website for you. Any website of your choice,
@@ -228,7 +238,9 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("maintenance")}
               >
-                <div className="price"><p>~</p></div>
+                <div className="price">
+                  <p>~</p>
+                </div>
                 <h1>Web Maintenance</h1>
                 <p className="p">
                   We maintain your current website to make sure it is up to date
@@ -247,18 +259,25 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="customCard"
                 onClick={() => setLearning("package")}
               >
-                <div className="price"><p>$311.99</p></div>
+                <div className="price">
+                  <p>$311.99</p>
+                </div>
                 <h1>The Website Package</h1>
                 <p className="p">
                   A package deal for all of the services you will need for a
                   successful website. The key essentials your brand new website.
                 </p>
-                <h3 className="save20">Save 20%!</h3>
+                <div className="div">
+                  <h3 className="crossedOut">$390</h3>
+                  <h3 className="save20">Save 20%!</h3>
+                </div>
               </div>
             </div>
             <div className="cardCont">
               <div className="customCard" onClick={() => setLearning("custom")}>
-                <div className="price"><p>~</p></div>
+                <div className="price">
+                  <p>~</p>
+                </div>
                 <h1>Custom Service</h1>
                 <p className="p">
                   Any combination of the services we offer. Whatever services

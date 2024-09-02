@@ -1,3 +1,7 @@
+:root {
+  --font: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+}
 body {
   margin: 0;
   padding: 0;
@@ -11,7 +15,12 @@ body {
     "pricing";
   grid-template-columns: 1fr;
   grid-template-rows: 0.8fr auto auto auto;
-  height: fit-content;
+  height: max-content;
+  position: relative;
+  background-image: url("./assets/main-back.png");
+  background-size: cover;
+  background-position: 50% 200%;
+  background-repeat: no-repeat;
 }
 .about-grid-container {
   display: grid;
@@ -28,7 +37,7 @@ body {
   background-repeat: no-repeat;
 }
 header {
-  background-color: #4c65af;
+  background-color: hsla(225, 40%, 43%, 0.99);
   height: 80px;
   text-align: center;
   width: calc(100% - 10px);
@@ -46,6 +55,144 @@ header {
 }
 .inactiveLink {
   color: white;
+}
+.homeTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  min-height: 460px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+.homeTitle .div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+.homeTitle .div::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 2px;
+  background-color: white;
+}
+.homeTitle .div h1 {
+  font-size: 4rem;
+  font-family: "Bona Nova SC", "Oswald", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  color: white;
+}
+.homeTitle .div p {
+  font-size: 1.6rem;
+  font-family: "Bona Nova SC", "Oswald", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-weight: 300;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.homeTitle .info {
+  width: 60%;
+}
+.homeTitle .info p {
+  font-size: 1.1rem;
+  padding: 0;
+  margin: 40px 0 0 20px;
+  line-height: 2rem;
+  color: rgb(213, 213, 213);
+}
+.homeTitle .main-card {
+  width: 380px;
+  height: 90%;
+  background: linear-gradient(165deg, rgb(71, 81, 255), rgb(47, 53, 159));
+  border-radius: 5px;
+  overflow: hidden;
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+}
+.homeTitle .main-card * {
+  font-family: var(--font);
+}
+.homeTitle .main-card form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: max-content;
+  gap: 8px;
+}
+.homeTitle .main-card h1 {
+  margin: 0;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(165deg, rgb(71, 81, 255), rgb(0, 7, 149));
+  width: 360px;
+  position: relative;
+  right: calc(5% + 2px);
+  bottom: 1px;
+  font-size: 2.6rem;
+}
+.homeTitle .main-card input {
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 4px;
+  width: calc(100% - 20px);
+  color: rgb(255, 255, 255);
+  border: 1.5px solid rgb(210, 210, 210);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+.homeTitle .main-card input::placeholder {
+  color: rgb(210, 210, 210);
+}
+.homeTitle .main-card textarea {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 4px;
+  resize: none;
+  width: calc(100% - 20px);
+  height: 75px;
+  color: rgb(255, 255, 255);
+  border: 1.5px solid rgb(210, 210, 210);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+.homeTitle .main-card textarea::placeholder {
+  color: rgb(210, 210, 210);
+}
+.homeTitle .main-card button {
+  font-size: 1.25rem;
+  background: linear-gradient(
+    155deg,
+    rgba(91, 94, 158, 0.8),
+    rgba(148, 153, 255, 0.4)
+  );
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 10px;
+  width: 100%;
+  height: fit-content;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.homeTitle .main-card button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .servicesCampaign {
   width: 100%;
@@ -114,21 +261,22 @@ header {
 }
 .servicesCampaign button {
   font-size: 1.25rem;
-  background-color: transparent;
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
   color: white;
-  border: 3px solid white;
-  border-radius: 4px;
-  height: 60px;
-  width: 95%;
-  padding: 3px 30px;
+  border: none;
+  border-radius: 200px;
+  height: max-content;
+  width: max-content;
+  margin-top: 40px;
+  margin-left: 20px;
+  padding: 3px 15px;
   transition: 0.2s;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   cursor: pointer;
   font-weight: bolder;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 1);
 }
 .servicesCampaign button:hover {
   background-color: rgba(255, 255, 255, 0.2);
@@ -139,24 +287,46 @@ header {
   margin: 0;
   font-size: 1.25rem;
   line-height: 2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
 }
 .homeAboutMain {
   grid-area: homeAboutMain;
-  height: fit-content;
+  height: max-content;
   min-height: 600px;
   width: 100%;
   position: relative;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: white;
   display: flex;
   flex-direction: column;
-  background-image: url("./assets/main-back.png");
-  background-size: cover;
-  background-position: 50% 200%;
-  background-repeat: no-repeat;
+  background: radial-gradient(
+        farthest-side at -33.33% 50%,
+        #0000 52%,
+        rgba(71, 74, 255, 0.2) 54% 57%,
+        #0000 59%
+      )
+      0 calc(40px / 2),
+    radial-gradient(
+        farthest-side at 50% 133.33%,
+        #0000 52%,
+        rgba(71, 74, 255, 0.2) 54% 57%,
+        #0000 59%
+      )
+      calc(40px / 2) 0,
+    radial-gradient(
+      farthest-side at 133.33% 50%,
+      #0000 52%,
+      rgba(71, 74, 255, 0.2) 54% 57%,
+      #0000 59%
+    ),
+    radial-gradient(
+      farthest-side at 50% -33.33%,
+      #0000 52%,
+      rgba(71, 74, 255, 0.2) 54% 57%,
+      #0000 59%
+    ),
+    rgba(71, 212, 255, 0.2);
+  background-size: calc(40px / 4.667) 40px, 40px calc(40px / 4.667);
 }
 .homeAboutMain .mainAbout h1,
 .homeBase h1 {
@@ -185,19 +355,19 @@ header {
   flex-direction: column;
 }
 .aboutLearnBtn {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 1.25rem;
-  border: 2px solid #3a44d3;
+  border: none;
   cursor: pointer;
   width: fit-content;
-  border-radius: 8px;
+  border-radius: 20px;
   transition: 0.3s ease-in-out;
   padding: 3px 30px;
   margin-left: 40px;
   margin-top: 20px;
+  overflow: hidden;
   position: relative;
 }
 .aboutLearnBtn #text {
@@ -213,11 +383,10 @@ header {
   left: 0;
   width: 0;
   height: 100%;
-  background-color: #3a44d3;
+  background-color: rgb(0, 7, 149);
   transition: 0.3s ease-in-out;
 }
 .aboutLearnBtn:hover::after {
-  background-color: #3a44d3;
   width: 100%;
   z-index: 1;
 }
@@ -385,8 +554,7 @@ header {
 .pricing #faqTitle {
   font-size: 3rem;
   color: white;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   position: absolute;
   top: 10px;
   left: 50%;
@@ -430,8 +598,7 @@ footer a {
   text-decoration: none;
   font-weight: bolder;
   cursor: pointer;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
 }
 footer a:hover {
   text-decoration: underline;

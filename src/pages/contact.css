@@ -5,20 +5,47 @@
   grid-template-rows: 1fr;
   min-height: 100vh;
   height: fit-content;
-}
-.contactMain {
-  grid-area: contactMain;
-  padding: 40px 15px;
   background-image: url("../assets/mesh-gradient.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+.contactMain {
+  grid-area: contactMain;
+  padding: 40px 15px;
   display: flex;
   justify-content: center;
+  background: radial-gradient(
+        farthest-side at -33.33% 50%,
+        #0000 52%,
+        rgba(71, 74, 255, 0.5) 54% 57%,
+        #0000 59%
+      )
+      0 calc(40px / 2),
+    radial-gradient(
+        farthest-side at 50% 133.33%,
+        #0000 52%,
+        rgba(71, 74, 255, 0.5) 54% 57%,
+        #0000 59%
+      )
+      calc(40px / 2) 0,
+    radial-gradient(
+      farthest-side at 133.33% 50%,
+      #0000 52%,
+      rgba(71, 74, 255, 0.5) 54% 57%,
+      #0000 59%
+    ),
+    radial-gradient(
+      farthest-side at 50% -33.33%,
+      #0000 52%,
+      rgba(71, 74, 255, 0.5) 54% 57%,
+      #0000 59%
+    ),
+    rgba(71, 212, 255, 0.2);
+  background-size: calc(40px / 4.667) 40px, 40px calc(40px / 4.667);
 }
 .contactMain form * {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+font-family: var(--font);
   color: rgb(222, 222, 222);
 }
 .contactMain form {
@@ -36,6 +63,8 @@
   background: transparent;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 0;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px 6px rgba(0, 0, 0, 0.3);
 }
 .contactMain form h1 {
   font-size: 2.5rem;
@@ -275,8 +304,7 @@
   width: 60%;
   height: 80px;
   padding: 5px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+font-family: var(--font);
 }
 .contactMain form button {
   padding: 12px 100px;
