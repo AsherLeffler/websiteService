@@ -1,4 +1,6 @@
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 :root {
@@ -20,7 +22,7 @@ body {
   grid-template-rows: 0.8fr auto auto auto;
   height: max-content;
   position: relative;
-  background-image: url("./assets/main-back.png");
+  background-image: url("./assets/main-back.webp");
   background-size: cover;
   background-position: 50% 195%;
   margin: 0;
@@ -118,7 +120,11 @@ header {
 .homeTitle .main-card {
   width: 380px;
   height: 90%;
-  background: linear-gradient(165deg, rgb(71, 81, 255), rgb(47, 53, 159));
+  background: linear-gradient(
+    165deg,
+    rgba(71, 80, 255, 0.3),
+    rgba(47, 53, 159, 0.3)
+  );
   border-radius: 5px;
   overflow: hidden;
   position: absolute;
@@ -127,7 +133,7 @@ header {
   transform: translateY(-50%);
   display: flex;
   justify-content: center;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
 }
 .homeTitle .main-card * {
   font-family: var(--font);
@@ -143,7 +149,11 @@ header {
   margin: 0;
   padding: 10px;
   color: rgb(255, 255, 255);
-  background: linear-gradient(165deg, rgb(71, 81, 255), rgb(0, 7, 149));
+  background: linear-gradient(
+    165deg,
+    rgba(71, 81, 255, 0.3),
+    rgba(0, 7, 149, 0.3)
+  );
   width: 380px;
   position: relative;
   right: calc(5% + 2px);
@@ -217,7 +227,7 @@ header {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   overflow: hidden;
-  background-image: url("mesh-card.png");
+  background-image: url("mesh-card.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -231,7 +241,7 @@ header {
   width: 65%;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background-image: url("mesh-card.png");
+  background-image: url("mesh-card.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -368,7 +378,7 @@ header {
   cursor: pointer;
   width: fit-content;
   border-radius: 8px;
-  transition: 0.3s cubicBezier(.455, .03, .515, .955);
+  transition: 0.3s cubicBezier(0.455, 0.03, 0.515, 0.955);
   padding: 3px 30px;
   margin-left: 40px;
   margin-top: 20px;
@@ -496,7 +506,8 @@ header {
   z-index: 5;
   transition: 0.2s;
 }
-.what-we-do .arrow1:hover, .what-we-do .arrow2:hover {
+.what-we-do .arrow1:hover,
+.what-we-do .arrow2:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 .what-we-do .arrow1 {
@@ -542,7 +553,7 @@ header {
 .offerings {
   display: flex;
   justify-content: center;
-  background-image: url("darkenedFAQImg.png");
+  background-image: url("darkenedFAQImg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -565,7 +576,7 @@ header {
 }
 .offerings .left {
   flex: 1;
-  background-image: url("./assets/designing.png");
+  background-image: url("./assets/designing.webp");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -637,9 +648,12 @@ footer a {
   font-weight: bolder;
   cursor: pointer;
   font-family: var(--font);
+  color: #7e87ff;
 }
 footer a:hover {
   text-decoration: underline;
 }
-@media (425px < width < 768px) {}
-@media (width < 425px) {}
+@media (425px < width < 768px) {
+}
+@media (width < 425px) {
+}

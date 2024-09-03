@@ -14,6 +14,7 @@ const HomePage = ({ info }) => {
     const offeringsList = document.querySelectorAll(".offerings ul li");
     offeringsList.forEach((li) => {
       li.style.opacity = info[8].current;
+      li.style.transform = "translateY(0px)";
     });
     const cards = document.querySelectorAll(".card");
     cards.forEach((card) => {
@@ -25,7 +26,6 @@ const HomePage = ({ info }) => {
 
   window.onscroll = () => {
     const cards = document.querySelectorAll(".card");
-    console.log(window.scrollY);
     if (cards) {
       if (window.scrollY > 1440 && !info[7].current) {
         anime({
@@ -222,9 +222,9 @@ const HomePage = ({ info }) => {
               importance of a successful online presence. Our team excels at
               crafting websites that not only captivate and engage audiences but
               also drive meaningful impact in today&apos;s digital landscape. We
-              believe in empowering our clients to make a difference, and we&apos;re
-              here to ensure your website becomes a powerful tool for your
-              success.
+              believe in empowering our clients to make a difference, and
+              we&apos;re here to ensure your website becomes a powerful tool for
+              your success.
             </p>
             <button
               className="aboutLearnBtn"
@@ -306,12 +306,12 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images">
                 <img
-                  src="/src/assets/descImgs/phone-tablet.png"
+                  src="/src/assets/descImgs/phone-tablet.webp"
                   alt="Image of website on multiple devices"
                   className="image1"
                 />
                 <img
-                  src="/src/assets/descImgs/phone-tablet.png"
+                  src="/src/assets/descImgs/phone-tablet.webp"
                   alt="Image of website on multiple devices that is semi-transparent"
                   className="image2"
                 />
@@ -334,12 +334,12 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images">
                 <img
-                  src="/src/assets/descImgs/html.png"
+                  src="/src/assets/descImgs/html.webp"
                   alt="Image of HTML code"
                   className="image1"
                 />
                 <img
-                  src="/src/assets/descImgs/html.png"
+                  src="/src/assets/descImgs/html.webp"
                   alt="Image of HTML code that is semi-transparent"
                   className="image2"
                 />
@@ -356,19 +356,20 @@ const HomePage = ({ info }) => {
                   your website is appealing to the eye while still having
                   functionality. We create all of our websites with a unique
                   design that looks stunning and professional. If your website
-                  doesn&apos;t look as good as it can be, your users won&apos;t want to
-                  stay on your site. We make sure that your website is the best
-                  it can be so that you can have the best experience possible.
+                  doesn&apos;t look as good as it can be, your users won&apos;t
+                  want to stay on your site. We make sure that your website is
+                  the best it can be so that you can have the best experience
+                  possible.
                 </p>
               </article>
               <div className="images">
                 <img
-                  src="/src/assets/descImgs/web-template.png"
+                  src="/src/assets/descImgs/web-template.webp"
                   alt="Image of website design template"
                   className="image1"
                 />
                 <img
-                  src="/src/assets/descImgs/web-template.png"
+                  src="/src/assets/descImgs/web-template.webp"
                   alt="Image of website design template that is semi-transparent"
                   className="image2"
                 />
@@ -411,9 +412,9 @@ const HomePage = ({ info }) => {
         <div className="card">
           <h1 className="faqHeader">How Long Will It Take?</h1>
           <p>
-            The time it will take heavily depends on the website you&apos;re looking
-            for. A typical website will take around <u>2-4 weeks</u> to be fully
-            completed and optimized.
+            The time it will take heavily depends on the website you&apos;re
+            looking for. A typical website will take around <u>2-4 weeks</u> to
+            be fully completed and optimized.
           </p>
         </div>
       </div>
@@ -426,11 +427,11 @@ HomePage.propTypes = {
     PropTypes.oneOfType([
       PropTypes.shape({
         current: PropTypes.any.isRequired,
-        set: PropTypes.func
+        set: PropTypes.func,
       }),
-      PropTypes.any // Allow other types, like numbers or strings
+      PropTypes.any, // Allow other types, like numbers or strings
     ])
-  ).isRequired
+  ).isRequired,
 };
 
 export default HomePage;

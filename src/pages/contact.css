@@ -5,7 +5,7 @@
   grid-template-rows: 1fr;
   min-height: 100vh;
   height: fit-content;
-  background-image: url("../assets/mesh-gradient.png");
+  background-image: url("../assets/mesh-gradient.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -41,7 +41,7 @@
       rgba(71, 74, 255, 0.5) 54% 57%,
       #0000 59%
     ),
-    rgba(71, 212, 255, 0.2);
+    rgba(71, 212, 255, 0.6);
   background-size: calc(40px / 4.667) 40px, 40px calc(40px / 4.667);
 }
 .contactMain form * {
@@ -75,7 +75,7 @@ font-family: var(--font);
 }
 .contactMain form input {
   border: 2px solid goldenrod;
-  border-radius: 12px;
+  border-radius: 6px;
   width: 60%;
   height: 35px;
   font-size: 1.15rem;
@@ -335,9 +335,20 @@ font-family: var(--font);
   width: 60%;
 }
 .contactMain form .error {
-  color: red;
+  color: rgb(255, 42, 42);
   font-size: 1rem;
   margin: 0;
   position: relative;
   bottom: 10px;
+}
+.contactMain form .p:nth-of-type(1) {
+  margin: 0;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+.contactMain form .p:nth-of-type(2) {
+  margin: 0;
+  color: rgb(169, 169, 169);
+  font-size: 0.9rem;
 }
