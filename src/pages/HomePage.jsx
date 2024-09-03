@@ -10,7 +10,7 @@ const HomePage = ({ info }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // Add previous styles to animated elements
+    // Add previous styles to animated elements 
     const offeringsList = document.querySelectorAll(".offerings ul li");
     offeringsList.forEach((li) => {
       li.style.opacity = info[8].current;
