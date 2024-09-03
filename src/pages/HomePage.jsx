@@ -10,7 +10,7 @@ const HomePage = ({ info }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // Add previous styles to animated elements 
+    // Add previous styles to animated elements
     const offeringsList = document.querySelectorAll(".offerings ul li");
     offeringsList.forEach((li) => {
       li.style.opacity = info[8].current;
@@ -25,12 +25,14 @@ const HomePage = ({ info }) => {
 
   window.onscroll = () => {
     const cards = document.querySelectorAll(".card");
+    console.log(window.scrollY);
     if (cards) {
-      if (window.scrollY > 1715 && !info[7].current) {
+      if (window.scrollY > 1440 && !info[7].current) {
         anime({
           targets: ".offerings ul li",
           opacity: [0, 1],
           translateY: [20, 0],
+          easing: "easeOutQuad",
           duration: 800,
           delay: (_, i) => 80 * i,
         });
@@ -38,7 +40,7 @@ const HomePage = ({ info }) => {
         info[8].current = 1;
       }
       // When scrolling, animate the cards
-      if (window.scrollY > 1965 && !info[2].current) {
+      if (window.scrollY > 1835 && !info[2].current) {
         cards.forEach((card, index) => {
           card.style.animation = `cardSlideIn 1.2s ease-out ${
             index / 2
@@ -91,7 +93,10 @@ const HomePage = ({ info }) => {
 
   const slideIntervalID = useRef(null);
   const slideIndex = useRef(2);
-  const t = 15000;
+
+  // Interval time in seconds before switching slides
+  const t = 20;
+
   useEffect(() => {
     if (!slideIntervalID.current) {
       const slides = document.querySelectorAll(".description");
@@ -121,7 +126,7 @@ const HomePage = ({ info }) => {
           duration: 1000,
           easing: "easeInOutQuad",
         });
-      }, t);
+      }, t * 1000);
     }
   }, []);
 
@@ -160,7 +165,7 @@ const HomePage = ({ info }) => {
         duration: 1000,
         easing: "easeInOutQuad",
       });
-    }, t);
+    }, t * 1000);
   };
 
   const moveSlideRight = () => {
@@ -198,7 +203,7 @@ const HomePage = ({ info }) => {
         duration: 1000,
         easing: "easeInOutQuad",
       });
-    }, t);
+    }, t * 1000);
   };
 
   return (
@@ -324,7 +329,7 @@ const HomePage = ({ info }) => {
                   to see it. This means that your website will not be seen by
                   anyone who might be looking for you or your business. We
                   create the best possible site for you and your customers so
-                  that everyone can have a good experience.
+                  that everyone will have a good experience.
                 </p>
               </article>
               <div className="images">
@@ -385,13 +390,6 @@ const HomePage = ({ info }) => {
             </ul>
           </div>
         </article>
-        <article className="callNow">
-          <h1>Call or Text Now!</h1>
-          <h1 id="phone">
-            <a href="tel:+12528763653">(252)-876-3653</a>
-          </h1>
-          <p>For more information about your website</p>
-        </article>
       </main>
       <div className="pricing">
         <h1 id="faqTitle">FAQs</h1>
@@ -425,10 +423,14 @@ const HomePage = ({ info }) => {
 
 HomePage.propTypes = {
   info: PropTypes.arrayOf(
-    PropTypes.shape({
-      current: PropTypes.any.isRequired,
-    })
-  ).isRequired,
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        current: PropTypes.any.isRequired,
+        set: PropTypes.func
+      }),
+      PropTypes.any // Allow other types, like numbers or strings
+    ])
+  ).isRequired
 };
 
 export default HomePage;

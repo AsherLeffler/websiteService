@@ -76,7 +76,7 @@ font-family: var(--font);
 .contactMain form input {
   border: 2px solid goldenrod;
   border-radius: 12px;
-  width: calc(60% - 5px);
+  width: 60%;
   height: 35px;
   font-size: 1.15rem;
   padding: 5px;

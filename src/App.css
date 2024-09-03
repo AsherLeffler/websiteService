@@ -33,7 +33,7 @@ nav {
 nav .navLink {
   cursor: pointer;
   font-size: 1.2rem;
-  font-family: "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-family: "Montserrat", "Lucida Sans", Arial, sans-serif;
   transition: 0.2s;
 }
 nav .navLink:hover {
@@ -45,25 +45,24 @@ nav .navLink:hover {
   align-items: center;
   gap: 5px;
   font-size: 1.28rem;
-  margin-left: 30px;
   margin-right: 10px;
   width: max-content;
   height: max-content;
-  padding: 15px 25px;
-  background-color: rgba(102, 191, 255, 0.4);
+  padding: 18px 25px;
+  background-color: rgba(102, 191, 255, 0.3);
   transition: 0.2s;
   cursor: pointer;
   border: none;
   border-radius: 8px;
 }
 .phoneNumber:hover {
-  background-color: rgba(102, 191, 255, 0.3);
+  background-color: rgba(102, 191, 255, 0.2);
 }
 .phoneNumber i {
   color: rgb(102, 191, 255);
 }
 .phoneNumber p {
-  font-family: "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-family: "Montserrat", "Lucida Sans", Arial, sans-serif;
   color: rgb(255, 255, 255);
   margin: 0;
   width: fit-content;
@@ -99,7 +98,7 @@ nav .navLink:hover {
   border-radius: 18px;
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
   padding: 30px;
-  width: calc(28% - 60px);
+  width: 28%;
   aspect-ratio: 1;
   background-image: url("darkenedFAQImg.png");
   background-size: cover;
@@ -146,7 +145,7 @@ nav .navLink:hover {
   line-height: 2.1rem;
 }
 .reviews {
-  width: calc(100% - 120px);
+  width: 100% - 80px;
   margin: 40px;
   height: fit-content;
   position: relative;
@@ -586,29 +585,5 @@ nav .navLink:hover {
     opacity: 1;
   }
 }
-@media (425px < width < 768px) {
-  #mainImgCont img {
-    width: 100vw;
-    max-width: 520px;
-    min-width: 10px;
-  }
-  #mainTextCont h1 {
-    font-size: 3.8rem;
-  }
-  #mainTextCont p {
-    font-size: 3rem;
-  }
-}
-@media (width < 425px) {
-  #mainImgCont img {
-    width: 100vw;
-    max-width: 520px;
-    min-width: 10px;
-  }
-  #mainTextCont h1 {
-    font-size: 2.4rem;
-  }
-  #mainTextCont p {
-    font-size: 1.8rem;
-  }
-}
+@media (425px < width < 768px) {}
+@media (width < 425px) {}

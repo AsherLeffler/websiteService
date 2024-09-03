@@ -1,3 +1,6 @@
+*, *::before, *::after{
+  box-sizing: border-box;
+}
 :root {
   --font: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
@@ -19,7 +22,8 @@ body {
   position: relative;
   background-image: url("./assets/main-back.png");
   background-size: cover;
-  background-position: 50% 200%;
+  background-position: 50% 195%;
+  margin: 0;
   background-repeat: no-repeat;
 }
 .about-grid-container {
@@ -40,7 +44,7 @@ header {
   background-color: hsla(225, 40%, 43%, 0.99);
   height: 80px;
   text-align: center;
-  width: calc(100% - 10px);
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,7 +65,7 @@ header {
   flex-direction: column;
   gap: 10px;
   padding: 20px;
-  min-height: 460px;
+  min-height: 500px;
   background-color: rgba(255, 255, 255, 0.1);
   position: relative;
 }
@@ -140,7 +144,7 @@ header {
   padding: 10px;
   color: rgb(255, 255, 255);
   background: linear-gradient(165deg, rgb(71, 81, 255), rgb(0, 7, 149));
-  width: 360px;
+  width: 380px;
   position: relative;
   right: calc(5% + 2px);
   bottom: 1px;
@@ -150,7 +154,7 @@ header {
   font-size: 1.1rem;
   padding: 10px;
   border-radius: 4px;
-  width: calc(100% - 20px);
+  width: 100%;
   color: rgb(255, 255, 255);
   border: 1.5px solid rgba(210, 210, 210, 0.5);
   background: rgba(255, 255, 255, 0.2);
@@ -164,8 +168,8 @@ header {
   padding: 10px;
   border-radius: 4px;
   resize: none;
-  width: calc(100% - 20px);
-  height: 75px;
+  width: 100%;
+  height: 90px;
   color: rgb(255, 255, 255);
   border: 1.5px solid rgba(210, 210, 210, 0.5);
   background: rgba(255, 255, 255, 0.2);
@@ -183,7 +187,7 @@ header {
   );
   color: white;
   border: none;
-  border-radius: 30px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.2s;
   padding: 10px;
@@ -224,7 +228,7 @@ header {
   object-fit: contain;
 }
 .servicesCampaign div:nth-of-type(2) {
-  width: calc(65% - 40px);
+  width: 65%;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background-image: url("mesh-card.png");
@@ -363,8 +367,8 @@ header {
   border: none;
   cursor: pointer;
   width: fit-content;
-  border-radius: 20px;
-  transition: 0.3s ease-in-out;
+  border-radius: 8px;
+  transition: 0.3s cubicBezier(.455, .03, .515, .955);
   padding: 3px 30px;
   margin-left: 40px;
   margin-top: 20px;
@@ -384,7 +388,7 @@ header {
   left: 0;
   width: 0;
   height: 100%;
-  background-color: rgb(0, 7, 149);
+  background-color: rgb(32, 80, 255);
   transition: 0.3s ease-in-out;
 }
 .aboutLearnBtn:hover::after {
@@ -437,7 +441,7 @@ header {
   padding: 20px 80px;
 }
 .what-we-do .description h1 {
-  font-size: 2rem;
+  font-size: 2.8rem;
   margin: 0;
   padding: 0;
   margin-bottom: 20px;
@@ -538,8 +542,7 @@ header {
 .offerings {
   display: flex;
   justify-content: center;
-  margin-top: 80px;
-  background-image: url("mesh-card.png");
+  background-image: url("darkenedFAQImg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -570,39 +573,9 @@ header {
 .offerings .right {
   flex: 1.5;
 }
-.callNow {
-  background: linear-gradient(165deg, hsl(240, 100%, 33%), hsl(240, 100%, 13%));
-  padding: 40px 0;
-  position: relative;
-}
-.callNow h1 {
-  font-size: 2.2rem;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  font-weight: normal;
-  line-height: 3rem;
-}
-.callNow p {
-  font-size: 1.6rem;
-  margin: 0;
-  padding: 0;
-  color: rgb(200, 200, 200);
-  text-align: center;
-  line-height: 3rem;
-}
-.callNow a {
-  font-size: 2.6rem;
-  color: rgb(120, 113, 255);
-  text-decoration: none;
-  font-weight: bolder;
-}
-.callNow a:hover {
-  text-decoration: underline;
-}
 .pricing {
   grid-area: pricing;
-  width: calc(100% - 20px);
+  width: 100%;
   height: 550px;
   padding: 10px;
   display: flex;
@@ -644,7 +617,7 @@ footer {
   background-color: #3a44d3;
   padding: 20px;
   height: 60px;
-  width: calc(100% - 40px);
+  width: 100%;
   text-align: center;
   color: #7e87ff;
   display: flex;
@@ -668,16 +641,5 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-@media (max-width: 768px) {
-  .home-grid-container {
-    grid-template-areas:
-      "homeMain"
-      "divider"
-      "homeAsideInfo"
-      "homeMainInfo"
-      "location"
-      "pricing";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto auto auto auto;
-  }
-}
+@media (425px < width < 768px) {}
+@media (width < 425px) {}
