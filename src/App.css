@@ -2,7 +2,7 @@
 
 .logo {
   height: 85%;
-  width: fit-content;
+  width: max-content;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -10,6 +10,7 @@
   justify-content: space-evenly;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 .logo img {
   height: 100%;
@@ -274,7 +275,7 @@ nav .navLink:hover {
   display: none;
 }
 .anonymous #label {
-  width: 20px;
+  width: 23px;
   aspect-ratio: 1;
   border: 2px solid goldenrod;
   border-radius: 6px;
@@ -347,17 +348,28 @@ nav .navLink:hover {
   left: 15px;
   top: 5px;
   transition: 0.15s ease;
+  z-index: 3;
 }
 .reviewPage a:hover {
   color: rgb(173, 173, 173);
 }
+.reviewPage .div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
 .reviewPage form {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: left;
   gap: 10px;
   padding: 10px;
+  padding-left: 10%;
+  backdrop-filter: blur(50px);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .reviewPage form h1 {
   font-size: 2.4rem;
@@ -384,7 +396,7 @@ nav .navLink:hover {
 }
 .reviewPage form input {
   width: 300px;
-  height: 30px;
+  height: 40px;
   padding: 5px;
   border: 2px solid goldenrod;
   background: rgba(255, 255, 255, 0.1);
@@ -586,5 +598,7 @@ nav .navLink:hover {
     opacity: 1;
   }
 }
-@media (425px < width < 768px) {}
-@media (width < 425px) {}
+@media (425px < width < 768px) {
+}
+@media (width < 425px) {
+}

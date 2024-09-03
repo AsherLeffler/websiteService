@@ -30,12 +30,6 @@ function App() {
   // Set the service you want to learn more about
   const [learning, setLearning] = useState("default");
 
-  // Go back to the home page and reload the page
-  function goHome() {
-    setCurrentPage("Home");
-    window.scrollTo(0, 0);
-  }
-
   useEffect(() => {
     const path = location.pathname.replace("/", "") || "Home";
     setCurrentPage(path.charAt(0).toUpperCase() + path.slice(1)); // Capitalize page name
@@ -61,10 +55,10 @@ function App() {
   return (
     <>
       <header>
-        <button className="logo" onClick={goHome}>
-          <img src="/favicon.webp" alt="Logo" />
-          <h1>| Leffler WebDev</h1>
-        </button>
+        <Link className="logo" to="/">
+            <img src="/favicon.webp" alt="Logo" />
+            <h1>| Leffler WebDev</h1>
+        </Link>
         <nav>
           <Link
             className={`navLink ${
@@ -124,10 +118,7 @@ function App() {
       />
       <footer>
         <h2>Leffler WebDev &copy; 2024</h2>
-        <Link
-          onClick={() => setPage("Contact")}
-          to="/contact"
-        >
+        <Link onClick={() => setPage("Contact")} to="/contact">
           Contact Us
         </Link>
       </footer>

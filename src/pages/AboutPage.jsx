@@ -188,6 +188,7 @@ const AboutPage = () => {
           >
             <i className="fa-solid fa-arrow-left-long"></i> Back
           </a>
+          <div className="div"></div>
           <form id="reviewForm" onSubmit={formSubmit}>
             <h1>Write a Review:</h1>
             <div className="stars">

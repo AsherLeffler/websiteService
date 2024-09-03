@@ -13,6 +13,20 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+header {
+  background-color: hsla(225, 40%, 43%, 0.99);
+  height: 90px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow: hidden;
+}
 .home-grid-container {
   display: grid;
   grid-template-areas:
@@ -41,20 +55,6 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-header {
-  background-color: hsla(225, 40%, 43%, 0.99);
-  height: 80px;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  overflow: hidden;
 }
 .activeLink {
   color: rgb(102, 191, 255);
@@ -627,7 +627,7 @@ header {
 footer {
   background-color: #3a44d3;
   padding: 20px;
-  height: 60px;
+  height: 80px;
   width: 100%;
   text-align: center;
   color: #7e87ff;

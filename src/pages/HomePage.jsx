@@ -306,12 +306,12 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images">
                 <img
-                  src="/src/assets/descImgs/phone-tablet.webp"
+                  src="/src/assets/imgs/phone-tablet.webp"
                   alt="Image of website on multiple devices"
                   className="image1"
                 />
                 <img
-                  src="/src/assets/descImgs/phone-tablet.webp"
+                  src="/src/assets/imgs/phone-tablet.webp"
                   alt="Image of website on multiple devices that is semi-transparent"
                   className="image2"
                 />
@@ -334,12 +334,12 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images">
                 <img
-                  src="/src/assets/descImgs/html.webp"
+                  src="/src/assets/imgs/html.webp"
                   alt="Image of HTML code"
                   className="image1"
                 />
                 <img
-                  src="/src/assets/descImgs/html.webp"
+                  src="/src/assets/imgs/html.webp"
                   alt="Image of HTML code that is semi-transparent"
                   className="image2"
                 />
@@ -364,12 +364,12 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images">
                 <img
-                  src="/src/assets/descImgs/web-template.webp"
+                  src="/src/assets/imgs/web-template.webp"
                   alt="Image of website design template"
                   className="image1"
                 />
                 <img
-                  src="/src/assets/descImgs/web-template.webp"
+                  src="/src/assets/imgs/web-template.webp"
                   alt="Image of website design template that is semi-transparent"
                   className="image2"
                 />

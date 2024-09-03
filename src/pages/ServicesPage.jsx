@@ -82,6 +82,7 @@ const ServicesPage = ({
               easing: "easeOutExpo",
               duration: 1200,
               delay: (_, i) => 100 * i,
+              offset: 0,
             })
             .add({
               targets: ".ml1 .letter",

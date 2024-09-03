@@ -82,7 +82,7 @@
   background-position: center;
   background-repeat: no-repeat;
   transition: 0.4s ease;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 .serviceCard .blurFilter{
@@ -163,7 +163,7 @@
 .serviceCard:hover,
 .customCard:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.3);
 }
 .serviceCard::after,
 .customCard::after {
@@ -209,7 +209,7 @@
   position: relative;
   gap: 8px;
   padding: 10px;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.2);
   background-image: url("mesh-card.webp");
   background-size: cover;
   background-position: 100% 80%;
@@ -420,7 +420,7 @@
 }
 .managementCard .option {
   width: calc(100% - 8px);
-  height: 92px;
+  height: 120px;
   padding: 10px;
   cursor: default;
   border-radius: 3px;
