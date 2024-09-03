@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import RevComponent from "./RevComponent";
 
-const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
+const AboutPage = () => {
   const [triggerEffect, setTriggerEffect] = useState(false);
 
   // When the page loads, animate the text
@@ -47,8 +47,9 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
   const [aboutPage, setAboutPage] = useState("default");
 
   // Clear form on page load
+  const reviewRatingRef = useRef(null);
   useEffect(() => {
-    reviewRating = null;
+    reviewRatingRef.current = null;
     document.querySelectorAll(".fa-star").forEach((star) => {
       star.classList.replace("goodStar", "badStar");
     });
@@ -56,7 +57,6 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
   }, []);
 
   // Customer rating
-  let reviewRating = null;
   const setRating = (rating) => {
     const stars = document.querySelectorAll(".fa-star");
     for (let i = 0; i < stars.length; i++) {
@@ -66,7 +66,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
         stars[i].classList.replace("goodStar", "badStar");
       }
     }
-    reviewRating = rating;
+    reviewRatingRef.current = rating;
   };
 
   // Form submission
@@ -74,7 +74,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
   const acceptedEmails = [];
 
   function formSubmit(event) {
-    if (reviewRating === null) {
+    if (reviewRatingRef.current === null) {
       event.preventDefault();
       alert("Please select a rating.");
       return;
@@ -88,7 +88,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
       event.preventDefault();
       const form = document.getElementById("reviewForm");
       const formData = new FormData(form);
-      formData.append("rating", reviewRating);
+      formData.append("rating", reviewRatingRef.current);
       fetch("https://formspree.io/f/mdknglzj", {
         method: "POST",
         body: formData,
@@ -103,7 +103,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
             alert("There was a problem with the form submission.");
           }
         })
-        .catch((error) => {
+        .catch(() => {
           alert("There was a problem with the form submission.");
         });
       setAboutPage("default");
@@ -157,7 +157,7 @@ const AboutPage = ({ aboutPartStyleInfo, setCurrentPage }) => {
                 Operating on Eastern Time (EST), our team is available
                 throughout the business week, ready to partner with you and
                 deliver top-notch services that exceed expectations. Your
-                success is our priority, and we're always here to assist,
+                success is our priority, and we&apos;re always here to assist,
                 regardless of your location or time zone.
               </p>
             </article>

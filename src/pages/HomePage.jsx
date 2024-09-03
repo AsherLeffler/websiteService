@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import "animate.css";
+import anime from "animejs";
+import PropTypes from "prop-types";
 
 const HomePage = ({ info }) => {
   const setCurrentPage = info[3];
@@ -19,7 +21,7 @@ const HomePage = ({ info }) => {
       card.style.opacity = info[5].current[1];
     });
     return;
-  }, []);
+  }, [info]);
 
   window.onscroll = () => {
     const cards = document.querySelectorAll(".card");
@@ -67,7 +69,7 @@ const HomePage = ({ info }) => {
           alert("There was a problem with the form submission.");
         }
       })
-      .catch((error) => {
+      .catch(() => {
         alert("There was a problem with the form submission.");
       });
   }
@@ -87,113 +89,116 @@ const HomePage = ({ info }) => {
     }
   };
 
-  let slideIntervalID = null;
-  let slideIndex = 2;
+  const slideIntervalID = useRef(null);
+  const slideIndex = useRef(2);
+  const t = 15000;
   useEffect(() => {
-    if (!slideIntervalID) {
+    if (!slideIntervalID.current) {
       const slides = document.querySelectorAll(".description");
-      slides[slideIndex - 1].style.display = "flex";
+      slides[slideIndex.current - 1].classList.add("visible");
+      slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+      slides[slideIndex.current - 1].style.opacity = "0";
       anime({
-        targets: slides[slideIndex - 1],
+        targets: slides[slideIndex.current - 1],
         opacity: [0, 1],
         translateX: [80, 0],
         duration: 1000,
         easing: "easeInOutQuad",
       });
-      slideIntervalID = setInterval(() => {
-        for (let i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
+      slideIntervalID.current = setInterval(() => {
+        slides.forEach((slide) => slide.classList.remove("visible"));
+        slideIndex.current++;
+        if (slideIndex.current > slides.length) {
+          slideIndex.current = 1;
         }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-          slideIndex = 1;
-        }
-        slides[slideIndex - 1].style.display = "flex";
+        slides[slideIndex.current - 1].classList.add("visible");
+        slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+        slides[slideIndex.current - 1].style.opacity = "0";
         anime({
-          targets: slides[slideIndex - 1],
+          targets: slides[slideIndex.current - 1],
           opacity: [0, 1],
           translateX: [80, 0],
           duration: 1000,
           easing: "easeInOutQuad",
         });
-      }, 15000);
+      }, t);
     }
   }, []);
 
   const moveSlideLeft = () => {
-    clearInterval(slideIntervalID);
-    slideIntervalID = null;
+    clearInterval(slideIntervalID.current);
+    slideIntervalID.current = null;
     const slides = document.querySelectorAll(".description");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    slides.forEach((slide) => slide.classList.remove("visible"));
+    slideIndex.current--;
+    if (slideIndex.current < 1) {
+      slideIndex.current = slides.length;
     }
-    slideIndex--;
-    if (slideIndex < 1) {
-      slideIndex = slides.length;
-    }
-    slides[slideIndex - 1].style.display = "flex";
+    slides[slideIndex.current - 1].classList.add("visible");
+    slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+    slides[slideIndex.current - 1].style.opacity = "0";
     anime({
-      targets: slides[slideIndex - 1],
+      targets: slides[slideIndex.current - 1],
       opacity: [0, 1],
       translateX: [-80, 0],
       duration: 1000,
       easing: "easeInOutQuad",
     });
-    slideIntervalID = setInterval(() => {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    slideIntervalID.current = setInterval(() => {
+      slides.forEach((slide) => slide.classList.remove("visible"));
+      slideIndex.current++;
+      if (slideIndex.current > slides.length) {
+        slideIndex.current = 1;
       }
-      slideIndex++;
-      if (slideIndex > slides.length) {
-        slideIndex = 1;
-      }
-      slides[slideIndex - 1].style.display = "flex";
+      slides[slideIndex.current - 1].classList.add("visible");
+      slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+      slides[slideIndex.current - 1].style.opacity = "0";
       anime({
-        targets: slides[slideIndex - 1],
+        targets: slides[slideIndex.current - 1],
         opacity: [0, 1],
         translateX: [80, 0],
         duration: 1000,
         easing: "easeInOutQuad",
       });
-    }, 15000);
+    }, t);
   };
 
   const moveSlideRight = () => {
-    clearInterval(slideIntervalID);
-    slideIntervalID = null;
+    clearInterval(slideIntervalID.current);
+    slideIntervalID.current = null;
     const slides = document.querySelectorAll(".description");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    slides.forEach((slide) => slide.classList.remove("visible"));
+    slideIndex.current++;
+    if (slideIndex.current > slides.length) {
+      slideIndex.current = 1;
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-      slideIndex = 1;
-    }
-    slides[slideIndex - 1].style.display = "flex";
+    slides[slideIndex.current - 1].classList.add("visible");
+    slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+    slides[slideIndex.current - 1].style.opacity = "0";
     anime({
-      targets: slides[slideIndex - 1],
+      targets: slides[slideIndex.current - 1],
       opacity: [0, 1],
       translateX: [80, 0],
       duration: 1000,
       easing: "easeInOutQuad",
     });
-    slideIntervalID = setInterval(() => {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    slideIntervalID.current = setInterval(() => {
+      slides.forEach((slide) => slide.classList.remove("visible"));
+      slideIndex.current++;
+      if (slideIndex.current > slides.length) {
+        slideIndex.current = 1;
       }
-      slideIndex++;
-      if (slideIndex > slides.length) {
-        slideIndex = 1;
-      }
-      slides[slideIndex - 1].style.display = "flex";
+      slides[slideIndex.current - 1].classList.add("visible");
+      slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+      slides[slideIndex.current - 1].style.opacity = "0";
       anime({
-        targets: slides[slideIndex - 1],
+        targets: slides[slideIndex.current - 1],
         opacity: [0, 1],
         translateX: [80, 0],
         duration: 1000,
         easing: "easeInOutQuad",
       });
-    }, 15000);
+    }, t);
   };
 
   return (
@@ -211,8 +216,8 @@ const HomePage = ({ info }) => {
               solutions. With years of experience, we deeply understand the
               importance of a successful online presence. Our team excels at
               crafting websites that not only captivate and engage audiences but
-              also drive meaningful impact in today's digital landscape. We
-              believe in empowering our clients to make a difference, and we're
+              also drive meaningful impact in today&apos;s digital landscape. We
+              believe in empowering our clients to make a difference, and we&apos;re
               here to ensure your website becomes a powerful tool for your
               success.
             </p>
@@ -291,7 +296,7 @@ const HomePage = ({ info }) => {
                   good as it could. Not only does this hurt your website
                   experience, but it also causes your website to fall down the
                   page rankings. This is why making sure your website is
-                  responsive is so crucial for it's and yours success.
+                  responsive is so crucial for it&apos;s and yours success.
                 </p>
               </article>
               <div className="images">
@@ -315,14 +320,15 @@ const HomePage = ({ info }) => {
                   that makes it show up on your screen. With our websites, we
                   specially develop that information and make sure it is
                   optimized for the best performance. This is important because
-                  if your website is not optimized, it will not show up on
-                  search engines. This means that your website will not be seen
-                  by anyone. We create the best possible site for you and your
-                  customers so that everyone can have a good experience.
+                  without an optimized website, search engines will not be able
+                  to see it. This means that your website will not be seen by
+                  anyone who might be looking for you or your business. We
+                  create the best possible site for you and your customers so
+                  that everyone can have a good experience.
                 </p>
               </article>
               <div className="images">
-              <img
+                <img
                   src="/src/assets/descImgs/html.png"
                   alt="Image of HTML code"
                   className="image1"
@@ -345,7 +351,7 @@ const HomePage = ({ info }) => {
                   your website is appealing to the eye while still having
                   functionality. We create all of our websites with a unique
                   design that looks stunning and professional. If your website
-                  doesn't look as good as it can be, your users won't want to
+                  doesn&apos;t look as good as it can be, your users won&apos;t want to
                   stay on your site. We make sure that your website is the best
                   it can be so that you can have the best experience possible.
                 </p>
@@ -407,7 +413,7 @@ const HomePage = ({ info }) => {
         <div className="card">
           <h1 className="faqHeader">How Long Will It Take?</h1>
           <p>
-            The time it will take heavily depends on the website you're looking
+            The time it will take heavily depends on the website you&apos;re looking
             for. A typical website will take around <u>2-4 weeks</u> to be fully
             completed and optimized.
           </p>
@@ -416,4 +422,13 @@ const HomePage = ({ info }) => {
     </div>
   );
 };
+
+HomePage.propTypes = {
+  info: PropTypes.arrayOf(
+    PropTypes.shape({
+      current: PropTypes.any.isRequired,
+    })
+  ).isRequired,
+};
+
 export default HomePage;
