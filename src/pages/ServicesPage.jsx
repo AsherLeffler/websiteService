@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import "./services.css";
+import PropTypes from "prop-types";
+import anime from "animejs";
 
-const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
+const ServicesPage = ({
+  learning = "default",
+  setLearning = () => {},
+  setCurrentPage = () => {},
+}) => {
   // When the page loads animate the first cardCont
   const [triggerEffect, setTriggerEffect] = useState(false);
   const [canFlip, setCanFlip] = useState(false);
@@ -76,6 +82,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
               easing: "easeOutExpo",
               duration: 1200,
               delay: (_, i) => 100 * i,
+              offset: 0,
             })
             .add({
               targets: ".ml1 .letter",
@@ -147,7 +154,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
     }
     setTriggerEffect(false);
     return;
-  }, [triggerEffect, learning]);
+  }, [triggerEffect, learning, setCurrentPage]);
 
   // When scrolling past the first cardCont, animate the second cardCont
   window.onscroll = () => {
@@ -174,7 +181,10 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("desDev")}
               >
-                <div className="price"><p>* $229.99</p></div>
+                <div className="blurFilter"></div>
+                <div className="price">
+                  <p>* $229.99</p>
+                </div>
                 <h1>Web Design + Development</h1>
                 <p className="p">
                   We create the entire website based on your end goal. We make
@@ -185,7 +195,10 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("redesign")}
               >
-                <div className="price"><p>* $169.99</p></div>
+                <div className="blurFilter"></div>
+                <div className="price">
+                  <p>* $169.99</p>
+                </div>
                 <h1>Web Redesign</h1>
                 <p className="p">
                   We take a website you currently have, and we redesign it to
@@ -196,7 +209,10 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("devDes")}
               >
-                <div className="price"><p>* $149.99</p></div>
+                <div className="blurFilter"></div>
+                <div className="price">
+                  <p>* $149.99</p>
+                </div>
                 <h1>Web Development From Design</h1>
                 <p className="p">
                   We develop your website based on the design of your choice. We
@@ -206,7 +222,10 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
             </div>
             <div className="cardCont">
               <div className="serviceCard" onClick={() => setLearning("SEO")}>
-                <div className="price"><p>$39.99</p></div>
+                <div className="blurFilter"></div>
+                <div className="price">
+                  <p>$39.99</p>
+                </div>
                 <h1>SEO Optimzization</h1>
                 <p className="p">
                   We optimize your website so it can more easily be found by
@@ -217,18 +236,24 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="serviceCard"
                 onClick={() => setLearning("hosting")}
               >
-                <div className="price"><p>~</p></div>
+                <div className="blurFilter"></div>
+                <div className="price">
+                  <p>~</p>
+                </div>
                 <h1>Web Hosting</h1>
                 <p className="p">
                   We host your website for you. Any website of your choice,
-                  hosted by us so you don't have to.
+                  hosted by us so you don&apos;t have to.
                 </p>
               </div>
               <div
                 className="serviceCard"
                 onClick={() => setLearning("maintenance")}
               >
-                <div className="price"><p>~</p></div>
+                <div className="blurFilter"></div>
+                <div className="price">
+                  <p>~</p>
+                </div>
                 <h1>Web Maintenance</h1>
                 <p className="p">
                   We maintain your current website to make sure it is up to date
@@ -247,18 +272,27 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
                 className="customCard"
                 onClick={() => setLearning("package")}
               >
-                <div className="price"><p>$311.99</p></div>
+                <div className="blurFilter"></div>
+                <div className="price">
+                  <p>$311.99</p>
+                </div>
                 <h1>The Website Package</h1>
                 <p className="p">
                   A package deal for all of the services you will need for a
                   successful website. The key essentials your brand new website.
                 </p>
-                <h3 className="save20">Save 20%!</h3>
+                <div className="div">
+                  <h3 className="crossedOut">$390</h3>
+                  <h3 className="save20">Save 20%!</h3>
+                </div>
               </div>
             </div>
             <div className="cardCont">
               <div className="customCard" onClick={() => setLearning("custom")}>
-                <div className="price"><p>~</p></div>
+                <div className="blurFilter"></div>
+                <div className="price">
+                  <p>~</p>
+                </div>
                 <h1>Custom Service</h1>
                 <p className="p">
                   Any combination of the services we offer. Whatever services
@@ -268,7 +302,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
             </div>
             <div id="legend">
               <p>* Price is subject to change based on site</p>
-              <p>~ Price depends on customer's selection</p>
+              <p>~ Price depends on customer&apos;s selection</p>
             </div>
           </main>
         </div>
@@ -283,8 +317,8 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
             A package deal for all of the services you will need for a
             successful website. With all of the things you need in your website,
             it is guaranteed to make an impact on the world. Taken care of fully
-            by us, you don't have to lift a finger to become the proud owner of
-            an amazing site.
+            by us, you don&apos;t have to lift a finger to become the proud
+            owner of an amazing site.
           </p>
           <ul className="ul">
             <h1>What you get:</h1>
@@ -345,7 +379,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
             Designing and Developing Your Perfect Website
           </h1>
           <p className="ml2">
-            We create the design and the site itself. You don't need to do
+            We create the design and the site itself. You don&apos;t need to do
             anything, we take care of it. We make it with the content of your
             choice to communicate your message in an appealing and user-friendly
             way. Based on your information and needs, we personally currate a
@@ -371,7 +405,7 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
             Your website gets a new fresh look that is also responsive and
             user-friendly. You tell us what you want your website to look like
             and we currate a design for you. We also fully implement the new
-            design in for you so you don't have to.
+            design in for you so you don&apos;t have to.
           </p>
           <ul className="ul">
             <h1>What you get:</h1>
@@ -591,6 +625,12 @@ const ServicesPage = ({ learning, setLearning, setCurrentPage }) => {
       )}
     </>
   );
+};
+
+ServicesPage.propTypes = {
+  learning: PropTypes.string,
+  setLearning: PropTypes.func,
+  setCurrentPage: PropTypes.func,
 };
 
 export default ServicesPage;

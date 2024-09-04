@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import anime from "animejs";
 import "./contact.css";
 
 const ContactPage = () => {
@@ -88,6 +89,8 @@ const ContactPage = () => {
       form.reset();
       setChoseCustom(false);
       setPackageActive(false);
+      setTextError(false);
+      setTotal(0);
     }
     anime({
       targets: "#contactForm",
@@ -122,12 +125,11 @@ const ContactPage = () => {
   function formSubmit(event) {
     const selectValue = document.getElementById("serviceSelect").value;
     event.preventDefault();
-    if (selectValue !== "select" && total !== 0) {
+    if (selectValue !== "select" && total !== 0 && textError === false) {
       event.preventDefault();
       const form = document.getElementById("contactForm");
       const formData = new FormData(form);
       formData.append("total", total);
-      setTriggerEffect(true);
       fetch("https://formspree.io/f/xrbzjrzp", {
         method: "POST",
         body: formData,
@@ -142,12 +144,14 @@ const ContactPage = () => {
             alert("There was a problem with the form submission.");
           }
         })
-        .catch((error) => {
+        .catch(() => {
           alert("There was a problem with the form submission.");
         });
-      setAboutPage("default");
       setTriggerEffect(true);
       setChoseCustom(false);
+      setTextError(false);
+    } else if (textError === true) {
+      alert("Please enter a valid phone number");
     } else {
       alert("Please select a service");
     }
@@ -255,7 +259,14 @@ const ContactPage = () => {
           )}
           <label htmlFor="otherInfo">Other Information</label>
           <textarea name="otherInfo" id="otherInfo" />
-          {total !== 0 && <p>Base Total: ~ ${total}</p>}
+          {total !== 0 && (
+            <>
+              <p className="p">Base Total: ~ ${total}</p>
+              <p className="p">
+                * Total is subject to change, IT IS NOT THE FINAL PRICE.
+              </p>
+            </>
+          )}
           <button type="submit">Send</button>
         </form>
       </main>

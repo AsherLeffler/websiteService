@@ -1,84 +1,22 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import "animate.css";
+import anime from "animejs";
+import PropTypes from "prop-types";
 
 const HomePage = ({ info }) => {
+  const setCurrentPage = info[3];
+
   // When the page loads, animate the text
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    if (!info[0].current) {
-      anime
-        .timeline({ loop: false })
-        .add({
-          targets: ".ml3 .line",
-          opacity: [0.5, 1],
-          scaleX: [0, 1],
-          easing: "easeInOutExpo",
-          duration: 700,
-        })
-        .add({
-          targets: ".ml3 .line",
-          duration: 600,
-          easing: "easeOutExpo",
-          translateY: (_, i) => -0.625 + 0.625 * 2 * i + "em",
-        })
-        .add({
-          targets: ".ml3 .ampersand",
-          opacity: [0, 1],
-          scaleY: [0.5, 1],
-          easing: "easeOutExpo",
-          duration: 600,
-          offset: "-=600",
-        })
-        .add({
-          targets: ".ml3 .letters-left",
-          opacity: [0, 1],
-          translateX: ["0.5em", 0],
-          easing: "easeOutExpo",
-          duration: 600,
-          offset: "-=300",
-        })
-        .add({
-          targets: ".ml3 .letters-right",
-          opacity: [0, 1],
-          translateX: ["-0.5em", 0],
-          easing: "easeOutExpo",
-          duration: 600,
-          offset: "-=600",
-        });
-      const pElement = document.querySelector("#mainTextCont p");
-      pElement.style.animation = "fadeIn 1.2s ease-out forwards";
-      pElement.style.animationDelay = "1.3s";
-      setTimeout(() => {
-        info[6].current = [1, "-0.625em", "0.625em", 0];
-      }, 2000);
-      info[0].current = true;
-    }
-
     // Add previous styles to animated elements
-    if (info[6].current.length !== 0) {
-      const ml3 = document.querySelectorAll(".ml3 .line");
-      const ampersand = document.querySelector(".ml3 .ampersand");
-      const lettersLeft = document.querySelector(".ml3 .letters-left");
-      const lettersRight = document.querySelector(".ml3 .letters-right");
-      const forYou = document.querySelector("#mainTextCont p");
-      ml3.forEach((line, i) => {
-        line.style.opacity = info[6].current[0];
-        line.style.transform = `scaleX(${info[6].current[0]}) translateY(${
-          info[6].current[i + 1]
-        })`;
-      });
-      ampersand.style.opacity = info[6].current[0];
-      ampersand.style.transform = `scaleY(${info[6].current[0]})`;
-      lettersLeft.style.opacity = info[6].current[0];
-      lettersLeft.style.transform = `translateX(${info[6].current[3]})`;
-      lettersRight.style.opacity = info[6].current[0];
-      lettersRight.style.transform = `translateX(${info[6].current[3]})`;
-      forYou.style.opacity = info[6].current[0];
-    }
     const offeringsList = document.querySelectorAll(".offerings ul li");
     offeringsList.forEach((li) => {
       li.style.opacity = info[8].current;
+      li.style.transform = "translateY(0px)";
     });
     const cards = document.querySelectorAll(".card");
     cards.forEach((card) => {
@@ -86,16 +24,17 @@ const HomePage = ({ info }) => {
       card.style.opacity = info[5].current[1];
     });
     return;
-  }, []);
+  }, [info]);
 
   window.onscroll = () => {
     const cards = document.querySelectorAll(".card");
     if (cards) {
-      if (window.scrollY > 1715 && !info[7].current) {
+      if (window.scrollY > 1440 && !info[7].current) {
         anime({
           targets: ".offerings ul li",
           opacity: [0, 1],
           translateY: [20, 0],
+          easing: "easeOutQuad",
           duration: 800,
           delay: (_, i) => 80 * i,
         });
@@ -103,7 +42,7 @@ const HomePage = ({ info }) => {
         info[8].current = 1;
       }
       // When scrolling, animate the cards
-      if (window.scrollY > 1965 && !info[2].current) {
+      if (window.scrollY > 1835 && !info[2].current) {
         cards.forEach((card, index) => {
           card.style.animation = `cardSlideIn 1.2s ease-out ${
             index / 2
@@ -115,46 +54,217 @@ const HomePage = ({ info }) => {
     }
   };
 
-  // Get the current time in EST
-  const [time, setTime] = useState("");
-  setInterval(() => {
-    const now = new Date();
-    const estTime = new Date(
-      now.toLocaleString("en-US", { timeZone: "America/New_York" })
-    );
-    let hours = String(estTime.getHours()).padStart(2, "0");
-    hours = hours % 12 || 12;
-    const minutes = String(estTime.getMinutes()).padStart(2, "0");
-    setTime(`${hours}:${minutes} ${estTime.getHours() >= 12 ? "PM" : "AM"}`);
-  }, 1000);
+  function formSubmit(event) {
+    event.preventDefault();
+    const form = document.getElementById("askAbout");
+    const formData = new FormData(form);
+    fetch("https://formspree.io/f/mblrbjnp", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Thank you, we will respond shortly!");
+          form.reset();
+        } else {
+          alert("There was a problem with the form submission.");
+        }
+      })
+      .catch(() => {
+        alert("There was a problem with the form submission.");
+      });
+  }
+
+  const handleTextChange = () => {
+    const phone = document.getElementById("phoneInput");
+    const phoneRegEx = /^\d{10}$/;
+    if (!phone.value.match(phoneRegEx)) {
+      phone.value = phone.value.replace(/[^0-9]/g, "");
+    } else if (phone.value.match(phoneRegEx)) {
+      phone.value = `(${phone.value.slice(0, 3)})-${phone.value.slice(
+        3,
+        6
+      )}-${phone.value.slice(6)}`;
+    } else if (phone.value === "") {
+      phone.value = phone.value.replace(/[^0-9]/g, "");
+    }
+  };
+
+  const slideIntervalID = useRef(null);
+  const slideIndex = useRef(2);
+
+  // Interval time in seconds before switching slides
+  const t = 20;
+
+  useEffect(() => {
+    if (!slideIntervalID.current) {
+      const slides = document.querySelectorAll(".description");
+      slides[slideIndex.current - 1].classList.add("visible");
+      slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+      slides[slideIndex.current - 1].style.opacity = "0";
+      anime({
+        targets: slides[slideIndex.current - 1],
+        opacity: [0, 1],
+        translateX: [80, 0],
+        duration: 1000,
+        easing: "easeInOutQuad",
+      });
+      slideIntervalID.current = setInterval(() => {
+        slides.forEach((slide) => slide.classList.remove("visible"));
+        slideIndex.current++;
+        if (slideIndex.current > slides.length) {
+          slideIndex.current = 1;
+        }
+        slides[slideIndex.current - 1].classList.add("visible");
+        slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+        slides[slideIndex.current - 1].style.opacity = "0";
+        anime({
+          targets: slides[slideIndex.current - 1],
+          opacity: [0, 1],
+          translateX: [80, 0],
+          duration: 1000,
+          easing: "easeInOutQuad",
+        });
+      }, t * 1000);
+    }
+  }, []);
+
+  const moveSlideLeft = () => {
+    clearInterval(slideIntervalID.current);
+    slideIntervalID.current = null;
+    const slides = document.querySelectorAll(".description");
+    slides.forEach((slide) => slide.classList.remove("visible"));
+    slideIndex.current--;
+    if (slideIndex.current < 1) {
+      slideIndex.current = slides.length;
+    }
+    slides[slideIndex.current - 1].classList.add("visible");
+    slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+    slides[slideIndex.current - 1].style.opacity = "0";
+    anime({
+      targets: slides[slideIndex.current - 1],
+      opacity: [0, 1],
+      translateX: [-80, 0],
+      duration: 1000,
+      easing: "easeInOutQuad",
+    });
+    slideIntervalID.current = setInterval(() => {
+      slides.forEach((slide) => slide.classList.remove("visible"));
+      slideIndex.current++;
+      if (slideIndex.current > slides.length) {
+        slideIndex.current = 1;
+      }
+      slides[slideIndex.current - 1].classList.add("visible");
+      slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+      slides[slideIndex.current - 1].style.opacity = "0";
+      anime({
+        targets: slides[slideIndex.current - 1],
+        opacity: [0, 1],
+        translateX: [80, 0],
+        duration: 1000,
+        easing: "easeInOutQuad",
+      });
+    }, t * 1000);
+  };
+
+  const moveSlideRight = () => {
+    clearInterval(slideIntervalID.current);
+    slideIntervalID.current = null;
+    const slides = document.querySelectorAll(".description");
+    slides.forEach((slide) => slide.classList.remove("visible"));
+    slideIndex.current++;
+    if (slideIndex.current > slides.length) {
+      slideIndex.current = 1;
+    }
+    slides[slideIndex.current - 1].classList.add("visible");
+    slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+    slides[slideIndex.current - 1].style.opacity = "0";
+    anime({
+      targets: slides[slideIndex.current - 1],
+      opacity: [0, 1],
+      translateX: [80, 0],
+      duration: 1000,
+      easing: "easeInOutQuad",
+    });
+    slideIntervalID.current = setInterval(() => {
+      slides.forEach((slide) => slide.classList.remove("visible"));
+      slideIndex.current++;
+      if (slideIndex.current > slides.length) {
+        slideIndex.current = 1;
+      }
+      slides[slideIndex.current - 1].classList.add("visible");
+      slides[slideIndex.current - 1].style.transform = "translateX(80px)";
+      slides[slideIndex.current - 1].style.opacity = "0";
+      anime({
+        targets: slides[slideIndex.current - 1],
+        opacity: [0, 1],
+        translateX: [80, 0],
+        duration: 1000,
+        easing: "easeInOutQuad",
+      });
+    }, t * 1000);
+  };
 
   return (
     <div className="home-grid-container">
-      <main className="homeMain">
-        <div className="div"></div>
-        <article className="article">
-          <h1>Leffler WebDev</h1>
-        </article>
-        <div id="mainTextCont">
-          <h1 className="ml3">
-            <span className="text-wrapper">
-              <span className="line line1"></span>
-              <b>
-                <span className="letters letters-left">Developing</span>
-              </b>{" "}
-              <span className="letters ampersand">&amp;</span>{" "}
-              <b>
-                <span className="letters letters-right">Designing</span>
-              </b>
-              <span className="line line2"></span>
-            </span>
-          </h1>
-          <p>
-            Websites <u>For You</u>
-          </p>
-        </div>
-      </main>
       <main className="homeAboutMain">
+        <article className="homeTitle">
+          <div className="div">
+            <h1>Leffler WebDev</h1>
+            <p>Designing & Developing For You</p>
+          </div>
+          <div className="info">
+            <p>
+              We are a national organization specializing in website design and
+              development, dedicated to delivering exceptional digital
+              solutions. With years of experience, we deeply understand the
+              importance of a successful online presence. Our team excels at
+              crafting websites that not only captivate and engage audiences but
+              also drive meaningful impact in today&apos;s digital landscape. We
+              believe in empowering our clients to make a difference, and
+              we&apos;re here to ensure your website becomes a powerful tool for
+              your success.
+            </p>
+            <button
+              className="aboutLearnBtn"
+              onClick={() => setCurrentPage("About")}
+            >
+              <p id="text">Learn More</p>
+            </button>
+          </div>
+          <div className="main-card">
+            <form method="POST" onSubmit={formSubmit} id="askAbout">
+              <h1>Ask Us About Your Website Today</h1>
+              <input
+                type="text"
+                placeholder="Full Name*"
+                name="Full Name"
+                required
+              />
+              <input type="email" placeholder="Email*" name="Email" required />
+              <input
+                type="tel"
+                placeholder="Phone*"
+                name="Phone#"
+                onChange={handleTextChange}
+                id="phoneInput"
+                required
+              />
+              <textarea
+                name="Message"
+                id="message"
+                cols="30"
+                rows="10"
+                placeholder="Message*"
+                required
+              ></textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </article>
         <article className="servicesCampaign">
           <div>
             <img src="webIcon.svg" alt="Web Icon" />
@@ -171,39 +281,109 @@ const HomePage = ({ info }) => {
             </button>
           </div>
         </article>
-        <article className="mainAbout">
-          <h1>About Us</h1>
-          <p>
-            We are a national organization specializing in website design and
-            development, dedicated to delivering exceptional digital solutions.
-            With years of experience, we deeply understand the importance of a
-            successful online presence. Our team excels at crafting websites
-            that not only captivate and engage audiences but also drive
-            meaningful impact in today's digital landscape. We believe in
-            empowering our clients to make a difference, and we're here to
-            ensure your website becomes a powerful tool for your success.
-          </p>
-          <button
-            className="aboutLearnBtn"
-            onClick={() => setCurrentPage("About")}
-          >
-            <p id="text">Learn More</p>
-          </button>
-        </article>
-        <article className="homeBase">
-          <h1>Home Base</h1>
-          <p className="p">
-            Located in Raleigh, North Carolina, we proudly extend our
-            exceptional services across the entire United States. No matter
-            where you are, our expertise is just a call or click away. Operating
-            on Eastern Time (EST), our team is available throughout the business
-            week, ready to partner with you and deliver top-notch services that
-            exceed expectations. Your success is our priority, and we're always
-            here to assist, regardless of your location or time zone.
-          </p>
-          <h3 className="time">
-            Our Time: <time className="timeNum">{time}</time>
-          </h3>
+        <article className="what-we-do">
+          <h1 className="whatH1">What We Do</h1>
+          <div className="whatCont">
+            <div className="arrow1" onClick={moveSlideLeft}>
+              ←
+            </div>
+            <div className="arrow2" onClick={moveSlideRight}>
+              →
+            </div>
+            <div className="description">
+              <article className="text">
+                <h1>Responsiveness</h1>
+                <p>
+                  With any website, responsiveness is a very important factor.
+                  Having a responsive page means your page adapts to any device
+                  while still looking exceptional. We create websites that can
+                  be altered to fit any screen size. This ensures that your
+                  website looks great on any device. Without responsiveness,
+                  your website will be hard to navigate and will not look as
+                  good as it could. Not only does this hurt your website
+                  experience, but it also causes your website to fall down the
+                  page rankings. This is why making sure your website is
+                  responsive is so crucial for it&apos;s and yours success.
+                </p>
+              </article>
+              <div className="images">
+                <LazyLoadImage
+                  src="/src/assets/imgs/phone-tablet.webp"
+                  alt="Image of website on multiple devices"
+                  id="image1"
+                  effect="blur"
+                />
+                <LazyLoadImage
+                  src="/src/assets/imgs/phone-tablet.webp"
+                  alt="Image of website on multiple devices that is semi-transparent"
+                  id="image2"
+                  effect="blur"
+                />
+              </div>
+            </div>
+            <div className="description">
+              <article className="text">
+                <h1>Development</h1>
+                <p>
+                  Every website on the internet has information stored behind it
+                  that makes it show up on your screen. With our websites, we
+                  specially develop that information and make sure it is
+                  optimized for the best performance. This is important because
+                  without an optimized website, search engines will not be able
+                  to see it. This means that your website will not be seen by
+                  anyone who might be looking for you or your business. We
+                  create the best possible site for you and your customers so
+                  that everyone will have a good experience.
+                </p>
+              </article>
+              <div className="images">
+                <LazyLoadImage
+                  src="/src/assets/imgs/html.webp"
+                  alt="Image of HTML code"
+                  className="image1"
+                  effect="blur"
+                />
+                <LazyLoadImage
+                  src="/src/assets/imgs/html.webp"
+                  alt="Image of HTML code that is semi-transparent"
+                  className="image2"
+                  effect="blur"
+                />
+              </div>
+            </div>
+            <div className="description">
+              <article className="text">
+                <h1>Design</h1>
+                <p>
+                  Every business has a different target market. Whether it be
+                  younger people or older people, women or men, we create the
+                  best design for your customers so that you can best connect
+                  with the people that visit your website. We make sure that
+                  your website is appealing to the eye while still having
+                  functionality. We create all of our websites with a unique
+                  design that looks stunning and professional. If your website
+                  doesn&apos;t look as good as it can be, your users won&apos;t
+                  want to stay on your site. We make sure that your website is
+                  the best it can be so that you can have the best experience
+                  possible.
+                </p>
+              </article>
+              <div className="images">
+                <LazyLoadImage
+                  src="/src/assets/imgs/web-template.webp"
+                  alt="Image of website design template"
+                  className="image1"
+                  effect="blur"
+                />
+                <LazyLoadImage
+                  src="/src/assets/imgs/web-template.webp"
+                  alt="Image of website design template that is semi-transparent"
+                  className="image2"
+                  effect="blur"
+                />
+              </div>
+            </div>
+          </div>
         </article>
         <article className="offerings">
           <div className="left"></div>
@@ -219,17 +399,11 @@ const HomePage = ({ info }) => {
             </ul>
           </div>
         </article>
-        <article className="callNow">
-          <h1>Call or Text Now!</h1>
-          <h1 id="phone">
-            <a href="tel:+12528763653">(252)-876-3653</a>
-          </h1>
-          <p>For more information about your website</p>
-        </article>
       </main>
       <div className="pricing">
         <h1 id="faqTitle">FAQs</h1>
         <div className="card">
+          <div className="div"></div>
           <h1 className="faqHeader">Why Do I Need a Website?</h1>
           <p>
             Having a website to represent you or your business can help direct
@@ -238,6 +412,7 @@ const HomePage = ({ info }) => {
           </p>
         </div>
         <div className="card">
+          <div className="div"></div>
           <h1 className="faqHeader">How Much Will It Cost?</h1>
           <p>
             The cost of the website is also very dependent on the result you
@@ -245,15 +420,29 @@ const HomePage = ({ info }) => {
           </p>
         </div>
         <div className="card">
+          <div className="div"></div>
           <h1 className="faqHeader">How Long Will It Take?</h1>
           <p>
-            The time it will take heavily depends on the website you're looking
-            for. A typical website will take around <u>2-4 weeks</u> to be fully
-            completed and optimized.
+            The time it will take heavily depends on the website you&apos;re
+            looking for. A typical website will take around <u>2-4 weeks</u> to
+            be fully completed and optimized.
           </p>
         </div>
       </div>
     </div>
   );
 };
+
+HomePage.propTypes = {
+  info: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        current: PropTypes.any.isRequired,
+        set: PropTypes.func,
+      }),
+      PropTypes.any, // Allow other types, like numbers or strings
+    ])
+  ).isRequired,
+};
+
 export default HomePage;

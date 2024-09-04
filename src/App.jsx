@@ -1,13 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./App.css";
-
-// Pages
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ServicesPage from "./pages/ServicesPage";
-import ContactPage from "./pages/ContactPage";
+import AppRouter from "./AppRouter";
 
 function App() {
+  const location = useLocation();
   const [currentPage, setCurrentPage] = useState("Home");
   const textAniActive = useRef(false);
   const homeAsideInfoAniActive = useRef(false);
@@ -18,66 +15,30 @@ function App() {
   const titleStyling = useRef([]);
   const offeringsAniActive = useRef(false);
   const offeringsStyleInfo = useRef(0);
+  const info = useRef([
+    textAniActive,
+    homeAsideInfoAniActive,
+    cardsAniActive,
+    setCurrentPage,
+    asideStyleInfo,
+    cardStyleInfo,
+    titleStyling,
+    offeringsAniActive,
+    offeringsStyleInfo,
+  ]);
 
   // Set the service you want to learn more about
   const [learning, setLearning] = useState("default");
 
-  // Find the current Page
-  const renderCurrentPage = () => {
-    switch (currentPage) {
-      case "Home":
-        return (
-          <HomePage
-            info={[
-              textAniActive,
-              homeAsideInfoAniActive,
-              cardsAniActive,
-              setCurrentPage,
-              asideStyleInfo,
-              cardStyleInfo,
-              titleStyling,
-              offeringsAniActive,
-              offeringsStyleInfo,
-            ]}
-          />
-        );
-      case "About":
-        return (
-          <AboutPage
-            aboutPartStyleInfo={aboutPartStyleInfo}
-            setCurrentPage={setCurrentPage}
-          />
-        );
-      case "Services":
-        return (
-          <ServicesPage
-            learning={learning}
-            setLearning={setLearning}
-            setCurrentPage={setCurrentPage}
-          />
-        );
-      case "Contact":
-        return <ContactPage />;
-      default:
-        return <HomePage />;
-    }
-  };
-
-  // Go back to the home page and reload the page
-  function goHome() {
-    setCurrentPage("Home");
-    window.location.reload();
-    window.scrollTo(0, 0);
-  }
-
   useEffect(() => {
-    window.scroll(0, 0);
-  }, [currentPage]);
+    const path = location.pathname.replace("/", "") || "Home";
+    setCurrentPage(path.charAt(0).toUpperCase() + path.slice(1)); // Capitalize page name
+    window.scrollTo(0, 0);
+  }, [location]);
 
   // Set the current page
   function setPage(page) {
     if (page === "Services") {
-      setCurrentPage(page);
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -88,63 +49,78 @@ function App() {
         top: 0,
         behavior: "smooth",
       });
-    } else {
-      setCurrentPage(page);
     }
   }
 
   return (
     <>
       <header>
-        <button className="logo" onClick={goHome}>
-          <img src="/favicon.png" alt="Logo" />
-          <h1>| Leffler WebDev</h1>
-        </button>
+        <Link className="logo" to="/">
+            <img src="/favicon.webp" alt="Logo" />
+            <h1>| Leffler WebDev</h1>
+        </Link>
         <nav>
-          <a
+          <Link
             className={`navLink ${
               currentPage === "Home" ? "activeLink" : "inactiveLink"
             }`}
-            onClick={() => setPage("Home")}
+            onClick={() => setPage("Contact")}
+            to="/"
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             className={`navLink ${
               currentPage === "About" ? "activeLink" : "inactiveLink"
             }`}
-            onClick={() => setPage("About")}
+            onClick={() => setPage("Contact")}
+            to="/about"
           >
             About
-          </a>
-          <a
+          </Link>
+          <Link
             className={`navLink ${
               currentPage === "Services" ? "activeLink" : "inactiveLink"
             }`}
-            onClick={() => setPage("Services")}
+            onClick={() => setPage("Contact")}
+            to="/services"
           >
             Services
-          </a>
-          <a
+          </Link>
+          <Link
             className={`navLink ${
               currentPage === "Contact" ? "activeLink" : "inactiveLink"
             }`}
             onClick={() => setPage("Contact")}
+            to="/contact"
           >
             Contact
-          </a>
-          <div className="phoneNumber">
-            <i className="fa-solid fa-phone"></i>
-            <a href="tel:+12528763653">
+          </Link>
+          <a href="tel:+12528763653" style={{ textDecoration: "none" }}>
+            <button className="phoneNumber">
+              <i className="fa-solid fa-phone"></i>
               <p>(252)-876-3653</p>
-            </a>
-          </div>
+            </button>
+          </a>
         </nav>
       </header>
-      {renderCurrentPage()}
+      <AppRouter
+        info={info.current}
+        aboutInfo={{
+          aboutPartStyleInfo: aboutPartStyleInfo,
+          setCurrentPage: setCurrentPage,
+        }}
+        servicesInfo={{
+          learning: learning,
+          setLearning: setLearning,
+          setCurrentPage: setCurrentPage,
+        }}
+      />
       <footer>
         <h2>Leffler WebDev &copy; 2024</h2>
-        <a onClick={() => setCurrentPage("Contact")}>Contact Us</a>
+        <Link onClick={() => setPage("Contact")} to="/contact">
+          Contact Us
+        </Link>
       </footer>
     </>
   );

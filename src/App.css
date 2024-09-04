@@ -2,7 +2,7 @@
 
 .logo {
   height: 85%;
-  width: fit-content;
+  width: max-content;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -10,6 +10,7 @@
   justify-content: space-evenly;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 .logo img {
   height: 100%;
@@ -32,13 +33,13 @@ nav {
 }
 nav .navLink {
   cursor: pointer;
-  font-size: 1.28rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.2rem;
+  font-family: "Montserrat", "Lucida Sans", Arial, sans-serif;
   transition: 0.2s;
+  text-decoration: none;
 }
 nav .navLink:hover {
-  color: rgb(102, 191, 255);
+  color: rgb(169, 219, 255);
 }
 .phoneNumber {
   display: flex;
@@ -46,107 +47,30 @@ nav .navLink:hover {
   align-items: center;
   gap: 5px;
   font-size: 1.28rem;
-  margin-left: 30px;
   margin-right: 10px;
+  width: max-content;
+  height: max-content;
+  padding: 18px 25px;
+  background-color: rgba(102, 191, 255, 0.3);
+  transition: 0.2s;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+.phoneNumber:hover {
+  background-color: rgba(102, 191, 255, 0.2);
 }
 .phoneNumber i {
   color: rgb(102, 191, 255);
 }
-.phoneNumber a {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+.phoneNumber p {
+  font-family: "Montserrat", "Lucida Sans", Arial, sans-serif;
   color: rgb(255, 255, 255);
   margin: 0;
   width: fit-content;
-  text-decoration: none;
-  transition: 0.15s;
-}
-.phoneNumber a:hover {
-  text-decoration: underline;
-}
-#mainTextCont {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: white;
-  text-align: center;
-  cursor: default;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: max-content;
-  min-height: fit-content;
-  z-index: 3;
-}
-#mainTextCont h1,
-#mainTextCont p {
-  margin: 0;
-  font-weight: normal;
-}
-#mainTextCont .ml3 .word,
-#mainTextCont .ml3 .letters {
-  display: inline-block;
-  line-height: 1em;
-  opacity: 0;
-}
-#mainTextCont .ml3 .text-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-top: 0.1em;
-  padding-right: 0.05em;
-  padding-bottom: 0.15em;
-  line-height: 1em;
-}
-#mainTextCont .ml3 .line {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  height: 4px;
-  width: 100%;
-  background-color: #ffffff;
-}
-#mainTextCont .ml3 .ampersand {
-  font-family: Baskerville, serif;
-  font-style: italic;
-  font-weight: 400;
-  width: 1em;
-  margin-right: -0.1em;
-  margin-left: -0.1em;
-}
-#mainTextCont h1 {
-  font-size: 4rem;
-  position: relative;
-  z-index: 3;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 1);
-}
-#mainTextCont p {
-  font-size: 3rem;
-  position: relative;
-  z-index: 3;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 1);
-  opacity: 0;
-}
-#mainImgCont {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-#mainImgCont img {
-  width: 60%;
-  min-width: 520px;
-  z-index: 1;
 }
 #offeringsList * {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(48, 48, 48);
   margin: 0;
 }
@@ -174,11 +98,11 @@ nav .navLink:hover {
 }
 .card {
   border-radius: 18px;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  width: calc(28% - 60px);
+  width: 28%;
   aspect-ratio: 1;
-  background-image: url("darkenedFAQImg.png");
+  background-image: url("darkenedFAQImg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -193,16 +117,25 @@ nav .navLink:hover {
 }
 .card:hover {
   scale: 1.02;
-  box-shadow: 0 0 13px 5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 13px 5px rgba(0, 0, 0, 0.2);
+}
+.card .div{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(50px);
+  z-index: 1;
 }
 .faqHeader {
   font-size: 1.8rem;
   text-align: left;
   margin: 0;
   position: relative;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(217, 217, 217);
+  z-index: 2;
 }
 .faqHeader::before {
   content: "";
@@ -212,20 +145,21 @@ nav .navLink:hover {
   height: 2px;
   width: 40%;
   background-color: white;
+  z-index: 2;
 }
 .card p {
   font-size: 1.2rem;
   text-align: left;
   margin: 0;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(190, 190, 190);
   position: relative;
   top: 15px;
   line-height: 2.1rem;
+  z-index: 2;
 }
 .reviews {
-  width: calc(100% - 120px);
+  width: 100% - 80px;
   margin: 40px;
   height: fit-content;
   position: relative;
@@ -276,8 +210,7 @@ nav .navLink:hover {
   font-size: 2.4rem;
   text-align: center;
   margin: 40px 0;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(222, 222, 222);
 }
 .aboutMain .div {
@@ -292,8 +225,7 @@ nav .navLink:hover {
 }
 .aboutMain .div h1 {
   font-size: 1.6rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(222, 222, 222);
 }
 .aboutMain .div h1::before {
@@ -308,8 +240,7 @@ nav .navLink:hover {
 }
 .aboutMain .div p {
   font-size: 1.2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(210, 210, 210);
   width: 80%;
   line-height: 2.1rem;
@@ -331,8 +262,7 @@ nav .navLink:hover {
   padding: 5px 15px;
   border: 2px solid #4c65af;
   margin-bottom: 20px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: white;
   background-color: #4c65af;
   border-radius: 8px;
@@ -357,7 +287,7 @@ nav .navLink:hover {
   display: none;
 }
 .anonymous #label {
-  width: 20px;
+  width: 23px;
   aspect-ratio: 1;
   border: 2px solid goldenrod;
   border-radius: 6px;
@@ -384,8 +314,7 @@ nav .navLink:hover {
 .anonymous #label::after {
   content: "I prefer to remain anonymous";
   font-size: 1.2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(238, 238, 238);
   margin: 0;
   position: absolute;
@@ -416,15 +345,14 @@ nav .navLink:hover {
   align-items: center;
   flex-direction: column;
   position: relative;
-  background-image: url("./assets/mesh-gradient.png");
+  background-image: url("./assets/mesh-gradient.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .reviewPage a {
   font-size: 1.4rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(238, 238, 238);
   text-decoration: none;
   cursor: pointer;
@@ -432,34 +360,42 @@ nav .navLink:hover {
   left: 15px;
   top: 5px;
   transition: 0.15s ease;
+  z-index: 3;
 }
 .reviewPage a:hover {
   color: rgb(173, 173, 173);
 }
+.reviewPage .div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
 .reviewPage form {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: left;
   gap: 10px;
   padding: 10px;
+  padding-left: 10%;
+  backdrop-filter: blur(50px);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .reviewPage form h1 {
   font-size: 2.4rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(222, 222, 222);
   margin: 0;
 }
 .reviewPage form label {
   font-size: 1.4rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(238, 238, 238);
 }
 .reviewPage form textarea {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 1.2rem;
   width: 80%;
   height: 200px;
@@ -472,13 +408,12 @@ nav .navLink:hover {
 }
 .reviewPage form input {
   width: 300px;
-  height: 30px;
+  height: 40px;
   padding: 5px;
   border: 2px solid goldenrod;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 1.2rem;
   color: rgb(238, 238, 238);
 }
@@ -489,8 +424,7 @@ nav .navLink:hover {
   margin-bottom: 60px;
   margin-top: 8px;
   border: 2px solid goldenrod;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: white;
   background-color: goldenrod;
   border-radius: 8px;
@@ -508,28 +442,25 @@ nav .navLink:hover {
 }
 .willNotShared {
   font-size: 0.9rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(193, 193, 193);
   margin: 0;
 }
 .aboutMain .article h1 {
   font-size: 3rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: white;
   margin: 0;
   width: fit-content;
 }
 .aboutMain .article p {
   font-size: 1.6rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(205, 205, 205);
   margin: 0;
   width: 60%;
   text-align: center;
-  line-height: 2.2rem;
+  line-height: 2.3rem;
 }
 .aboutMain .article {
   display: flex;
@@ -546,21 +477,19 @@ nav .navLink:hover {
 }
 .aboutMain .article1 h1 {
   font-size: 3rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: white;
   margin: 0;
   width: fit-content;
 }
 .aboutMain .article1 p {
   font-size: 1.6rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(205, 205, 205);
   margin: 0;
   width: 70%;
   text-align: center;
-  line-height: 2.2rem;
+  line-height: 2.3rem;
 }
 .aboutMain .article1 {
   display: flex;
@@ -582,40 +511,9 @@ nav .navLink:hover {
   border-radius: 2px;
   margin: 60px auto;
 }
-.aboutNumber {
-  display: grid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  opacity: 0;
-  position: absolute;
-  top: calc(65% + 10px);
-  transform: translateY(-50%);
-  font-size: 2.4rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  z-index: 3;
-}
-.aboutNumber i {
-  color: #4c65af;
-}
-.aboutNumber a {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: #4c65af;
-  margin: 0;
-  width: fit-content;
-  text-decoration: none;
-  transition: 0.15s;
-}
-.aboutNumber a:hover {
-  text-decoration: underline;
-}
 #partsHeader {
   font-size: 2.4rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(48, 48, 48);
   margin: 0;
   position: absolute;
@@ -713,28 +611,6 @@ nav .navLink:hover {
   }
 }
 @media (425px < width < 768px) {
-  #mainImgCont img {
-    width: 100vw;
-    max-width: 520px;
-    min-width: 10px;
-  }
-  #mainTextCont h1 {
-    font-size: 3.8rem;
-  }
-  #mainTextCont p {
-    font-size: 3rem;
-  }
 }
 @media (width < 425px) {
-  #mainImgCont img {
-    width: 100vw;
-    max-width: 520px;
-    min-width: 10px;
-  }
-  #mainTextCont h1 {
-    font-size: 2.4rem;
-  }
-  #mainTextCont p {
-    font-size: 1.8rem;
-  }
 }

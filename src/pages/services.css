@@ -7,12 +7,12 @@
 }
 .servicesMain {
   grid-area: servicesMain;
-  background-image: url("mesh-gradientAbout.png");
+  background-image: url("mesh-gradientAbout.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   animation: gradientAnimation 8s ease infinite;
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 20px;
   position: relative;
   height: 1600px;
@@ -36,16 +36,14 @@
 #legend p {
   width: fit-content;
   color: #969cde;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 1.2rem;
 }
 .h1 {
   color: rgb(224, 224, 224);
   font-size: 2.5rem;
   text-align: center;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 .cardCont {
@@ -64,13 +62,12 @@
   gap: 0;
 }
 #else .h1 {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(224, 224, 224);
   font-size: 2.5rem;
 }
 .serviceCard {
-  width: calc(30% - 40px);
+  width: 30%;
   aspect-ratio: 1;
   min-height: fit-content;
   display: flex;
@@ -80,12 +77,28 @@
   border-radius: 8px;
   padding: 20px;
   cursor: pointer;
-  background-image: url("mesh-card.png");
+  background-image: url("mesh-card.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: 0.4s ease;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.serviceCard .blurFilter{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(50px);
+  z-index: 2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.serviceCard *, .serviceCard::before, .serviceCard::after {
+  z-index: 3;
 }
 .price p {
   margin: 0;
@@ -102,8 +115,7 @@
   border: 2px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   z-index: 4;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: white;
   font-size: 1.4rem;
   line-height: 0.8rem;
@@ -140,8 +152,7 @@
   justify-content: center;
   align-items: center;
   z-index: 4;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: white;
   font-size: 1.4rem;
   text-align: center;
@@ -152,7 +163,7 @@
 .serviceCard:hover,
 .customCard:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.3);
 }
 .serviceCard::after,
 .customCard::after {
@@ -165,12 +176,12 @@
   transform: translateX(-50%);
   background: linear-gradient(135deg, #a0b6ff, #c7b8ff);
   border-radius: 8px;
+  z-index: 3;
 }
 .serviceCard h1,
 .customCard h1 {
   font-size: 1.8rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   color: rgb(238, 238, 238);
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
@@ -182,16 +193,15 @@
 .serviceCard .p,
 .customCard .p {
   font-size: 1.2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   color: rgb(223, 223, 223);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   line-height: 1.8rem;
 }
 .customCard {
-  width: calc(90% + 50px);
-  height: 180px;
+  width: calc(90% + 30px);
+  height: 220px;
   min-height: fit-content;
   display: flex;
   flex-direction: column;
@@ -199,8 +209,8 @@
   position: relative;
   gap: 8px;
   padding: 10px;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
-  background-image: url("mesh-card.png");
+  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("mesh-card.webp");
   background-size: cover;
   background-position: 100% 80%;
   background-repeat: no-repeat;
@@ -208,35 +218,53 @@
   transition: 0.4s ease;
   border-radius: 8px;
 }
-.save20 {
+.customCard .div {
   position: absolute;
-  bottom: -15px;
+  bottom: -24px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: fit-content;
+  gap: 20px;
+}
+.crossedOut {
+  font-family: var(--font);
   color: rgb(240, 251, 255);
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
   font-size: 2rem;
   font-weight: bolder;
+  text-decoration: line-through;
+}
+.save20 {
+  font-family: var(--font);
+  color: rgb(240, 251, 255);
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  font-size: 2rem;
+  font-weight: bolder;
+  background-color: #3f45a1;
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 2px dashed #272f9d;
 }
 .learnMoreCont {
   display: flex;
   flex-direction: column;
   position: relative;
-  background-image: url("mesh-gradientAbout.png");
+  background-image: url("mesh-gradientAbout.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: calc(100% - 100px);
+  width: 100%;
   height: 100vh;
   min-height: fit-content;
   padding: 0 50px;
 }
 .learnMoreCont .back {
   font-size: 1.4rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -251,8 +279,7 @@
 .learnMoreCont .moreH1 {
   color: rgb(222, 222, 222);
   font-size: 2.5rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   margin-top: 120px;
   width: 100%;
@@ -262,8 +289,7 @@
 .learnMoreCont p {
   color: rgb(234, 234, 234);
   font-size: 1.5rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   width: 60%;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
@@ -283,15 +309,13 @@
 .learnMoreCont .ul h1 {
   color: rgb(222, 222, 222);
   font-size: 1.8rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
 }
 .learnMoreCont .ul li {
   color: rgb(190, 190, 190);
   font-size: 1.2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
 }
 .ml2 .word {
@@ -305,7 +329,7 @@
   opacity: 0;
 }
 .managementCard {
-  width: calc(35% - 20px);
+  width: 35%;
   min-height: fit-content;
   display: flex;
   flex-direction: column;
@@ -317,22 +341,20 @@
   right: 5%;
   top: 210px;
   padding: 10px 0;
-  background-image: url("mesh-card.png");
+  background-image: url("mesh-card.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .managementCard h1 {
   font-size: 1.8rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   color: rgb(222, 222, 222);
 }
 .managementCard h3 {
   font-size: 1.6rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   margin-bottom: 5px;
   color: white;
@@ -371,8 +393,7 @@
 }
 .managementCard p {
   font-size: 1.2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   opacity: 0;
   color: rgb(255, 255, 255);
@@ -398,8 +419,8 @@
   background: transparent;
 }
 .managementCard .option {
-  width: calc(100% - 28px);
-  height: 92px;
+  width: calc(100% - 8px);
+  height: 120px;
   padding: 10px;
   cursor: default;
   border-radius: 3px;
@@ -423,8 +444,7 @@
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 1.4rem;
 }
 .managementCard .option:nth-of-type(2)::before {
@@ -444,8 +464,8 @@
 }
 .managementCard .option .front,
 .managementCard .option .backOf {
-  width: calc(100% - 30px);
-  height: calc(100% - 30px);
+  width: 100%;
+  height: 100%;
   position: absolute;
   backface-visibility: hidden;
   display: flex;
@@ -496,14 +516,12 @@
   bottom: -35px;
   left: 0px;
   color: rgb(138, 138, 138);
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 1.2rem;
 }
 .serviceCardList .listTitle {
   font-size: 2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   color: rgb(222, 222, 222);
   margin: 0;
   margin-left: 50px;
@@ -524,7 +542,7 @@
   position: relative;
   opacity: 0;
   box-shadow: inset 0 0 10px 4px rgba(255, 255, 255, 0.2);
-  background-image: url("mesh-card.png");
+  background-image: url("mesh-card.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -548,8 +566,7 @@
 }
 .serviceCardList .list h1 {
   font-size: 1.6rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   text-align: center;
   color: rgb(222, 222, 222);
