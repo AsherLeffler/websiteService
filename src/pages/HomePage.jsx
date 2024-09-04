@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import "animate.css";
 import anime from "animejs";
 import PropTypes from "prop-types";
@@ -305,15 +307,17 @@ const HomePage = ({ info }) => {
                 </p>
               </article>
               <div className="images">
-                <img
+                <LazyLoadImage
                   src="/src/assets/imgs/phone-tablet.webp"
                   alt="Image of website on multiple devices"
-                  className="image1"
+                  id="image1"
+                  effect="blur"
                 />
-                <img
+                <LazyLoadImage
                   src="/src/assets/imgs/phone-tablet.webp"
                   alt="Image of website on multiple devices that is semi-transparent"
-                  className="image2"
+                  id="image2"
+                  effect="blur"
                 />
               </div>
             </div>
@@ -333,15 +337,17 @@ const HomePage = ({ info }) => {
                 </p>
               </article>
               <div className="images">
-                <img
+                <LazyLoadImage
                   src="/src/assets/imgs/html.webp"
                   alt="Image of HTML code"
                   className="image1"
+                  effect="blur"
                 />
-                <img
+                <LazyLoadImage
                   src="/src/assets/imgs/html.webp"
                   alt="Image of HTML code that is semi-transparent"
                   className="image2"
+                  effect="blur"
                 />
               </div>
             </div>
@@ -363,15 +369,17 @@ const HomePage = ({ info }) => {
                 </p>
               </article>
               <div className="images">
-                <img
+                <LazyLoadImage
                   src="/src/assets/imgs/web-template.webp"
                   alt="Image of website design template"
                   className="image1"
+                  effect="blur"
                 />
-                <img
+                <LazyLoadImage
                   src="/src/assets/imgs/web-template.webp"
                   alt="Image of website design template that is semi-transparent"
                   className="image2"
+                  effect="blur"
                 />
               </div>
             </div>
@@ -395,6 +403,7 @@ const HomePage = ({ info }) => {
       <div className="pricing">
         <h1 id="faqTitle">FAQs</h1>
         <div className="card">
+          <div className="div"></div>
           <h1 className="faqHeader">Why Do I Need a Website?</h1>
           <p>
             Having a website to represent you or your business can help direct
@@ -403,6 +412,7 @@ const HomePage = ({ info }) => {
           </p>
         </div>
         <div className="card">
+          <div className="div"></div>
           <h1 className="faqHeader">How Much Will It Cost?</h1>
           <p>
             The cost of the website is also very dependent on the result you
@@ -410,6 +420,7 @@ const HomePage = ({ info }) => {
           </p>
         </div>
         <div className="card">
+          <div className="div"></div>
           <h1 className="faqHeader">How Long Will It Take?</h1>
           <p>
             The time it will take heavily depends on the website you&apos;re

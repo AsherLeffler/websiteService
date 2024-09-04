@@ -57,7 +57,7 @@ header {
   background-repeat: no-repeat;
 }
 .activeLink {
-  color: rgb(102, 191, 255);
+  color: rgb(169, 219, 255);
 }
 .inactiveLink {
   color: white;
@@ -147,18 +147,23 @@ header {
 }
 .homeTitle .main-card h1 {
   margin: 0;
-  padding: 10px;
+  padding: 0px;
   color: rgb(255, 255, 255);
-  background: linear-gradient(
-    165deg,
-    rgba(71, 81, 255, 0.3),
-    rgba(0, 7, 149, 0.3)
-  );
-  width: 380px;
+  width: fit-content;
+  font-size: 2rem;
+  text-align: center;
+  margin: 10px 0 20px 0;
   position: relative;
-  right: calc(5% + 2px);
-  bottom: 1px;
-  font-size: 2.6rem;
+}
+.homeTitle .main-card h1::after{
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  height: 2px;
+  background-color: white;
 }
 .homeTitle .main-card input {
   font-size: 1.1rem;
@@ -470,21 +475,25 @@ header {
   aspect-ratio: 1;
   pointer-events: none;
 }
-.what-we-do .image1,
-.what-we-do .image2 {
+.what-we-do span {
   width: 80%;
   height: 80%;
-  object-fit: contain;
   position: absolute;
-  box-sizing: 0 0 10px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
 }
-.what-we-do .image1 {
+.what-we-do span img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.what-we-do span:first-of-type {
   z-index: 2;
   left: 55%;
   top: 55%;
   transform: translate(-50%, -50%);
 }
-.what-we-do .image2 {
+.what-we-do span:last-of-type {
   left: 45%;
   top: 45%;
   transform: translate(-50%, -50%);
@@ -594,7 +603,7 @@ header {
   align-items: center;
   overflow: hidden;
   position: relative;
-  background-image: url("./assets/9019786.jpg");
+  background-image: url("./assets/9019786.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
