@@ -166,7 +166,7 @@ header .hiddenOpen{
   padding: 30px;
   width: 28%;
   aspect-ratio: 1;
-  background-image: url("darkenedFAQImg.webp");
+  background-image: url("/darkenedFAQImg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -409,7 +409,7 @@ header .hiddenOpen{
   align-items: center;
   flex-direction: column;
   position: relative;
-  background-image: url("mesh-gradient.webp");
+  background-image: url("/mesh-gradient.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
