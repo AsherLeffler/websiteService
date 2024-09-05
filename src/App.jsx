@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./App.css";
 import AppRouter from "./AppRouter";
+import favicon from "/favicon.webp";
 
 function App() {
   const location = useLocation();
@@ -93,7 +94,7 @@ function App() {
     <>
       <header>
         <Link className="logo" to="/">
-          <img src="/favicon.webp" alt="Logo" />
+          <img src={favicon} alt="Logo" />
           <h1>| Leffler WebDev</h1>
         </Link>
         <a href="tel:+12528763653" id="hiddenNum">

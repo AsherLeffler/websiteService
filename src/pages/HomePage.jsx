@@ -6,6 +6,11 @@ import "animate.css";
 import anime from "animejs";
 import PropTypes from "prop-types";
 
+// Import images
+import html from "/imgs/html.webp";
+import phoneTablet from "/imgs/phone-tablet.webp";
+import webTemplate from "/imgs/web-template.webp";
+
 const HomePage = ({ info }) => {
   const setCurrentPage = info[3];
 
@@ -316,13 +321,13 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images">
                 <LazyLoadImage
-                  src="/imgs/phone-tablet.webp"
+                  src={phoneTablet}
                   alt="Image of website on multiple devices"
                   id="image1"
                   effect="blur"
                 />
                 <LazyLoadImage
-                  src="/imgs/phone-tablet.webp"
+                  src={phoneTablet}
                   alt="Image of website on multiple devices that is semi-transparent"
                   id="image2"
                   effect="blur"
@@ -346,13 +351,13 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images" id="non-darkImgs">
                 <LazyLoadImage
-                  src="/imgs/html.webp"
+                  src={html}
                   alt="Image of HTML code"
                   className="image1"
                   effect="blur"
                 />
                 <LazyLoadImage
-                  src="/imgs/html.webp"
+                  src={html}
                   alt="Image of HTML code that is semi-transparent"
                   className="image2"
                   effect="blur"
@@ -378,13 +383,13 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images">
                 <LazyLoadImage
-                  src="/imgs/web-template.webp"
+                  src={webTemplate}
                   alt="Image of website design template"
                   className="image1"
                   effect="blur"
                 />
                 <LazyLoadImage
-                  src="/imgs/web-template.webp"
+                  src={webTemplate}
                   alt="Image of website design template that is semi-transparent"
                   className="image2"
                   effect="blur"

@@ -9,9 +9,6 @@
           }
         ]
       }
-    ],
-    "build": {
-      "buildTimeout": 300
-    }
+    ]
   }
   
