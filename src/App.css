@@ -25,21 +25,81 @@
   color: white;
   margin: 0;
 }
-nav {
+.deskNav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
 }
-nav .navLink {
+.deskNav .navLink {
   cursor: pointer;
   font-size: 1.2rem;
   font-family: "Montserrat", "Lucida Sans", Arial, sans-serif;
   transition: 0.2s;
   text-decoration: none;
 }
-nav .navLink:hover {
+.deskNav .navLink:hover {
   color: rgb(169, 219, 255);
+}
+.phoneNav {
+  display: none;
+  height: 90%;
+  aspect-ratio: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.phoneNav .bar {
+  width: 60%;
+  height: 3px;
+  background-color: white;
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  transform-origin: left;
+  border-radius: 2px;
+}
+header .hiddenMenu {
+  position: fixed;
+  right: 0;
+  top: 70px;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 0;
+  height: fit-content;
+  height: calc(100vh - 70px);
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+header .hiddenMenu a{
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 1.6rem;
+  margin: 0 10px;
+}
+header .hiddenOpen{
+  width: 50%;
+}
+#hiddenNum{
+  display: none;
+  text-align: center;
+  align-items: center;
+  font-family: var(--font);
+  text-decoration: none;
+}
+.phoneNavOpen .bar:nth-of-type(1){
+  transform: rotate(45deg);
+}
+.phoneNavOpen .bar:nth-of-type(2){
+  opacity: 0;
+  width: 0;
+}
+.phoneNavOpen .bar:nth-of-type(3){
+  transform: rotate(-45deg);
 }
 .phoneNumber {
   display: flex;
@@ -119,7 +179,7 @@ nav .navLink:hover {
   scale: 1.02;
   box-shadow: 0 0 13px 5px rgba(0, 0, 0, 0.2);
 }
-.card .div{
+.card .div {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -609,8 +669,4 @@ nav .navLink:hover {
     margin-top: 0;
     opacity: 1;
   }
-}
-@media (425px < width < 768px) {
-}
-@media (width < 425px) {
 }

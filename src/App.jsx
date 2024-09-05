@@ -52,14 +52,32 @@ function App() {
     }
   }
 
+  // Handle the phone nav click
+  function handlePhoneNavClick() {
+    const phoneNav = document.querySelector(".phoneNav");
+    const hiddenMenu = document.querySelector(".hiddenMenu");
+
+    if (hiddenMenu.classList.contains("hiddenOpen")) {
+      hiddenMenu.classList.remove("hiddenOpen");
+      phoneNav.classList.remove("phoneNavOpen");
+    } else {
+      hiddenMenu.classList.add("hiddenOpen");
+      phoneNav.classList.add("phoneNavOpen");
+    }
+  }
+
   return (
     <>
       <header>
         <Link className="logo" to="/">
-            <img src="/favicon.webp" alt="Logo" />
-            <h1>| Leffler WebDev</h1>
+          <img src="/favicon.webp" alt="Logo" />
+          <h1>| Leffler WebDev</h1>
         </Link>
-        <nav>
+        <a href="tel:+12528763653" id="hiddenNum">
+          <i className="fa-solid fa-phone"></i>
+          <p>(252)-876-3653</p>
+        </a>
+        <nav className="deskNav">
           <Link
             className={`navLink ${
               currentPage === "Home" ? "activeLink" : "inactiveLink"
@@ -103,6 +121,61 @@ function App() {
             </button>
           </a>
         </nav>
+        <nav className="phoneNav" onClick={handlePhoneNavClick}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </nav>
+        <div className="hiddenMenu">
+          <Link
+            className={`navLink ${
+              currentPage === "Home" ? "activeLink" : "inactiveLink"
+            }`}
+            onClick={() => {
+              setPage("Contact");
+              handlePhoneNavClick();
+            }}
+            to="/"
+          >
+            Home
+          </Link>
+          <Link
+            className={`navLink ${
+              currentPage === "About" ? "activeLink" : "inactiveLink"
+            }`}
+            onClick={() => {
+              setPage("Contact");
+              handlePhoneNavClick();
+            }}
+            to="/about"
+          >
+            About
+          </Link>
+          <Link
+            className={`navLink ${
+              currentPage === "Services" ? "activeLink" : "inactiveLink"
+            }`}
+            onClick={() => {
+              setPage("Contact");
+              handlePhoneNavClick();
+            }}
+            to="/services"
+          >
+            Services
+          </Link>
+          <Link
+            className={`navLink ${
+              currentPage === "Contact" ? "activeLink" : "inactiveLink"
+            }`}
+            onClick={() => {
+              setPage("Contact");
+              handlePhoneNavClick();
+            }}
+            to="/contact"
+          >
+            Contact
+          </Link>
+        </div>
       </header>
       <AppRouter
         info={info.current}

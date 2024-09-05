@@ -7,17 +7,17 @@
   --font: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
 }
-body {
+body, html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 header {
   background-color: hsla(225, 40%, 43%, 0.99);
   height: 90px;
   text-align: center;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +25,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .home-grid-container {
   display: grid;
@@ -35,12 +35,14 @@ header {
   grid-template-columns: 1fr;
   grid-template-rows: 0.8fr auto auto auto;
   height: max-content;
+  max-width: 100vw;
   position: relative;
   background-image: url("./assets/main-back.webp");
   background-size: cover;
   background-position: 50% 195%;
   margin: 0;
   background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 .about-grid-container {
   display: grid;
@@ -68,6 +70,7 @@ header {
   gap: 10px;
   padding: 20px;
   min-height: 500px;
+  max-width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
   position: relative;
 }
@@ -106,6 +109,9 @@ header {
   color: white;
   margin: 0;
   padding: 0;
+}
+#phoneBreak{
+  display: none;
 }
 .homeTitle .info {
   width: 60%;
@@ -155,7 +161,7 @@ header {
   margin: 10px 0 20px 0;
   position: relative;
 }
-.homeTitle .main-card h1::after{
+.homeTitle .main-card h1::after {
   content: "";
   position: absolute;
   bottom: -6px;
@@ -214,6 +220,9 @@ header {
 .homeTitle .main-card button:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
+.homeTitle a{
+  text-decoration: none;
+}
 .servicesCampaign {
   width: 100%;
   height: fit-content;
@@ -271,6 +280,17 @@ header {
   height: 2px;
   background-color: white;
 }
+.servicesCampaign div:nth-of-type(2) .div {
+  width: 160px;
+  aspect-ratio: 1;
+  display: none;
+  background: none;
+}
+.servicesCampaign div:nth-of-type(2) img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .servicesCampaign div:nth-of-type(2) .p {
   font-size: 1.25rem;
   margin: 0;
@@ -313,7 +333,7 @@ header {
   grid-area: homeAboutMain;
   height: max-content;
   min-height: 600px;
-  width: 100%;
+  max-width: 100vw;
   position: relative;
   font-family: var(--font);
   color: white;
@@ -383,7 +403,6 @@ header {
   cursor: pointer;
   width: fit-content;
   border-radius: 8px;
-  transition: 0.3s cubicBezier(0.455, 0.03, 0.515, 0.955);
   padding: 3px 30px;
   margin-left: 40px;
   margin-top: 20px;
@@ -447,6 +466,7 @@ header {
   position: relative;
   justify-content: center;
   align-items: center;
+  height: fit-content;
 }
 .description.visible {
   display: flex;
@@ -455,14 +475,14 @@ header {
   flex: 1;
   padding: 20px 80px;
 }
-.what-we-do .description h1 {
+.what-we-do h1 {
   font-size: 2.8rem;
   margin: 0;
   padding: 0;
   margin-bottom: 20px;
   position: relative;
 }
-.what-we-do .description p {
+.what-we-do p {
   font-size: 1rem;
   margin: 0;
   padding: 0;
@@ -584,14 +604,23 @@ header {
   background-color: transparent;
 }
 .offerings .left {
-  flex: 1;
+  display: none;
+}
+.offerings .right {
+  flex: 1.5;
+}
+.offerings .hiddenImg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-image: url("./assets/designing.webp");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-}
-.offerings .right {
-  flex: 1.5;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.38);
 }
 .pricing {
   grid-area: pricing;
@@ -609,7 +638,7 @@ header {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-.pricing #faqTitle {
+#faqTitle {
   font-size: 3rem;
   color: white;
   font-family: var(--font);
@@ -643,6 +672,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow-x: hidden;
 }
 footer h2 {
   margin: 0;
@@ -662,7 +692,495 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-@media (425px < width < 768px) {
+@media (min-width: 424px) and (max-width: 769px) {
+  .homeTitle {
+    min-height: 1050px;
+  }
+  .homeTitle .info {
+    width: fit-content;
+  }
+  .homeTitle .main-card {
+    width: 70%;
+    height: max-content;
+    padding: 18px 0;
+    left: 50%;
+    transform: translateX(-50%);
+    top: unset;
+    bottom: 40px;
+  }
+  .logo h1 {
+    display: none;
+  }
+  .phoneNumber {
+    padding: 10px;
+  }
+  .phoneNumber i {
+    font-size: 1.8rem;
+  }
+  .phoneNumber p {
+    display: none;
+  }
+  .servicesCampaign div:nth-of-type(1) {
+    display: none;
+  }
+  .servicesCampaign div:nth-of-type(2) {
+    width: 90%;
+    padding: 20px;
+  }
+  .servicesCampaign div:nth-of-type(2) .div {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: none;
+  }
+  .servicesCampaign div:nth-of-type(2) h1 {
+    width: 80%;
+  }
+  .what-we-do .description {
+    flex-direction: column;
+    min-height: 550px;
+  }
+  .what-we-do .whatCont {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .what-we-do .text {
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .what-we-do p {
+    font-size: 1.4rem;
+    color: white;
+  }
+  .what-we-do .images {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.45);
+  }
+  #non-darkImgs {
+    filter: brightness(0.8);
+  }
+  .what-we-do img {
+    width: unset;
+    height: unset;
+    object-fit: contain;
+  }
+  .offerings {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .offerings .left,
+  .offerings .right {
+    backdrop-filter: blur(80px);
+    flex: unset;
+  }
+  .offerings .hiddenImg {
+    display: block;
+  }
+  .pricing {
+    display: block;
+    overflow: auto;
+    height: fit-content;
+    padding: 20px 0;
+    padding-top: 80px;
+  }
+  .pricing .card {
+    width: 80%;
+    height: 200px;
+    aspect-ratio: unset;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .aboutMain .article p,
+  .aboutMain .article1 p {
+    width: 90%;
+  }
+  #reviewForm {
+    padding-top: 40px;
+  }
+  .cardCont {
+    flex-direction: column;
+  }
+  .cardCont .serviceCard {
+    width: 80%;
+    aspect-ratio: 5 / 2;
+  }
+  .cardCont .p {
+    width: 80%;
+  }
+  .serviceCard:nth-of-type(1) .price,
+  .serviceCard:nth-of-type(2) .price,
+  .serviceCard:nth-of-type(3) .price,
+  .customCard:nth-of-type(1) .price {
+    width: 120px;
+  }
+  .customCard{
+    width: 98%;
+  }
+  .customCard .p{
+    width: 75%;
+  }
+  .serviceCard .price p, .cardCont:nth-of-type(3) .price p {
+    font-size: 1.8rem;
+  }
+  .cardCont:nth-of-type(2) .serviceCard:nth-of-type(2) .price p,
+  .cardCont:nth-of-type(2) .serviceCard:nth-of-type(3) .price p,
+  .cardCont:nth-of-type(4) .price p {
+    font-size: 5rem;
+  }
+  .cardCont:nth-of-type(1) .serviceCard:nth-of-type(1) .price p,
+  .cardCont:nth-of-type(1) .serviceCard:nth-of-type(2) .price p,
+  .cardCont:nth-of-type(1) .serviceCard:nth-of-type(3) .price p {
+    top: 40px;
+  }
+  .servicesMain {
+    padding-bottom: 100px;
+  }
+  .learnMoreCont{
+    min-height: 800px;
+  }
+  .learnMoreCont p{
+    width: 100%;
+  }
+  .learnMoreCont ul{
+    position: relative;
+    right: 20px;
+  }
+  .learnMoreCont .managementCard{
+    width: 90%;
+    left: 50%;
+    bottom: 20px;
+    height: fit-content;
+    min-height: 240px;
+    right: unset;
+    top: unset;
+    transform: translateX(-50%);
+    padding-bottom: 20px;
+  }
+  .learnMoreCont .optionsCont{
+    flex-direction: row;
+    gap: 20px;
+    padding: 0;
+  }
+  .learnMoreCont .optionsCont *::before{
+    top: -20px;
+    right: -20px;
+  }
+  .learnMoreCont .option {
+    width: unset;
+    min-height: 180px;
+    flex: 1;
+  }
+  .learnMoreCont .option p{
+    padding-right: 22px;
+  }
+  .learnMoreCont .serviceCardList{
+    width: 80%;
+    bottom: 80px;
+  }
+  .learnMoreCont .moreH1{
+    margin-top: 60px;
+  }
+  .contactMain form{
+    width: 90%;
+  }
 }
-@media (width < 425px) {
+@media (max-width: 426px) {
+  header{
+    height: 70px;
+  }
+  .deskNav{
+    display: none;
+  }
+  .phoneNav{
+    display: flex;
+  }
+  #hiddenNum{
+    display: flex;
+  }
+  footer{
+    padding: 10px 5px;
+    height: 60px;
+  }
+  footer h2{
+    font-size: 1.4rem;
+  }
+  footer a{
+    font-size: 0.8rem;
+  }
+  .homeTitle {
+    min-height: 1150px;
+  }
+  .homeTitle .div{
+    margin: 0 auto;
+    text-align: center;
+  }
+  .homeTitle .div h1{
+    font-size: 2.9rem;
+  }
+  #phoneBreak{
+    display: block;
+  }
+  .homeTitle .info {
+    width: fit-content;
+  }
+  .homeTitle .main-card {
+    width: 90%;
+    height: max-content;
+    padding: 18px 0;
+    left: 50%;
+    transform: translateX(-50%);
+    top: unset;
+    bottom: 40px;
+  }
+  .aboutLearnBtn{
+    margin: 20px 0 0 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .logo h1 {
+    display: none;
+  }
+  .phoneNumber {
+    padding: 10px;
+  }
+  .phoneNumber i {
+    font-size: 1.8rem;
+  }
+  .phoneNumber p {
+    display: none;
+  }
+  .servicesCampaign div:nth-of-type(1) {
+    display: none;
+  }
+  .servicesCampaign div:nth-of-type(2) {
+    width: 90%;
+    padding: 20px;
+  }
+  .servicesCampaign div:nth-of-type(2) .div {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: none;
+  }
+  .servicesCampaign div:nth-of-type(2) h1 {
+    width: 65%;
+    font-size: 2rem;
+  }
+  .servicesCampaign div:nth-of-type(2) h1::after{
+    width: 100%;
+  }
+  .servicesCampaign div:nth-of-type(2) .p {
+    width: 100%;
+    font-size: 1rem;
+    margin-left: 0;
+  }
+  .servicesCampaign button{
+    margin: 20px auto 0 auto;
+  }
+  .what-we-do .description {
+    flex-direction: column;
+    min-height: fit-content;
+  }
+  .what-we-do .arrow1{
+    left: 0;
+    bottom: calc(-63.33px * 1.5);
+    top: unset;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid white;
+  }
+  .what-we-do .arrow2{
+    right: 0;
+    bottom: calc(-63.33px * 1.5);
+    top: unset;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid white;
+  }
+  .what-we-do .whatCont {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 63.33px;
+  }
+  .what-we-do .text {
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+  }
+  .what-we-do h1{
+    font-size: 1.8rem;
+  }
+  .what-we-do p {
+    font-size: 0.85rem;
+    color: white;
+  }
+  .what-we-do .images {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.45);
+  }
+  #non-darkImgs {
+    filter: brightness(0.8);
+  }
+  .what-we-do img {
+    width: unset;
+    height: unset;
+    object-fit: contain;
+  }
+  .offerings {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .offerings h1{
+    font-size: 2rem;
+  }
+  .offerings ul li{
+    font-size: 1.4rem;
+  }
+  .offerings .left,
+  .offerings .right {
+    backdrop-filter: blur(80px);
+    flex: unset;
+  }
+  .offerings .hiddenImg {
+    display: block;
+  }
+  .pricing {
+    display: block;
+    overflow: auto;
+    height: fit-content;
+    padding: 20px 0;
+    padding-top: 80px;
+  }
+  .pricing .card {
+    width: 80%;
+    height: fit-content;
+    aspect-ratio: unset;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  #faqTitle{
+    font-size: 2.2rem;
+  }
+  .pricing h1{
+    font-size: 1.6rem;
+  }
+  .pricing p{
+    font-size: 0.9rem;
+  }
+  .aboutMain .article p,
+  .aboutMain .article1 p {
+    width: 90%;
+  }
+  #reviewForm {
+    padding-top: 40px;
+  }
+  .cardCont {
+    flex-direction: column;
+  }
+  .cardCont .serviceCard {
+    width: 80%;
+    aspect-ratio: 5 / 2;
+  }
+  .cardCont .p {
+    width: 80%;
+  }
+  .serviceCard:nth-of-type(1) .price,
+  .serviceCard:nth-of-type(2) .price,
+  .serviceCard:nth-of-type(3) .price,
+  .customCard:nth-of-type(1) .price {
+    width: 120px;
+  }
+  .customCard{
+    width: 98%;
+  }
+  .customCard .p{
+    width: 75%;
+  }
+  .serviceCard .price p, .cardCont:nth-of-type(3) .price p {
+    font-size: 1.8rem;
+  }
+  .cardCont:nth-of-type(2) .serviceCard:nth-of-type(2) .price p,
+  .cardCont:nth-of-type(2) .serviceCard:nth-of-type(3) .price p,
+  .cardCont:nth-of-type(4) .price p {
+    font-size: 5rem;
+  }
+  .cardCont:nth-of-type(1) .serviceCard:nth-of-type(1) .price p,
+  .cardCont:nth-of-type(1) .serviceCard:nth-of-type(2) .price p,
+  .cardCont:nth-of-type(1) .serviceCard:nth-of-type(3) .price p {
+    top: 40px;
+  }
+  .servicesMain {
+    padding-bottom: 100px;
+  }
+  .learnMoreCont{
+    min-height: 800px;
+  }
+  .learnMoreCont p{
+    width: 100%;
+  }
+  .learnMoreCont ul{
+    position: relative;
+    right: 20px;
+  }
+  .learnMoreCont .managementCard{
+    width: 90%;
+    left: 50%;
+    bottom: 20px;
+    height: fit-content;
+    min-height: 240px;
+    right: unset;
+    top: unset;
+    transform: translateX(-50%);
+    padding-bottom: 20px;
+  }
+  .learnMoreCont .optionsCont{
+    flex-direction: row;
+    gap: 20px;
+    padding: 0;
+  }
+  .learnMoreCont .optionsCont *::before{
+    top: -20px;
+    right: -20px;
+  }
+  .learnMoreCont .option {
+    width: unset;
+    min-height: 180px;
+    flex: 1;
+  }
+  .learnMoreCont .option p{
+    padding-right: 22px;
+  }
+  .learnMoreCont .serviceCardList{
+    width: 80%;
+    bottom: 80px;
+  }
+  .learnMoreCont .moreH1{
+    margin-top: 60px;
+  }
+  .contactMain form{
+    width: 90%;
+  }
 }

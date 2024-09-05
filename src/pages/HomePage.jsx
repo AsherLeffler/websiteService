@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import "animate.css";
 import anime from "animejs";
 import PropTypes from "prop-types";
@@ -214,7 +215,9 @@ const HomePage = ({ info }) => {
         <article className="homeTitle">
           <div className="div">
             <h1>Leffler WebDev</h1>
-            <p>Designing & Developing For You</p>
+            <p>
+              Designing & Developing <br id="phoneBreak" /> For You
+            </p>
           </div>
           <div className="info">
             <p>
@@ -228,12 +231,14 @@ const HomePage = ({ info }) => {
               we&apos;re here to ensure your website becomes a powerful tool for
               your success.
             </p>
-            <button
-              className="aboutLearnBtn"
-              onClick={() => setCurrentPage("About")}
-            >
-              <p id="text">Learn More</p>
-            </button>
+            <Link to="/about" className=".link">
+              <button
+                className="aboutLearnBtn"
+                onClick={() => setCurrentPage("About")}
+              >
+                <p id="text">Learn More</p>
+              </button>
+            </Link>
           </div>
           <div className="main-card">
             <form method="POST" onSubmit={formSubmit} id="askAbout">
@@ -270,11 +275,14 @@ const HomePage = ({ info }) => {
             <img src="webIcon.svg" alt="Web Icon" />
           </div>
           <div>
+            <div className="div">
+              <img src="webIcon.svg" alt="Web Icon" />
+            </div>
             <h1>Find Exactly What You Need Today</h1>
             <p className="p">
               With our expertise, we can get you the website that you need.
-              Utilize our services so you can reach your full potential. <br />
-              Check out everything we offer and learn more about us.
+              Utilize our services so you can reach your full potential. Check
+              out everything we offer and learn more about us.
             </p>
             <button onClick={() => setCurrentPage("Services")}>
               <p>Our Services</p>
@@ -336,7 +344,7 @@ const HomePage = ({ info }) => {
                   that everyone will have a good experience.
                 </p>
               </article>
-              <div className="images">
+              <div className="images" id="non-darkImgs">
                 <LazyLoadImage
                   src="/src/assets/imgs/html.webp"
                   alt="Image of HTML code"
@@ -388,6 +396,7 @@ const HomePage = ({ info }) => {
         <article className="offerings">
           <div className="left"></div>
           <div className="right">
+            <div className="hiddenImg"></div>
             <ul>
               <h1>What We Offer You</h1>
               <li>Website Development</li>

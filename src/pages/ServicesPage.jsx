@@ -58,6 +58,7 @@ const ServicesPage = ({
           easing: "easeOutExpo",
           duration: 1200,
         });
+
       // Service Options Text Animation
       if (learning === "maintenance" || learning === "hosting") {
         setCanFlip(false);
@@ -90,9 +91,9 @@ const ServicesPage = ({
               opacity: [0, 1],
               translateZ: 0,
               easing: "easeOutExpo",
-              duration: 600,
-              delay: (_, i) => 40 * (i + 1),
               offset: 0,
+              duration: 600,
+              delay: (_, i) => 40 * i,
             })
             .add({
               targets: ".ml1 .line",
@@ -158,15 +159,18 @@ const ServicesPage = ({
 
   // When scrolling past the first cardCont, animate the second cardCont
   window.onscroll = () => {
+    console.log(window.scrollY);
     const cardConts = document.querySelectorAll(".cardCont");
-    if (window.scrollY > 200 && !cardConts[1].style.animation) {
-      cardConts[1].style.animation = "cardsRise 1.2s ease-out forwards";
-    }
-    if (window.scrollY > 580 && !cardConts[2].style.animation) {
-      cardConts[2].style.animation = "cardsRise 1.2s ease-out forwards";
-    }
-    if (window.scrollY > 880 && !cardConts[3].style.animation) {
-      cardConts[3].style.animation = "cardsRise 1.2s ease-out forwards";
+    if (cardConts.length > 0) {
+      if (window.scrollY > 750 && !cardConts[1].style.animation) {
+        cardConts[1].style.animation = "cardsRise 1.2s ease-out forwards";
+      }
+      if (window.scrollY > 1472 && !cardConts[2].style.animation) {
+        cardConts[2].style.animation = "cardsRise 1.2s ease-out forwards";
+      }
+      if (window.scrollY > 1700 && !cardConts[3].style.animation) {
+        cardConts[3].style.animation = "cardsRise 1.2s ease-out forwards";
+      }
     }
   };
 
