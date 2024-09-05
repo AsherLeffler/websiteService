@@ -74,6 +74,7 @@ header .hiddenMenu {
   align-items: center;
   gap: 12px;
   padding: 10px 0;
+  z-index: 50;
 }
 header .hiddenMenu a{
   text-decoration: none;
