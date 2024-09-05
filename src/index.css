@@ -40,7 +40,7 @@ header {
   height: max-content;
   max-width: 100%;
   position: relative;
-  background-image: url("./assets/main-back.webp");
+  background-image: url("main-back.webp");
   background-size: cover;
   background-position: 50% 195%;
   margin: 0;
@@ -621,7 +621,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("./assets/designing.webp");
+  background-image: url("designing.webp");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -639,7 +639,7 @@ header {
   align-items: center;
   overflow: hidden;
   position: relative;
-  background-image: url("./assets/9019786.webp");
+  background-image: url("/assets/9019786.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

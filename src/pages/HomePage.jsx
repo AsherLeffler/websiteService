@@ -316,13 +316,13 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images">
                 <LazyLoadImage
-                  src="/src/assets/imgs/phone-tablet.webp"
+                  src="/imgs/phone-tablet.webp"
                   alt="Image of website on multiple devices"
                   id="image1"
                   effect="blur"
                 />
                 <LazyLoadImage
-                  src="/src/assets/imgs/phone-tablet.webp"
+                  src="/imgs/phone-tablet.webp"
                   alt="Image of website on multiple devices that is semi-transparent"
                   id="image2"
                   effect="blur"
@@ -346,13 +346,13 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images" id="non-darkImgs">
                 <LazyLoadImage
-                  src="/src/assets/imgs/html.webp"
+                  src="/imgs/html.webp"
                   alt="Image of HTML code"
                   className="image1"
                   effect="blur"
                 />
                 <LazyLoadImage
-                  src="/src/assets/imgs/html.webp"
+                  src="/imgs/html.webp"
                   alt="Image of HTML code that is semi-transparent"
                   className="image2"
                   effect="blur"
@@ -378,13 +378,13 @@ const HomePage = ({ info }) => {
               </article>
               <div className="images">
                 <LazyLoadImage
-                  src="/src/assets/imgs/web-template.webp"
+                  src="/imgs/web-template.webp"
                   alt="Image of website design template"
                   className="image1"
                   effect="blur"
                 />
                 <LazyLoadImage
-                  src="/src/assets/imgs/web-template.webp"
+                  src="/imgs/web-template.webp"
                   alt="Image of website design template that is semi-transparent"
                   className="image2"
                   effect="blur"
