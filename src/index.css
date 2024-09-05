@@ -441,7 +441,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .what-we-do .whatH1 {
   margin: 0;
@@ -1080,9 +1080,16 @@ footer a:hover {
   }
   .offerings h1 {
     font-size: 2rem;
+    width: max-content;
+    position: relative;
+    right: 60px;
+  }
+  .offerings ul {
+    margin-left: 0;
   }
   .offerings ul li {
     font-size: 1.4rem;
+    width: max-content;
   }
   .offerings .left,
   .offerings .right {
