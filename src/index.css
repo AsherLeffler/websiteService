@@ -73,6 +73,7 @@ header {
   flex-direction: column;
   gap: 10px;
   padding: 20px;
+  height: fit-content;
   min-height: 500px;
   max-width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
@@ -704,13 +705,16 @@ footer a:hover {
     width: fit-content;
   }
   .homeTitle .main-card {
-    width: 70%;
+    width: 90%;
+    position: relative;
     height: max-content;
     padding: 18px 0;
-    left: 50%;
-    transform: translateX(-50%);
-    top: unset;
-    bottom: 40px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: unset;
+    margin: auto;
   }
   .logo h1 {
     display: none;
@@ -948,13 +952,17 @@ footer a:hover {
     width: fit-content;
   }
   .homeTitle .main-card {
-    width: 90%;
+    width: 100%;
+    position: relative;
     height: max-content;
     padding: 18px 0;
-    left: 50%;
-    transform: translateX(-50%);
-    top: unset;
-    bottom: 40px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: unset;
+    margin: auto;
+    margin-top: 100px;
   }
   .aboutLearnBtn {
     margin: 20px 0 0 0;
