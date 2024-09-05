@@ -397,6 +397,14 @@ const HomePage = ({ info }) => {
               </div>
             </div>
           </div>
+          <div className="hiddenArrows">
+            <div className="hidden-arrow1" onClick={moveSlideLeft}>
+              ←
+            </div>
+            <div className="hidden-arrow2" onClick={moveSlideRight}>
+              →
+            </div>
+          </div>
         </article>
         <article className="offerings">
           <div className="left"></div>

@@ -552,6 +552,37 @@ header {
 .what-we-do .arrow2 {
   right: 0;
 }
+.what-we-do .hidden-arrow1, .what-we-do .hidden-arrow2 {
+  width: 50%;
+  height: 55px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0;
+  cursor: pointer;
+  z-index: 5;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.what-we-do .hidden-arrow1:hover, .what-we-do .hidden-arrow2:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.what-we-do .hidden-arrow1 {
+  border-right: 1.5px solid white;
+}
+.what-we-do .hidden-arrow2 {
+  border-left: 1.5px solid white;
+}
+.what-we-do .hiddenArrows {
+  display: none;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+}
 .offerings ul {
   width: 80%;
   height: 90%;
@@ -1013,33 +1044,21 @@ footer a:hover {
   .servicesCampaign button {
     margin: 20px auto 0 auto;
   }
+  .what-we-do{
+    gap: 0;
+  }
   .what-we-do .description {
     flex-direction: column;
     min-height: fit-content;
   }
-  .what-we-do .arrow1 {
-    left: 0;
-    bottom: calc(-63.33px * 1.5);
-    top: unset;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid white;
+  .what-we-do .arrow1, .what-we-do .arrow2 {
+    display: none;
   }
-  .what-we-do .arrow2 {
-    right: 0;
-    bottom: calc(-63.33px * 1.5);
-    top: unset;
-    width: 50%;
+  .what-we-do .hiddenArrows{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-left: 1px solid white;
   }
   .what-we-do .whatCont {
     background-color: rgba(0, 0, 0, 0.2);
-    margin-bottom: 63.33px;
   }
   .what-we-do .text {
     z-index: 4;
@@ -1053,8 +1072,12 @@ footer a:hover {
   .what-we-do h1 {
     font-size: 1.8rem;
   }
+  .what-we-do .whatH1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
   .what-we-do p {
-    font-size: 0.85rem;
+    font-size: 1.05rem;
     color: white;
   }
   .what-we-do .images {
