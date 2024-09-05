@@ -54,7 +54,7 @@ header {
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   height: fit-content;
-  background-image: url("/assets/back.svg");
+  background-image: url("/back.svg");
   background-color: #1d1d7b;
   background-size: cover;
   background-position: center;
