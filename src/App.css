@@ -63,7 +63,7 @@ header .hiddenMenu {
   position: fixed;
   right: 0;
   top: 70px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 0;
   height: fit-content;
   height: calc(100vh - 70px);
@@ -82,7 +82,7 @@ header .hiddenMenu a{
   margin: 0 10px;
 }
 header .hiddenOpen{
-  width: 50%;
+  width: 200px;
 }
 #hiddenNum{
   display: none;
@@ -90,6 +90,9 @@ header .hiddenOpen{
   align-items: center;
   font-family: var(--font);
   text-decoration: none;
+}
+#hiddenNum:hover{
+  text-decoration: underline;
 }
 .phoneNavOpen .bar:nth-of-type(1){
   transform: rotate(45deg);
@@ -440,21 +443,21 @@ header .hiddenOpen{
   gap: 10px;
   padding: 10px;
   padding-left: 10%;
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(150px);
   background-color: rgba(255, 255, 255, 0.1);
 }
-.reviewPage form h1 {
+.reviewPage h1 {
   font-size: 2.4rem;
   font-family: var(--font);
   color: rgb(222, 222, 222);
   margin: 0;
 }
-.reviewPage form label {
+.reviewPage label {
   font-size: 1.4rem;
   font-family: var(--font);
   color: rgb(238, 238, 238);
 }
-.reviewPage form textarea {
+.reviewPage textarea {
   font-family: var(--font);
   font-size: 1.2rem;
   width: 80%;
@@ -466,7 +469,7 @@ header .hiddenOpen{
   border-radius: 8px;
   resize: none;
 }
-.reviewPage form input {
+.reviewPage input {
   width: 300px;
   height: 40px;
   padding: 5px;
@@ -477,7 +480,7 @@ header .hiddenOpen{
   font-size: 1.2rem;
   color: rgb(238, 238, 238);
 }
-.reviewPage form button {
+.reviewPage button {
   width: 180px;
   height: 45px;
   padding: 5px 15px;
@@ -492,12 +495,12 @@ header .hiddenOpen{
   cursor: pointer;
   transition: 0.15s ease;
 }
-.reviewPage form button:hover {
+.reviewPage button:hover {
   background-color: white;
   color: rgb(189, 169, 39);
   border: 2px solid rgb(189, 169, 39);
 }
-.reviewPage form i {
+.reviewPage i {
   font-size: 1.8rem;
 }
 .willNotShared {

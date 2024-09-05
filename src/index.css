@@ -7,7 +7,8 @@
   --font: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
 }
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   max-width: 100vw;
@@ -61,6 +62,9 @@ header {
 .activeLink {
   color: rgb(169, 219, 255);
 }
+.phoneActiveLink {
+  color: rgb(212, 235, 255);
+}
 .inactiveLink {
   color: white;
 }
@@ -110,7 +114,7 @@ header {
   margin: 0;
   padding: 0;
 }
-#phoneBreak{
+#phoneBreak {
   display: none;
 }
 .homeTitle .info {
@@ -220,7 +224,7 @@ header {
 .homeTitle .main-card button:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
-.homeTitle a{
+.homeTitle a {
   text-decoration: none;
 }
 .servicesCampaign {
@@ -822,13 +826,14 @@ footer a:hover {
   .customCard:nth-of-type(1) .price {
     width: 120px;
   }
-  .customCard{
+  .customCard {
     width: 98%;
   }
-  .customCard .p{
+  .customCard .p {
     width: 75%;
   }
-  .serviceCard .price p, .cardCont:nth-of-type(3) .price p {
+  .serviceCard .price p,
+  .cardCont:nth-of-type(3) .price p {
     font-size: 1.8rem;
   }
   .cardCont:nth-of-type(2) .serviceCard:nth-of-type(2) .price p,
@@ -844,17 +849,17 @@ footer a:hover {
   .servicesMain {
     padding-bottom: 100px;
   }
-  .learnMoreCont{
+  .learnMoreCont {
     min-height: 800px;
   }
-  .learnMoreCont p{
+  .learnMoreCont p {
     width: 100%;
   }
-  .learnMoreCont ul{
+  .learnMoreCont ul {
     position: relative;
     right: 20px;
   }
-  .learnMoreCont .managementCard{
+  .learnMoreCont .managementCard {
     width: 90%;
     left: 50%;
     bottom: 20px;
@@ -865,12 +870,12 @@ footer a:hover {
     transform: translateX(-50%);
     padding-bottom: 20px;
   }
-  .learnMoreCont .optionsCont{
+  .learnMoreCont .optionsCont {
     flex-direction: row;
     gap: 20px;
     padding: 0;
   }
-  .learnMoreCont .optionsCont *::before{
+  .learnMoreCont .optionsCont *::before {
     top: -20px;
     right: -20px;
   }
@@ -879,54 +884,64 @@ footer a:hover {
     min-height: 180px;
     flex: 1;
   }
-  .learnMoreCont .option p{
+  .learnMoreCont .option p {
     padding-right: 22px;
   }
-  .learnMoreCont .serviceCardList{
+  .learnMoreCont .serviceCardList {
     width: 80%;
     bottom: 80px;
   }
-  .learnMoreCont .moreH1{
+  .learnMoreCont .moreH1 {
     margin-top: 60px;
   }
-  .contactMain form{
+  .contactMain form {
     width: 90%;
   }
 }
 @media (max-width: 426px) {
-  header{
+  header {
     height: 70px;
   }
-  .deskNav{
+  .deskNav {
     display: none;
   }
-  .phoneNav{
+  .phoneNav {
     display: flex;
   }
-  #hiddenNum{
+  #hiddenNum {
     display: flex;
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
   }
-  footer{
+  #hiddenNum i {
+    color: rgb(102, 191, 255);
+  }
+  footer {
     padding: 10px 5px;
     height: 60px;
   }
-  footer h2{
-    font-size: 1.4rem;
+  footer h2 {
+    font-size: 1.3rem;
   }
-  footer a{
+  footer a {
     font-size: 0.8rem;
   }
   .homeTitle {
     min-height: 1150px;
   }
-  .homeTitle .div{
+  .homeTitle .div {
     margin: 0 auto;
     text-align: center;
   }
-  .homeTitle .div h1{
+  .homeTitle .div h1 {
     font-size: 2.9rem;
   }
-  #phoneBreak{
+  #phoneBreak {
     display: block;
   }
   .homeTitle .info {
@@ -941,7 +956,7 @@ footer a:hover {
     top: unset;
     bottom: 40px;
   }
-  .aboutLearnBtn{
+  .aboutLearnBtn {
     margin: 20px 0 0 0;
     position: absolute;
     left: 50%;
@@ -977,7 +992,7 @@ footer a:hover {
     width: 65%;
     font-size: 2rem;
   }
-  .servicesCampaign div:nth-of-type(2) h1::after{
+  .servicesCampaign div:nth-of-type(2) h1::after {
     width: 100%;
   }
   .servicesCampaign div:nth-of-type(2) .p {
@@ -985,14 +1000,14 @@ footer a:hover {
     font-size: 1rem;
     margin-left: 0;
   }
-  .servicesCampaign button{
+  .servicesCampaign button {
     margin: 20px auto 0 auto;
   }
   .what-we-do .description {
     flex-direction: column;
     min-height: fit-content;
   }
-  .what-we-do .arrow1{
+  .what-we-do .arrow1 {
     left: 0;
     bottom: calc(-63.33px * 1.5);
     top: unset;
@@ -1002,7 +1017,7 @@ footer a:hover {
     align-items: center;
     border-right: 1px solid white;
   }
-  .what-we-do .arrow2{
+  .what-we-do .arrow2 {
     right: 0;
     bottom: calc(-63.33px * 1.5);
     top: unset;
@@ -1025,7 +1040,7 @@ footer a:hover {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 20px;
   }
-  .what-we-do h1{
+  .what-we-do h1 {
     font-size: 1.8rem;
   }
   .what-we-do p {
@@ -1053,10 +1068,10 @@ footer a:hover {
     flex-direction: column;
     height: fit-content;
   }
-  .offerings h1{
+  .offerings h1 {
     font-size: 2rem;
   }
-  .offerings ul li{
+  .offerings ul li {
     font-size: 1.4rem;
   }
   .offerings .left,
@@ -1081,13 +1096,13 @@ footer a:hover {
     margin: auto;
     margin-bottom: 20px;
   }
-  #faqTitle{
+  #faqTitle {
     font-size: 2.2rem;
   }
-  .pricing h1{
+  .pricing h1 {
     font-size: 1.6rem;
   }
-  .pricing p{
+  .pricing p {
     font-size: 0.9rem;
   }
   .aboutMain .article p,
@@ -1104,6 +1119,9 @@ footer a:hover {
     width: 80%;
     aspect-ratio: 5 / 2;
   }
+  .cardCont .serviceCard::after{
+    bottom: 10px;
+  }
   .cardCont .p {
     width: 80%;
   }
@@ -1111,41 +1129,51 @@ footer a:hover {
   .serviceCard:nth-of-type(2) .price,
   .serviceCard:nth-of-type(3) .price,
   .customCard:nth-of-type(1) .price {
-    width: 120px;
+    width: 90px;
   }
-  .customCard{
+  .customCard {
     width: 98%;
+    align-items: start;
+    height: 240px;
   }
-  .customCard .p{
-    width: 75%;
+  .customCard .div{
+    bottom: -10px;
   }
-  .serviceCard .price p, .cardCont:nth-of-type(3) .price p {
-    font-size: 1.8rem;
+  .customCard::after{
+    bottom: 10px;
+  }
+  .customCard .p {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .serviceCard .price p,
+  .cardCont:nth-of-type(3) .price p {
+    font-size: 1.4rem;
   }
   .cardCont:nth-of-type(2) .serviceCard:nth-of-type(2) .price p,
   .cardCont:nth-of-type(2) .serviceCard:nth-of-type(3) .price p,
   .cardCont:nth-of-type(4) .price p {
-    font-size: 5rem;
+    font-size: 4rem;
   }
   .cardCont:nth-of-type(1) .serviceCard:nth-of-type(1) .price p,
   .cardCont:nth-of-type(1) .serviceCard:nth-of-type(2) .price p,
   .cardCont:nth-of-type(1) .serviceCard:nth-of-type(3) .price p {
-    top: 40px;
+    top: 26px;
   }
   .servicesMain {
     padding-bottom: 100px;
   }
-  .learnMoreCont{
+  .learnMoreCont {
     min-height: 800px;
   }
-  .learnMoreCont p{
+  .learnMoreCont p {
     width: 100%;
   }
-  .learnMoreCont ul{
+  .learnMoreCont ul {
     position: relative;
     right: 20px;
   }
-  .learnMoreCont .managementCard{
+  .learnMoreCont .managementCard {
     width: 90%;
     left: 50%;
     bottom: 20px;
@@ -1156,12 +1184,12 @@ footer a:hover {
     transform: translateX(-50%);
     padding-bottom: 20px;
   }
-  .learnMoreCont .optionsCont{
+  .learnMoreCont .optionsCont {
     flex-direction: row;
     gap: 20px;
     padding: 0;
   }
-  .learnMoreCont .optionsCont *::before{
+  .learnMoreCont .optionsCont *::before {
     top: -20px;
     right: -20px;
   }
@@ -1170,17 +1198,53 @@ footer a:hover {
     min-height: 180px;
     flex: 1;
   }
-  .learnMoreCont .option p{
+  .learnMoreCont .option p {
     padding-right: 22px;
   }
-  .learnMoreCont .serviceCardList{
+  .learnMoreCont .serviceCardList {
     width: 80%;
     bottom: 80px;
   }
-  .learnMoreCont .moreH1{
+  .learnMoreCont .moreH1 {
     margin-top: 60px;
   }
-  .contactMain form{
+  .contactMain form {
+    width: 100%;
+  }
+  .contactMain input, .contactMain textarea{
+    width: 100%;
+  }
+  .contactMain form .p:nth-of-type(2){
+    text-align: center;
+  }  
+  .aboutMain .article h1, .aboutMain .article1 h1 {
+    font-size: 2rem;
+  }
+  .aboutMain .article p, .aboutMain .article1 p {
+    width: 95%;
+    font-size: 1rem;
+  }
+  .aboutMain .reviews h1{
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .reviewPage h1{
+    font-size: 1.6rem;
+  }
+  .reviewPage label{
+    font-size: 1rem;
+  }
+  .reviewPage i{
+    font-size: 1.7rem;
+  }
+  .anonymous #label::after{
+    font-size: 1rem;
+  }
+  .reviewPage input, .reviewPage textarea{
     width: 90%;
+  }
+  #legend{
+    height: 60px;
+    padding: 0 10px;
   }
 }

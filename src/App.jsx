@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./App.css";
 import AppRouter from "./AppRouter";
@@ -53,18 +53,41 @@ function App() {
   }
 
   // Handle the phone nav click
-  function handlePhoneNavClick() {
-    const phoneNav = document.querySelector(".phoneNav");
-    const hiddenMenu = document.querySelector(".hiddenMenu");
-
-    if (hiddenMenu.classList.contains("hiddenOpen")) {
-      hiddenMenu.classList.remove("hiddenOpen");
-      phoneNav.classList.remove("phoneNavOpen");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const handlePhoneNavClick = useCallback(() => {
+    if (menuOpen) {
+      setMenuOpen(false);
     } else {
-      hiddenMenu.classList.add("hiddenOpen");
-      phoneNav.classList.add("phoneNavOpen");
+      setMenuOpen(true);
     }
-  }
+  }, [menuOpen]);
+  useEffect(() => {
+    let page = null;
+
+    switch (currentPage) {
+      case "Home":
+        page = document.querySelector(".home-grid-container");
+        break;
+      case "About":
+        page = document.querySelector(".about-grid-container");
+        break;
+      case "Services":
+        page = document.querySelector(".services-grid-container");
+        break;
+      case "Contact":
+        page = document.querySelector(".contact-grid-container");
+        break;
+      default:
+        page = document.querySelector(".home-grid-container");
+        break;
+    }
+
+    if (menuOpen && page) {
+      page.addEventListener("click", handlePhoneNavClick);
+    } else if (page) {
+      page.removeEventListener("click", handlePhoneNavClick);
+    }
+  }, [menuOpen, handlePhoneNavClick, currentPage]);
 
   return (
     <>
@@ -121,15 +144,18 @@ function App() {
             </button>
           </a>
         </nav>
-        <nav className="phoneNav" onClick={handlePhoneNavClick}>
+        <nav
+          className={`phoneNav ${menuOpen ? "phoneNavOpen" : ""}`}
+          onClick={handlePhoneNavClick}
+        >
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>
         </nav>
-        <div className="hiddenMenu">
+        <div className={`hiddenMenu ${menuOpen ? "hiddenOpen" : ""}`}>
           <Link
             className={`navLink ${
-              currentPage === "Home" ? "activeLink" : "inactiveLink"
+              currentPage === "Home" ? "phoneActiveLink" : "inactiveLink"
             }`}
             onClick={() => {
               setPage("Contact");
@@ -141,7 +167,7 @@ function App() {
           </Link>
           <Link
             className={`navLink ${
-              currentPage === "About" ? "activeLink" : "inactiveLink"
+              currentPage === "About" ? "phoneActiveLink" : "inactiveLink"
             }`}
             onClick={() => {
               setPage("Contact");
@@ -153,7 +179,7 @@ function App() {
           </Link>
           <Link
             className={`navLink ${
-              currentPage === "Services" ? "activeLink" : "inactiveLink"
+              currentPage === "Services" ? "phoneActiveLink" : "inactiveLink"
             }`}
             onClick={() => {
               setPage("Contact");
@@ -165,7 +191,7 @@ function App() {
           </Link>
           <Link
             className={`navLink ${
-              currentPage === "Contact" ? "activeLink" : "inactiveLink"
+              currentPage === "Contact" ? "phoneActiveLink" : "inactiveLink"
             }`}
             onClick={() => {
               setPage("Contact");
