@@ -43,7 +43,6 @@ header {
   background-position: 50% 195%;
   margin: 0;
   background-repeat: no-repeat;
-  overflow-x: hidden;
 }
 .about-grid-container {
   display: grid;
