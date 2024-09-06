@@ -64,7 +64,7 @@ header {
   color: rgb(169, 219, 255);
 }
 .phoneActiveLink {
-  color: rgb(212, 235, 255);
+  color: rgb(150, 206, 255);
 }
 .inactiveLink {
   color: white;
@@ -663,7 +663,8 @@ header {
 .pricing {
   grid-area: pricing;
   width: 100%;
-  height: 550px;
+  height: fit-content;
+  min-height: 550px;
   padding: 10px;
   display: flex;
   justify-content: space-evenly;
@@ -1152,11 +1153,15 @@ footer a:hover {
   #reviewForm {
     padding-top: 40px;
   }
+  #else .h1{
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
   .cardCont {
     flex-direction: column;
   }
   .cardCont .serviceCard {
-    width: 80%;
+    width: 100%;
     aspect-ratio: 5 / 2;
   }
   .cardCont .serviceCard::after{
@@ -1169,15 +1174,22 @@ footer a:hover {
   .serviceCard:nth-of-type(2) .price,
   .serviceCard:nth-of-type(3) .price,
   .customCard:nth-of-type(1) .price {
-    width: 90px;
+    width: 80px;
+    right: -10px;
   }
   .customCard {
     width: 98%;
     align-items: start;
-    height: 240px;
+    min-height: 350px;
   }
   .customCard .div{
-    bottom: -10px;
+    bottom: 20px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .customCard .div h3{
+    font-size: 1.5rem;
+    margin: 0;
   }
   .customCard::after{
     bottom: 10px;
@@ -1185,6 +1197,22 @@ footer a:hover {
   .customCard .p {
     width: 100%;
     margin-top: 10px;
+  }
+  .serviceCard h1{
+    width: 70%;
+    font-size: 1.4rem;
+  }
+  .serviceCard .p{
+    width: 100%;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  .lastCustomCard{
+    min-height: 200px;
+    gap: 0;
+  }
+  .lastCustomCard h1{
+    width: 60%;
   }
   .serviceCard .price p,
   .cardCont:nth-of-type(3) .price p {
@@ -1205,9 +1233,22 @@ footer a:hover {
   }
   .learnMoreCont {
     min-height: 800px;
+    padding: 0 20px;
+  }
+  .isManagementCardCont{
+    height: 1200px;
+  }
+  .learnMoreCont .back{
+    font-size: 1.2rem;
+  }
+  .learnMoreCont .moreH1{
+    font-size: 1.6rem;
+    width: 100%;
+    margin-top: 60px;
   }
   .learnMoreCont p {
     width: 100%;
+    font-size: 1.2rem;
   }
   .learnMoreCont ul {
     position: relative;
@@ -1225,7 +1266,6 @@ footer a:hover {
     padding-bottom: 20px;
   }
   .learnMoreCont .optionsCont {
-    flex-direction: row;
     gap: 20px;
     padding: 0;
   }
@@ -1235,21 +1275,39 @@ footer a:hover {
   }
   .learnMoreCont .option {
     width: unset;
-    min-height: 180px;
+    min-height: 160px;
     flex: 1;
   }
   .learnMoreCont .option p {
     padding-right: 22px;
   }
   .learnMoreCont .serviceCardList {
-    width: 80%;
+    width: fit-content;
     bottom: 80px;
+    justify-content: center;
   }
-  .learnMoreCont .moreH1 {
-    margin-top: 60px;
+  .serviceCardList .listTitle{
+    font-size: 1.6rem;
+  }
+  .serviceCardList .list{
+    width: 40%;
+    aspect-ratio: 1;
+    height: unset;
+  }
+  .serviceCardList .list h1{
+    font-size: 1rem;
   }
   .contactMain form {
     width: 100%;
+  }
+  .contactMain h1{
+    font-size: 1.8rem;
+  }
+  .contactMain label{
+    font-size: 1.1rem;
+  }
+  .seoCheckLabel::before, .seoCheckLabel::after{
+    font-size: 1rem;
   }
   .contactMain input, .contactMain textarea{
     width: 100%;
@@ -1284,7 +1342,11 @@ footer a:hover {
     width: 90%;
   }
   #legend{
-    height: 60px;
+    height: 50px;
     padding: 0 10px;
+  }
+  #legend p{
+    font-size: 0.8rem;
+    text-align: center;
   }
 }

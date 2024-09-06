@@ -273,7 +273,7 @@ const ServicesPage = ({
                 ✨Recommended✨
               </h1>
               <div
-                className="customCard"
+                className="customCard reccommended-card"
                 onClick={() => setLearning("package")}
               >
                 <div className="blurFilter"></div>
@@ -292,7 +292,7 @@ const ServicesPage = ({
               </div>
             </div>
             <div className="cardCont">
-              <div className="customCard" onClick={() => setLearning("custom")}>
+              <div className="customCard lastCustomCard" onClick={() => setLearning("custom")}>
                 <div className="blurFilter"></div>
                 <div className="price">
                   <p>~</p>
@@ -463,7 +463,7 @@ const ServicesPage = ({
         </main>
       )}
       {learning === "hosting" && (
-        <main className="learnMoreCont">
+        <main className="learnMoreCont isManagementCardCont">
           <a className="back" onClick={() => setLearning("default")}>
             <i className="fa-solid fa-angles-left"></i> Other Services
           </a>
@@ -545,7 +545,7 @@ const ServicesPage = ({
         </main>
       )}
       {learning === "maintenance" && (
-        <main className="learnMoreCont">
+        <main className="learnMoreCont isManagementCardCont">
           <a className="back" onClick={() => setLearning("default")}>
             <i className="fa-solid fa-angles-left"></i> Other Services
           </a>
