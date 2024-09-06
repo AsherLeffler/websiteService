@@ -120,7 +120,7 @@ header {
   display: none;
 }
 .homeTitle .info {
-  width: 60%;
+  width: calc(100% - 480px);
 }
 .homeTitle .info p {
   font-size: 1.1rem;
@@ -131,7 +131,7 @@ header {
 }
 .homeTitle .main-card {
   width: 380px;
-  height: 90%;
+  height: fit-content;
   background: linear-gradient(
     165deg,
     rgba(71, 80, 255, 0.3),
@@ -145,6 +145,7 @@ header {
   transform: translateY(-50%);
   display: flex;
   justify-content: center;
+  padding-bottom: 30px;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
 }
 .homeTitle .main-card * {

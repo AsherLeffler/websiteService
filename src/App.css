@@ -165,6 +165,7 @@ header .hiddenOpen{
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.1);
   padding: 30px;
   width: 28%;
+  height: fit-content;
   aspect-ratio: 1;
   background-image: url("/darkenedFAQImg.webp");
   background-size: cover;
