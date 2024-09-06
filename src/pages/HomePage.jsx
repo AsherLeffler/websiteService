@@ -241,7 +241,7 @@ const HomePage = ({ info }) => {
                 className="aboutLearnBtn"
                 onClick={() => setCurrentPage("About")}
               >
-                <p id="text">Learn More</p>
+                <p id="text">Learn More About Us</p>
               </button>
             </Link>
           </div>

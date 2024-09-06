@@ -407,7 +407,7 @@ header {
   font-size: 1.25rem;
   border: none;
   cursor: pointer;
-  width: fit-content;
+  width: max-content;
   border-radius: 8px;
   padding: 3px 30px;
   margin-left: 40px;
