@@ -34,8 +34,18 @@ const HomePage = ({ info }) => {
 
   window.onscroll = () => {
     const cards = document.querySelectorAll(".card");
+    const distanceFromList = () => {
+      const windowWidth = window.innerWidth;
+      if (windowWidth > 769) {
+        return 1440;
+      } else if(windowWidth <= 769 && windowWidth > 426) {
+        return 2400;
+      } else if(windowWidth <= 426) {
+        return 2200;
+      }
+    }
     if (cards) {
-      if (window.scrollY > 1440 && !info[7].current) {
+      if (window.scrollY > distanceFromList() && !info[7].current) {
         anime({
           targets: ".offerings ul li",
           opacity: [0, 1],

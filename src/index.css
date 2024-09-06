@@ -642,7 +642,11 @@ header {
   background-color: transparent;
 }
 .offerings .left {
-  display: none;
+  background-image: url("/designing.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex: 1;
 }
 .offerings .right {
   flex: 1.5;
@@ -823,9 +827,6 @@ footer a:hover {
   .offerings .right {
     backdrop-filter: blur(80px);
     flex: unset;
-  }
-  .offerings .hiddenImg {
-    display: block;
   }
   .pricing {
     display: block;
@@ -1120,6 +1121,9 @@ footer a:hover {
     backdrop-filter: blur(80px);
     flex: unset;
   }
+  .offerings .left {
+    display: none;
+  }  
   .offerings .hiddenImg {
     display: block;
   }
@@ -1127,6 +1131,7 @@ footer a:hover {
     display: block;
     overflow: auto;
     height: fit-content;
+    min-height: 830px;
     padding: 20px 0;
     padding-top: 80px;
   }

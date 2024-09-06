@@ -159,16 +159,48 @@ const ServicesPage = ({
 
   // When scrolling past the first cardCont, animate the second cardCont
   window.onscroll = () => {
-    console.log(window.scrollY);
+    const distanceFromTop = (index) => {
+      if (index === 1) {
+        if (window.innerWidth > 769) {
+          return 86;
+        } else if (428 < window.innerWidth && window.innerWidth <= 769) {
+          console.log(window.innerWidth);
+          return 763;
+        } else if (window.innerWidth <= 428) {
+          return 528;
+        }
+      }
+      if (index === 2) {
+        if (window.innerWidth > 769) {
+          return 385;
+        } else if (428 < window.innerWidth && window.innerWidth <= 769) {
+          return 1450;
+        } else if (window.innerWidth <= 428) {
+          return 1215;
+        }
+      }
+      if (index === 3) {
+        if (window.innerWidth > 769) {
+          return 550;
+        } else if (428 < window.innerWidth && window.innerWidth <= 769) {
+          return 1730;
+        } else if (window.innerWidth <= 428) {
+          return 1610;
+        }
+      }
+    };
     const cardConts = document.querySelectorAll(".cardCont");
     if (cardConts.length > 0) {
-      if (window.scrollY > 750 && !cardConts[1].style.animation) {
+      if (window.scrollY > distanceFromTop(1) && !cardConts[1].style.animation) {
+        console.log(distanceFromTop(1));
         cardConts[1].style.animation = "cardsRise 1.2s ease-out forwards";
       }
-      if (window.scrollY > 1472 && !cardConts[2].style.animation) {
+      if (window.scrollY > distanceFromTop(2) && !cardConts[2].style.animation) {
+        console.log(distanceFromTop(2));
         cardConts[2].style.animation = "cardsRise 1.2s ease-out forwards";
       }
-      if (window.scrollY > 1700 && !cardConts[3].style.animation) {
+      if (window.scrollY > distanceFromTop(3) && !cardConts[3].style.animation) {
+        console.log(distanceFromTop(3));
         cardConts[3].style.animation = "cardsRise 1.2s ease-out forwards";
       }
     }
@@ -292,7 +324,10 @@ const ServicesPage = ({
               </div>
             </div>
             <div className="cardCont">
-              <div className="customCard lastCustomCard" onClick={() => setLearning("custom")}>
+              <div
+                className="customCard lastCustomCard"
+                onClick={() => setLearning("custom")}
+              >
                 <div className="blurFilter"></div>
                 <div className="price">
                   <p>~</p>
