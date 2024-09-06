@@ -38,12 +38,12 @@ const HomePage = ({ info }) => {
       const windowWidth = window.innerWidth;
       if (windowWidth > 769) {
         return 1440;
-      } else if(windowWidth <= 769 && windowWidth > 426) {
+      } else if (windowWidth <= 769 && windowWidth > 426) {
         return 2400;
-      } else if(windowWidth <= 426) {
+      } else if (windowWidth <= 426) {
         return 2200;
       }
-    }
+    };
     if (cards) {
       if (window.scrollY > distanceFromList() && !info[7].current) {
         anime({
@@ -237,14 +237,13 @@ const HomePage = ({ info }) => {
           <div className="info">
             <p>
               We are a national organization specializing in website design and
-              development, dedicated to delivering exceptional digital
-              solutions. With years of experience, we deeply understand the
-              importance of a successful online presence. Our team excels at
-              crafting websites that not only captivate and engage audiences but
-              also drive meaningful impact in today&apos;s digital landscape. We
-              believe in empowering our clients to make a difference, and
-              we&apos;re here to ensure your website becomes a powerful tool for
-              your success.
+              development. We provide quick and easy website services that meet
+              your needs. With years of experience, we deeply understand the
+              importance of a successful online presence. We excel at crafting
+              websites that not only keep your audiences engaged but also drive
+              meaningful impact in today&apos;s digital landscape. We give you
+              the ability to make a difference, and we&apos;re here to ensure
+              your website becomes a powerful tool for your success.
             </p>
             <Link to="/about" className=".link">
               <button
