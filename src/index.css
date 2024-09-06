@@ -13,8 +13,8 @@ body,
 html {
   margin: 0;
   padding: 0;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 header {
   background-color: hsla(225, 40%, 43%, 0.99);
@@ -552,7 +552,8 @@ header {
 .what-we-do .arrow2 {
   right: 0;
 }
-.what-we-do .hidden-arrow1, .what-we-do .hidden-arrow2 {
+.what-we-do .hidden-arrow1,
+.what-we-do .hidden-arrow2 {
   width: 50%;
   height: 55px;
   font-size: 3rem;
@@ -567,7 +568,8 @@ header {
   justify-content: center;
   align-items: center;
 }
-.what-we-do .hidden-arrow1:hover, .what-we-do .hidden-arrow2:hover {
+.what-we-do .hidden-arrow1:hover,
+.what-we-do .hidden-arrow2:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 .what-we-do .hidden-arrow1 {
@@ -736,6 +738,14 @@ footer a:hover {
   text-decoration: underline;
 }
 @media (min-width: 424px) and (max-width: 769px) {
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   .homeTitle {
     min-height: 1050px;
   }
@@ -938,6 +948,13 @@ footer a:hover {
   }
 }
 @media (max-width: 426px) {
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
   header {
     height: 70px;
   }
@@ -1046,17 +1063,18 @@ footer a:hover {
   .servicesCampaign button {
     margin: 20px auto 0 auto;
   }
-  .what-we-do{
+  .what-we-do {
     gap: 0;
   }
   .what-we-do .description {
     flex-direction: column;
     min-height: fit-content;
   }
-  .what-we-do .arrow1, .what-we-do .arrow2 {
+  .what-we-do .arrow1,
+  .what-we-do .arrow2 {
     display: none;
   }
-  .what-we-do .hiddenArrows{
+  .what-we-do .hiddenArrows {
     display: flex;
   }
   .what-we-do .whatCont {
@@ -1123,7 +1141,7 @@ footer a:hover {
   }
   .offerings .left {
     display: none;
-  }  
+  }
   .offerings .hiddenImg {
     display: block;
   }
@@ -1157,7 +1175,7 @@ footer a:hover {
   #reviewForm {
     padding-top: 40px;
   }
-  #else .h1{
+  #else .h1 {
     font-size: 2rem;
     margin-bottom: 30px;
   }
@@ -1168,7 +1186,7 @@ footer a:hover {
     width: 100%;
     aspect-ratio: 5 / 2;
   }
-  .cardCont .serviceCard::after{
+  .cardCont .serviceCard::after {
     bottom: 10px;
   }
   .cardCont .p {
@@ -1186,36 +1204,36 @@ footer a:hover {
     align-items: start;
     min-height: 350px;
   }
-  .customCard .div{
+  .customCard .div {
     bottom: 20px;
     flex-direction: column;
     gap: 5px;
   }
-  .customCard .div h3{
+  .customCard .div h3 {
     font-size: 1.5rem;
     margin: 0;
   }
-  .customCard::after{
+  .customCard::after {
     bottom: 10px;
   }
   .customCard .p {
     width: 100%;
     margin-top: 10px;
   }
-  .serviceCard h1{
+  .serviceCard h1 {
     width: 70%;
     font-size: 1.4rem;
   }
-  .serviceCard .p{
+  .serviceCard .p {
     width: 100%;
     font-size: 1.1rem;
     margin-bottom: 20px;
   }
-  .lastCustomCard{
+  .lastCustomCard {
     min-height: 200px;
     gap: 0;
   }
-  .reccommended-card h1{
+  .reccommended-card h1 {
     width: 60%;
   }
   .serviceCard .price p,
@@ -1239,13 +1257,13 @@ footer a:hover {
     min-height: 800px;
     padding: 0 20px;
   }
-  .isManagementCardCont{
+  .isManagementCardCont {
     height: 1200px;
   }
-  .learnMoreCont .back{
+  .learnMoreCont .back {
     font-size: 1.2rem;
   }
-  .learnMoreCont .moreH1{
+  .learnMoreCont .moreH1 {
     font-size: 1.6rem;
     width: 100%;
     margin-top: 60px;
@@ -1290,66 +1308,71 @@ footer a:hover {
     bottom: 80px;
     justify-content: center;
   }
-  .serviceCardList .listTitle{
+  .serviceCardList .listTitle {
     font-size: 1.6rem;
   }
-  .serviceCardList .list{
+  .serviceCardList .list {
     width: 40%;
     aspect-ratio: 1;
     height: unset;
   }
-  .serviceCardList .list h1{
+  .serviceCardList .list h1 {
     font-size: 1rem;
   }
   .contactMain form {
     width: 100%;
   }
-  .contactMain h1{
+  .contactMain h1 {
     font-size: 1.8rem;
   }
-  .contactMain label{
+  .contactMain label {
     font-size: 1.1rem;
   }
-  .seoCheckLabel::before, .seoCheckLabel::after{
+  .seoCheckLabel::before,
+  .seoCheckLabel::after {
     font-size: 1rem;
   }
-  .contactMain input, .contactMain textarea{
+  .contactMain input,
+  .contactMain textarea {
     width: 100%;
   }
-  .contactMain form .p:nth-of-type(2){
+  .contactMain form .p:nth-of-type(2) {
     text-align: center;
-  }  
-  .aboutMain .article h1, .aboutMain .article1 h1 {
+  }
+  .aboutMain .article h1,
+  .aboutMain .article1 h1 {
     font-size: 2rem;
   }
-  .aboutMain .article p, .aboutMain .article1 p {
+  .aboutMain .article p,
+  .aboutMain .article1 p {
     width: 95%;
     font-size: 1rem;
   }
-  .aboutMain .reviews h1{
+  .aboutMain .reviews h1 {
     font-size: 1.6rem;
     text-align: center;
   }
-  .reviewPage h1{
+  .reviewPage h1 {
     font-size: 1.6rem;
   }
-  .reviewPage label{
+  .reviewPage label {
     font-size: 1rem;
   }
-  .reviewPage i{
+  .reviewPage i {
     font-size: 1.7rem;
   }
-  .anonymous #label::after{
+  .anonymous #label::after {
     font-size: 1rem;
   }
-  .reviewPage input, .reviewPage textarea{
+  .reviewPage input,
+  .reviewPage textarea {
     width: 90%;
   }
-  #legend{
+  #legend {
     height: 50px;
     padding: 0 10px;
   }
-  #legend p{
+  #legend p {
     font-size: 0.8rem;
     text-align: center;
   }
