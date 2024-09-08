@@ -237,7 +237,7 @@ const HomePage = ({ info }) => {
           <div className="info">
             <p>
               We specialize in website design and development. We provide quick
-              and easy website services that meet your needs. With years of
+              and easy website services that meet your needs. With our
               experience, we deeply understand the importance of a successful
               online presence. We excel at crafting websites that not only keep
               your audiences engaged but also drive meaningful impact in
