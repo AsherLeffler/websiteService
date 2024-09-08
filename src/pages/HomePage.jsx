@@ -236,14 +236,14 @@ const HomePage = ({ info }) => {
           </div>
           <div className="info">
             <p>
-              We are a national organization specializing in website design and
-              development. We provide quick and easy website services that meet
-              your needs. With years of experience, we deeply understand the
-              importance of a successful online presence. We excel at crafting
-              websites that not only keep your audiences engaged but also drive
-              meaningful impact in today&apos;s digital landscape. We give you
-              the ability to make a difference, and we&apos;re here to ensure
-              your website becomes a powerful tool for your success.
+              We specialize in website design and development. We provide quick
+              and easy website services that meet your needs. With years of
+              experience, we deeply understand the importance of a successful
+              online presence. We excel at crafting websites that not only keep
+              your audiences engaged but also drive meaningful impact in
+              today&apos;s digital landscape. We give you the ability to make a
+              difference, and we&apos;re here to ensure your website becomes a
+              powerful tool for your success.
             </p>
             <Link to="/about" className=".link">
               <button
